@@ -1,13 +1,13 @@
 
 const ProductCard = () => {
     return (
-        <div className='border-2 border-black h-52 p-2'>
+        <div className='border-2 border-black h-72 lg:h-96 flex flex-col '>
             <img 
                 src="" 
                 alt="image"
-                className="border-2 border-black w-full h-[80%]"
+                className=" w-full h-[80%] flex items-center justify-center border-2 border-black p-2"
             />
-            <div className="border-2 border-black w-full h-auto flex justify-between">
+            <div className=" w-full h-[20%] flex justify-between p-2 items-center border-2 border-black ">
                 <h2>Title</h2>
                 <span>Price</span>
             </div>
