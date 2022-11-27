@@ -13,31 +13,12 @@ import Hamburger from "hamburger-react";
 
 const navLinks = [
     
-    {
-        path:'/',
-        display:'Home',
-    },
-
-    {
-        path:'/',
-        display:'Coleccion',
-    },
-    
-    {
-        path:'/custom',
-        display:'Custom',
-    },
-
-    {
-        path:'/auth/login',
-        display:'Login',
-    },
-
-    {
-        path:'/auth/register',
-        display:'Register',
-    }
+    { path:'/', display:'Home'},
+    { path:'/', display:'Coleccion'},
+    { path:'/auth/login',  display:'Login'},
+    { path:'/shop', display:'Shop'},
 ]
+   
 
 
 
