@@ -9,12 +9,12 @@ const categoriesList = [
     },
     {
         id:2, 
-        imgUrl:"https://www.mattelsa.net/media/Home/01GraficasH21nov2022.jpg",
+        imgUrl:"https://www.mattelsa.net/media/Home/03DenimH21nov2022.jpg",
         title:'img-2'
     },
     {
         id:3, 
-        imgUrl:"https://www.mattelsa.net/media/Home/01GraficasH21nov2022.jpg",
+        imgUrl:"https://www.mattelsa.net/media/Home/03DenimH21nov2022.jpg",
         title:'img-3'
     },
     {
