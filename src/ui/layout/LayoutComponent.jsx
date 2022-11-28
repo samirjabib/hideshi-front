@@ -6,7 +6,7 @@ export const Layout = () => {
     return (
         <Fragment>
             <Header/>
-            <div className="mt-20">
+            <div>
                 <AppRouter/>
             </div>
             {/* <Footer/>  Falta terminar footer*/}

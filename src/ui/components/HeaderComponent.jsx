@@ -41,14 +41,14 @@ export const Header = () => {
    
 
     return (
-        <header className=" h-20 flex flex-col justify-center shadow-2xl bg-[#EDF2F4] fixed w-full top-0 z-50 ">
+        <header className=" absolute h-20 flex flex-col justify-center  hover:bg-[#EDF2F4]  w-full top-0 z-50  bg-transparent">
             
-            <nav className="bg-[#EDF2F4] w-full flex justify-between h-16 p-2">
+            <nav className=" w-full flex justify-between h-16 p-2 ">
                 <h2 className="font-semibold md:hidden text-xl md:text-2xl p-2 self-center"><Link to='/'>HIDESHI</Link></h2>
 
         
                 <Link className="flex">
-                    <img src="" alt="LOGO" className="self-center bg-red-300 border-2 border-black w-16 h-12 flex items-center justify-center"/>
+                    <img src="" alt="LOGO" className="self-center  border-2 border-black w-16 h-12 flex items-center justify-center"/>
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><Link to='/'>HIDESHI</Link></h2>
                 </Link>
 
@@ -57,7 +57,6 @@ export const Header = () => {
                     flex flex-col items-center
                     w-72 h-screen fixed mt-20 gap-4 p-4
                     left-0 
-                    bg-[#2b2d42]/90 
                     font-medium
                     shadow-2xl text-white top-0 <<
                     transition-all duration-500 ease-in z-40  
@@ -68,7 +67,6 @@ export const Header = () => {
                     md:static
                     md:shadow-none
                     md:mx-20
-                    md:bg-[#EDF2F4]
                     md:text-[#2b2d42]
                    
                     ${

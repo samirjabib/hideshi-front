@@ -26,7 +26,7 @@ export const Hero = () => {
 
                                 <div className= "absolute top-[50%] bottom-[50%] justify-center items-center flex-col md:flex-row flex w-full  h-32 gap-6">
                                 <Link to='/shop'>
-                                    <button className="bg-[#2b2d42] px-12 py-4 text-2xl  text-white font-semibold w-52 shadow2xl rounded-2xl hover:text-[#2b2d42] hover:shadow-[inset_13rem_0_0_0]
+                                    <button className="bg-[#2b2d42] px-12 py-4 text-2xl  text-white font-semibold w-52 shadow2xl rounded-2xl  hover:shadow-[inset_13rem_0_0_0]
                                      hover:shadow-blue-400 duration-[400ms,700ms] transition-[color,box-shadow]">
                                         Tienda
                                     </button>
