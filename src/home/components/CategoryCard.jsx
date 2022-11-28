@@ -4,7 +4,7 @@ export const CategoryCard = ({category}) => {
 
     const { title, imgUrl } = category
     return (
-            <div className='bg-yellow-100  flex items-center justify-center relative m-2'>
+            <div className='bg-yellow-100  flex items-center justify-center relative m-2 '>
                     
                     <Link to='/shop'
                     className="relative h-full w-full">

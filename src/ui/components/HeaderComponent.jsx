@@ -63,7 +63,7 @@ export const Header = () => {
                     left-0 
                     font-medium
                     text-white top-0 <<
-                    transition-all duration-500 ease-in z-40  
+                     z-40  
                     md:flex md:items-center
                     md:flex-row  md:justify-around
                     md:mt-0 
@@ -72,12 +72,13 @@ export const Header = () => {
                     md:shadow-none
                     md:mx-20
                     md:text-[#2b2d42]
+                    transition-all duration-500
                     
                    
                     ${
                         open 
-                            ? 'left-0 '
-                            : 'left-[-40rem] bg-transparent'
+                            ? 'left-0   '
+                            : 'left-[-40rem] bg-transparent transition-none'
                     }
                     
                 
@@ -114,7 +115,7 @@ export const Header = () => {
                     md:hidden
                     ${
                         open
-                            ? 'fixed  h-screen z-30  top-20 left-0 transition-all bg-black w-72 '
+                            ? 'fixed  h-screen z-30  top-20 left-0  bg-black w-72 '
                             : 'hidden'
                     }
                 `
