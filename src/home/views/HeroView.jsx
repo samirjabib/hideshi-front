@@ -18,7 +18,7 @@ export const Hero = () => {
                 {
                     heroBackgrounds.map( background => {
                         return(
-                            <div className="relative" key={background.id}>
+                            <div className="relative shadow-xl" key={background.id}>
 
                                 <img src={background.image} className='w-full h-screen object-cover' />
 
