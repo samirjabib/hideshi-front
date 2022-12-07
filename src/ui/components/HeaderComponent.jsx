@@ -41,7 +41,7 @@ export const Header = () => {
    
 
     return (
-        <header className= {`fixed h-20 flex flex-col justify-center  hover:bg-[#EDF2F4]  w-full top-0 z-50  
+        <header className= {`absolute h-20 flex flex-col justify-center   w-full top-0 z-50  
         ${ open ? 'bg-[#EDF2F4]'  : 'bg-transparent'}        
         
         

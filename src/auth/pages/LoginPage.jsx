@@ -6,9 +6,9 @@ export const Login = () => {
     const { onInputChange, onResetForm,  email, password } = useForm({ loginFormFields })
 
     return(
-        <section class="bg-gray-50 min-h-[50rem] flex items-center justify-center">
+        <section class=" min-h-[50rem] flex items-center justify-center">
             {/* <!-- login container --> */}
-            <div class="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
+            <div class=" flex rounded-2xl shadow-md max-w-3xl items-center p-12">
                 {/* <!-- form --> */}
                 <div class="md:w-1/2 px-8 md:px-16">
                 <h2 class="font-bold text-2xl text-[#2b2d42]">Login</h2>
@@ -61,7 +61,7 @@ export const Login = () => {
 
                 <div class="mt-3 text-xs flex justify-between items-center text-[#2b2d42]">
                     <p>Don't have an account?</p>
-                    <button class="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300">Register</button>
+                    <button class="py-2 px-5 bg-[#2b2d42] rounded-xl  text-white hover:scale-110 duration-300">Register</button>
                 </div>
                 </div>
 

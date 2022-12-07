@@ -14,9 +14,9 @@ export const Register = () => {
     
 
     return(
-        <section class="bg-gray-50 min-h-screen flex items-center justify-center relative bottom-9">
+        <section class="relative top-10 min-h-screen flex items-center justify-center  bottom-9">
             {/* <!-- login container --> */}
-            <div class="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
+            <div class="flex rounded-2xl shadow-md max-w-3xl  items-center p-12">
 
                 <div class="md:w-1/2 px-8 md:px-16 ">
                     <h2 class="font-bold text-2xl text-[#2b2d42]">Registrate</h2>
