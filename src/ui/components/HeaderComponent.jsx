@@ -17,17 +17,11 @@ const navLinks = [
     { path:'/auth/login',  display:'Login'},
     { path:'/shop', display:'Shop'},
 ]
-   
-
-
-
 
 export const Header = () => {
 
 
     const [ open, setOpen ] = useState(false)
-
-    console.log(open)
     
 
     const onToggle = (toggle) => {
@@ -43,14 +37,11 @@ export const Header = () => {
     return (
         <header className= {`absolute h-20 flex flex-col justify-center   w-full top-0 z-50  
         ${ open ? 'bg-[#EDF2F4]'  : 'bg-transparent'}        
-        
-        
         `}>
-            
             <nav className=" w-full flex justify-between h-16 p-2 ">
-                <h2 className="font-semibold md:hidden text-xl md:text-2xl p-2 self-center"><Link to='/'>HIDESHI</Link></h2>
-
-        
+                <h2 >
+                    <Link className="font-semibold md:hidden text-xl md:text-2xl p-2 self-center" to='/'>HIDESHI</Link>
+                </h2>
                 <Link className="flex">
                     <img src="" alt="LOGO" className="self-center  border-2 border-black w-16 h-12 flex items-center justify-center"/>
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><Link to='/'>HIDESHI</Link></h2>
@@ -58,23 +49,10 @@ export const Header = () => {
 
                   {/* DESKTOP NAV */}
                 <ul className={`
-                    flex flex-col items-center
-                    w-72 h-screen fixed mt-20 gap-4 p-4
-                    left-0 
-                    font-medium
-                    text-white top-0 <<
-                     z-40  
-                    md:flex md:items-center
-                    md:flex-row  md:justify-around
-                    md:mt-0 
-                    md:w-40 md:h-auto
-                    md:static
-                    md:shadow-none
-                    md:mx-20
-                    md:text-[#2b2d42]
-                    transition-all duration-500
+                    flex flex-col items-center w-72 h-screen fixed mt-20 gap-4 p-4 left-0  font-medium text-white top-0 z-40  
+                    md:flex md:items-center md:flex-row  md:justify-around md:mt-0  md:w-40 md:h-auto md:static md:shadow-none md:mx-20
+                    md:text-[#2b2d42] transition-all duration-500
                     
-                   
                     ${
                         open 
                             ? 'left-0   '

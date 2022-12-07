@@ -1,26 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { dummieData } from "../../../assets";
+
+
+
+
+
 
 export const productSlice = createSlice({
     name:'products',
     initialState:{
-        products:[],
+        isLoadingProducts:true,
+        products:dummieData,
         page:0,
-        isLoading:false,
     },
     reducers:{
-        startLoadingProducts : (state) => {
-            state.isLoading = true;
-
+        onAddProduct: (state, { payload }) => {
+            console.log(payload, 'payload on the reducer')
+            state.isLoadingProducts = false,
+            state.products.push(payload)
         },
-        setProducts: (state, action) => {
-            state.isLoading = false;
-            state.page = action.payload.page;
-            state.products = action.payload.products;
-        }
     }
 });
 
 
-export const { setProducts, startLoadingProducts } = productSlice.actions;
+
+export const { onSetProducts, onLoadingProducts } = productSlice.actions;
 
 
