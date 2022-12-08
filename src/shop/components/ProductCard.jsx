@@ -1,21 +1,23 @@
 
 
 
-const ProductCard = () => {
+const ProductCard = ({product}) => {
 
+    const { id, name, img, price } = product
 
+  
     
     return (
-        <div className='border-2 border-black h-72 lg:h-96 flex flex-col '>
+        <div className='h-72 lg:h-96 flex flex-col cursor-pointer '>
             <img 
-                src="" 
+                src={img}
                 alt="image"
-                className=" w-full h-[80%] flex items-center justify-center border-2 border-black p-2"
+                className=" w-full h-[80%] flex items-center justify-center object-cover "
             />
-            <div className=" w-full h-[20%] flex-col text-center justify-between p-2 items-center border-2 border-black">
-                <h2>Title</h2>
-                <span>Price</span>
-            </div>
+            <div className=" w-full h-[20%] flex-col text-center justify-between p-2 items-center k">
+                <h2 className="font-bold text-sm">{name}</h2>
+                <span className="text-[.8rem]">COP{price}</span>
+        </div>
             
 
         </div>

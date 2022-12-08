@@ -35,11 +35,11 @@ export const Header = () => {
    
 
     return (
-        <header className= {`absolute h-20 flex flex-col justify-center   w-full top-0 z-50  
-        ${ open ? 'bg-[#EDF2F4]'  : 'bg-transparent'}        
+        <header className= {`absolute h-20 flex flex-col  justify-center p-4 w-full top-0 z-50  
+        ${ open ? 'bg-white]'  : 'bg-transparent'}        
         `}>
-            <nav className=" w-full flex justify-between h-16 p-2 ">
-                <h2 >
+            <nav className=" w-full flex justify-between h-16 p-2 items-center ">
+                <h2 className="md:hidden">
                     <Link className="font-semibold md:hidden text-xl md:text-2xl p-2 self-center" to='/'>HIDESHI</Link>
                 </h2>
                 <Link className="flex">
@@ -67,7 +67,6 @@ export const Header = () => {
                         return(
                             <li key={index} className='text-lg mt-12 md:mt-0'>
                                 <NavLink className='m-16 relative group' to={path}>
-                        
                                       {display}
                                    
                                     <span className={`
