@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 
 
-export const Shop = () => {
+export const ShopPage = () => {
 
    const { products ,startLoadingProducts } = useProductsStore();
    
@@ -13,7 +13,7 @@ export const Shop = () => {
     },[products])
 
     return(
-        <div className=" w-full h-screen relative top-20">
+        <div className=" w-full">
             <ProductsList products ={products}/>
         </div>
     )

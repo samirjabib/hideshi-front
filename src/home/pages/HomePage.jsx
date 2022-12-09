@@ -3,7 +3,7 @@ import { CategoriesList, Hero } from "../views";
 
 export const Home = () => {
     return (
-        <section>
+        <section className="">
                 <Hero/>
                 <CategoriesList/>
         </section>

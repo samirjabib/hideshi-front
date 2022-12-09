@@ -9,7 +9,7 @@ export const Layout = () => {
             <div>
                 <AppRouter/>
             </div>
-            {/* <Footer/>  Falta terminar footer*/}
+            <Footer/>  
         </Fragment>
     );
 };

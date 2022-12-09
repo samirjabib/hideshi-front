@@ -5,13 +5,6 @@ import { heroBackgrounds } from "../../assets";
 
 export const Hero = () => {
 
-    let count = 0;
-    let slideInterlval;
-
-
-
-   
-
     return (
         <Fragment>
             
@@ -19,7 +12,7 @@ export const Hero = () => {
                 {
                     heroBackgrounds.map( background => {
                         return(
-                            <div className="relative shadow-xl " key={background.id}>
+                            <div className="shadow-xl " key={background.id}>
 
                                 <img src={background.image} className='w-full h-screen object-cover' />
                                 <h1 className="absolute text-gray-200 font-bold text-7xl sm:text-8xl md:text-9xl top-[30%] left-[50%] transform translate-x-[-50%] translate-y-[50%] tracking-wide ">HIDESHI</h1>

@@ -8,7 +8,7 @@ export const Login = () => {
     return(
         <section class=" min-h-[50rem] flex items-center justify-center">
             {/* <!-- login container --> */}
-            <div class=" flex rounded-2xl shadow-md max-w-3xl items-center p-12">
+            <div class=" flex rounded-2xl shadow-md max-w-3xl items-center p-12 ">
                 {/* <!-- form --> */}
                 <div class="md:w-1/2 px-8 md:px-16">
                 <h2 class="font-bold text-2xl text-[#2b2d42]">Login</h2>
