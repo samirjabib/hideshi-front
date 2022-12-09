@@ -8,15 +8,15 @@ const ProductCard = ({product}) => {
   
     
     return (
-        <div className='lg:h-96 block cursor-pointer border border-black'>
+        <div className=' cursor-pointer transition-transform duration-200 hover:scale-105'>
             <img 
                 src={img}
                 alt="image"
-                className=" w-full h-[80%] flex items-center justify-center object-contain border-2 border-black p-2 "
+                className=" w-full h-[80%] flex items-center justify-center object-contain "
             />
-            <div className=" w-full h-[20%] flex-col text-center justify-between p-2 items-center border-2 border-black">
-                <h2 className="font-bold text-sm">{name}</h2>
-                <span className="text-[.8rem]">COP{price}</span>
+            <div className=" w-full flex-col text-center flex justify-center items-center uppercase h-[20%] ">
+                <h2 className="font-bold text-sm transition-all hover:border-b w-40  ">{name}</h2>
+                <span className="text-[.8rem] mb-8">COP{price}</span>
         </div>
             
 

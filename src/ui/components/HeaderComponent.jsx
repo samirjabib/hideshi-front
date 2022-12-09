@@ -36,7 +36,7 @@ export const Header = () => {
 
     return (
         <header className= {`absolute h-20 flex flex-col  justify-center p-4 w-full top-0 z-50  
-        ${ open ? 'bg-white]'  : 'bg-transparent'}        
+        ${ open ? 'bg-white'  : 'bg-transparent'}        
         `}>
             <nav className=" w-full flex justify-between h-16 p-2 items-center ">
                 <h2 className="md:hidden">
@@ -55,7 +55,7 @@ export const Header = () => {
                     
                     ${
                         open 
-                            ? 'left-0   '
+                            ? 'left-0 '
                             : 'left-[-40rem] bg-transparent transition-none'
                     }
                     
