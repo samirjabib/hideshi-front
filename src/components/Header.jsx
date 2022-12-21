@@ -1,18 +1,19 @@
 import { useState } from "react";
 
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-
+import Hamburger from "hamburger-react";
 import { GrFavorite } from 'react-icons/gr';
 import {  HiOutlineUserCircle } from 'react-icons/hi';
 import {RiShoppingBagLine} from 'react-icons/ri'
 
-import Hamburger from "hamburger-react";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import { getLinksToNavBar } from "../utils/";
+import { useEffect } from "react";
+
 
 
 const navLinks = [
-    
     { path:'/', display:'Home'},
     { path:'/auth/login',  display:'Login'},
     { path:'/shop', display:'Shop'},
@@ -20,10 +21,18 @@ const navLinks = [
 
 export const Header = ({auth}) => {
 
-    console.log(auth)
-
-
     const [ open, setOpen ] = useState(false)
+        
+
+    useEffect( () => {
+        const groupNavLinks = getLinksToNavBar(auth)
+
+        return groupNavLinks
+    },[auth]) 
+
+
+
+
     
 
     const onToggle = (toggle) => {
@@ -35,7 +44,6 @@ export const Header = ({auth}) => {
 
     }
    
-
     return (
         <header className= {`absolute h-20 flex flex-col  justify-center p-4 w-full top-0 z-50  
         ${ open ? 'bg-white'  : 'bg-transparent'}        
@@ -68,7 +76,7 @@ export const Header = ({auth}) => {
                         const { path, display} = link
                         return(
                             <li key={index} className='text-lg mt-12 md:mt-0'>
-                                <NavLink className='m-16 relative group' to={path}>
+                                <NavLink className='m-12 relative group' to={path}>
                                       {display}
                                    
                                     <span className={`
@@ -79,7 +87,6 @@ export const Header = ({auth}) => {
                                     <span className={`
                                         absolute -bottom-2 right-1/2 w-0 h-2 bg-[#2b2d42] group-hover:w-1/2 group-hover:transition-all 
                                         ${open ? 'bg-[#ffffff]' : 'bg-[#2b2d42]' }`}>
-
                                     </span>
                                 </NavLink>
                             </li>
@@ -99,8 +106,6 @@ export const Header = ({auth}) => {
                     }
                 `
 
-
-                
                 }></div>
                 
 
