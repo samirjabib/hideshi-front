@@ -1,13 +1,12 @@
 import { Provider } from 'react-redux'; 
-import { store } from './store';
-import { Layout } from './ui/layout/LayoutComponent';
-
+import { store } from './stores'
+import { AppRouter } from './routes'
 
 function HideshiApp() {
 
   return (
     <Provider store={ store }>
-      <Layout/>
+      <AppRouter/>
     </Provider>
   )
 }
