@@ -22,14 +22,11 @@ export const getLinksToNavBar = ( auth ) => {
     const { role } = auth.user
 
     if(role === 'user'){
-        console.log('retorno el user')
         return authNav
     }
     if(role ==='admin'){
-        console.log('retorno el admin')
         return adminNav
     } else {
-        console.log('retorno default')
         return defaultNav
     }
 
