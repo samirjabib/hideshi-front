@@ -11,7 +11,7 @@ export const DashboardRoutes = () => {
 
                 {/* Admin Routes */}
                 <Route path="/state-products" element={ <StateProducts/> }/>
-
+                
 
             </Route>
         </Routes>
