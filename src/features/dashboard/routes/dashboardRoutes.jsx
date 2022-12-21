@@ -1,18 +1,31 @@
-import { Navigate, Route, Routes } from "react-router-dom"
+import {  Route, Routes } from "react-router-dom"
+import { MissingURL } from "../../../routes/components"
 import { LayoutDashboard } from "../component"
-import {  Orders, Settings, StateProducts} from '../pages'
+import {  Orders, Settings, StateProducts } from '../pages'
 
-export const DashboardRoutes = () => {
+export const DashboardRoutes = ({role}) => {
     return(
-        <Routes> 
+        <Routes>
             <Route path="/" element={<LayoutDashboard/>}>
-                <Route path="/orders" element={ <Orders/> } />
-                <Route path="/settings" element={ <Settings/> } />
 
-                {/* Admin Routes */}
-                <Route path="/state-products" element={ <StateProducts/> }/>
+                {
+                    (role === 'user')
+                    ? 
+                        <>
+                            
+                            <Route path="/orders" element={ <Orders/> } />
+                            <Route path="/settings" element={ <Settings/> } />
+                            <Route path='/*' element={ <MissingURL/>}/>
+                        </>
+                    :
+                        <>
+                            <Route path="/state-products" element={ <StateProducts/> }/>
+                            <Route path="/settings" element={ <Settings/> } />
+                            <Route path='/*' element={ <MissingURL/>}/>
+                        </>
                 
-
+                }
+              
             </Route>
         </Routes>
     )
