@@ -46,7 +46,7 @@ export const Header = ({auth}) => {
                 </h2>
                 <Link to='/'>
                     <img src="" alt="LOGO" className="self-center  border-2 border-black w-16 h-12 flex items-center justify-center"/>
-                    <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><h2>HIDESHI</h2></h2>
+                    <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>
 
                   {/* DESKTOP NAV */}
