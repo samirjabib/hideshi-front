@@ -9,26 +9,18 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import { getLinksToNavBar } from "../utils/";
-import { useEffect } from "react";
 
 
 
-const navLinks = [
-    { path:'/', display:'Home'},
-    { path:'/auth/login',  display:'Login'},
-    { path:'/shop', display:'Shop'},
-]
+
 
 export const Header = ({auth}) => {
 
     const [ open, setOpen ] = useState(false)
         
+    const navLinks = getLinksToNavBar(auth)
+    console.log(navLinks)
 
-    useEffect( () => {
-        const groupNavLinks = getLinksToNavBar(auth)
-
-        return groupNavLinks
-    },[auth]) 
 
 
 

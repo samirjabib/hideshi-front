@@ -34,7 +34,6 @@ export const AppRouter = () => {
                         :
                             <>
                                 <Route path='/' element={<Home/>}/>
-                                <Route path='/auth/*' element={ <AuthRoutes/>}/>
                                 <Route path='/shop/*' element={<ShopRouter/>} />
                                 <Route path="/dashboard/*" element={ <DashboardRoutes role={auth.role}/> }/>
                                 <Route path='/*' element={ <MissingURL/>}/>
