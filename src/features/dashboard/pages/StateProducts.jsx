@@ -1,6 +1,6 @@
-export const stateProducts = () => {
+export const StateProducts = () => {
     return(
-        <div>
+        <div className="text-9xl">
             CRUD PRODUCTS
         </div>
     )

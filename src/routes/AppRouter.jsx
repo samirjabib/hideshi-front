@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 import { Layout } from "../components";
 import { AuthRoutes, Home, ShopRouter } from "../features";
-import { dashboardRoutes } from "../features";
+import { DashboardRoutes } from "../features";
 
 const auth = {
     status:'authenticated',
@@ -33,7 +33,7 @@ export const AppRouter = () => {
                      {/* Auth Routes */}
                      <Route path='/' element={<Home/>}/>
                     <Route path='/shop/*' element={<ShopRouter/>} />
-                    <Route path="/dashboard/*" element={ <dashboardRoutes/> }/>
+                    <Route path="/dashboard/*" element={ <DashboardRoutes/> }/>
 
 
                 </Route>

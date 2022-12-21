@@ -1,18 +1,20 @@
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import { LayoutDashboard } from "../component"
-import {  Orders, Settings, stateProducts} from '../pages'
+import {  Orders, Settings, StateProducts} from '../pages'
 
-export const dashboardRoutes = () => {
-    <Routes>
-        <Route path="/" element={ LayoutDashboard }>
+export const DashboardRoutes = () => {
+    return(
+        <Routes> 
+            <Route path="/" element={<LayoutDashboard/>}>
+                <Route path="/orders" element={ <Orders/> } />
+                <Route path="/settings" element={ <Settings/> } />
 
-            {/* User Routes */}
-            <Route path="/orders" element={ Orders } />
-            <Route path="/settings" element={ Settings } />
+                {/* Admin Routes */}
+                <Route path="/state-products" element={ <StateProducts/> }/>
 
-            {/* Admin Routes */}
-            <Route path="/state-products" element={ stateProducts }/>
 
-        </Route>
-    </Routes>
+            </Route>
+        </Routes>
+    )
+
 }
