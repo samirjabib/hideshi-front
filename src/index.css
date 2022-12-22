@@ -9,6 +9,16 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+@layer base {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body{
+        font-family: 'Roboto', sans-serif;
+    }
+}
+
 
 
 @layer utilities {

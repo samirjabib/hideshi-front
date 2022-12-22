@@ -26,7 +26,7 @@ export const Hero = () => {
                                 </Link>  
                                     <button className="border-2 px-12 py-4 text-2xl  w-52 shadow2xl rounded-2xl hover:text-[#2b2d42] hover:shadow-[inset_13rem_0_0_0]
                                      hover:shadow-blue-400 duration-[400ms,700ms] transition-[color,box-shadow]">
-                                        <h2 className="text-[#edf2f4] font-bold">Colección</h2>   
+                                        <a href="#categories-list" className="text-[#edf2f4] font-bold">Colección</a>   
                                     </button>                         
                                 </div>
 

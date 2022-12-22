@@ -27,7 +27,7 @@ const categoriesList = [
 export const CategoriesList = () => {
     
     return (
-        <div className='bg-[#ffffff] h-[150vh] grid md:grid-cols-2 md:grid-row-2 shadow-2xl  '>
+        <div className='bg-[#ffffff] h-[150vh] grid md:grid-cols-2 md:grid-row-2 shadow-2x ' id='categories-list'>
             
             {
                 categoriesList.map( category => {
