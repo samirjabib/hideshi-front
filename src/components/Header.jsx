@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-import Hamburger from "hamburger-react";
-import { GrFavorite } from 'react-icons/gr';
 import {  HiOutlineUserCircle } from 'react-icons/hi';
 import {RiShoppingBagLine} from 'react-icons/ri'
+import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import { getLinksToNavBar } from "../utils/";
+import { useRef } from "react";
 
 
 
@@ -17,6 +17,7 @@ import { getLinksToNavBar } from "../utils/";
 export const Header = ({auth}) => {
 
     const [ open, setOpen ] = useState(false)
+    const menuRef = useRef()
         
     const navLinks = getLinksToNavBar(auth)
     console.log(navLinks)
@@ -25,17 +26,7 @@ export const Header = ({auth}) => {
 
 
 
-    
 
-    const onToggle = (toggle) => {
-        if(toggle){
-            setOpen(true)
-        } else {
-            setOpen(false)
-        }
-
-    }
-   
     return (
         <header className= {`absolute h-20 flex flex-col  justify-center p-4 w-full top-0 z-50`}>
             <nav className=" w-full flex justify-between h-16 p-2 items-center ">
@@ -49,36 +40,49 @@ export const Header = ({auth}) => {
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>
 
-                <div className={`w-full h-screen absolute top-0 bg-black/50`}></div>
+                <div className={`w-full h-screen fixed  right-0 top-0 bg-black/50 ${open ? 'block' : 'hidden'}`}></div>
 
                 {/* desktop  */}
                 <ul
-                    className={`border-2 border-black fixed left-0 top-0 w-3/4 h-screen z-[999] bg_light_primary`}
+                    className={` fixed left-0 top-0 w-11/12 h-screen z-[999] bg-bg_light_primary drop-shadow-2xl flex flex-col
+                    p-4
+                    ${open ? '' : 'left-[-100%]'}
+                    `}
                 >
+                    <AiOutlineClose 
+                        className={`self-end  border-black md:hidden`} 
+                        onClick={ () => setOpen(!open)}
+                        size={24}
+                    />
+                    
                     {navLinks.map( ({display, path}, index) => {
                         return(
-                            <li key={index}>
+                            <li key={index} className=' text-sm text-bg_dark_primary mt-3 ml-2 font-extralight font-sans uppercase'>
                                 <NavLink to={path}>{display}</NavLink>
                             </li>
+                        
                         )
                     })}
+                    <div className="flex flex-col items-center justify-center content-end text-center  relative top-[30%] gap-2 w-full">
+                        <p className="uppercase font-serif text-xs mb-4">¡¡No te pierdas de nuestras promociones!!</p>
+                        <input placeholder="E-MAIL" className=" p-2 border-b border-black w-full text-sm"/>
+                        <button className="mt-4 border-2 border-black w-full bg-bg_dark_primary text-bg_light_primary font-serif font-bold text-lg p-[.2em]">Suscribete</button>
+                    </div>
+        
                 </ul>
 
 
 
          
 
-                <div className="flex md:gap-4 cursor-pointer">
-                    <GrFavorite size={22} className='self-center hidden md:block'/>
-                    <RiShoppingBagLine size={22} className='self-center '/>
-                    <HiOutlineUserCircle size={25} className='self-center hidden md:block '/> 
+                <div className="flex gap-2 md:gap-4 cursor-pointer items-baseline ">
+                    <RiShoppingBagLine size={22}/>
+                    <HiOutlineUserCircle size={22} className=' hidden md:block '/> 
 
                     <span className="self-center md:hidden">
-                        <Hamburger 
-                            direction="left" 
-                            size={20} duration={0.8}
-                            className="self-center"
-                            onToggle={onToggle}
+                        <AiOutlineMenu 
+                            size={22} 
+                            onClick={ () => setOpen(!open)}
                     />
                     </span>  
                 </div>
