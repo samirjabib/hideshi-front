@@ -14,7 +14,7 @@ export const Footer = () => {
 
                     <ul
                         role="list"
-                        className="flex flex-col items-center justify-center gap-4 py-4 sm:flex-row sm:gap-8"
+                        className="flex flex-col items-center justify-center gap-4 py-4 sm:flex-row sm:gap-8 upper"
                     >
                         <li role="listitem"><a href="#" className="hover:text-primary">Home</a></li>
                         <li role="listitem"><a href="#" className="hover:text-primary">Tienda</a></li>
