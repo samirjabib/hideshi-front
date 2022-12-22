@@ -19,13 +19,13 @@ export const Hero = () => {
 
                                 <div className= "absolute top-[55%] bottom-[50%] justify-center items-center flex-col md:flex-row flex w-full  h-32 gap-6">
                                 <Link to='/shop'>
-                                    <button className="border-2  px-12 py-4 text-2xl  text-white font-semibold w-52 shadow2xl rounded-2xl  hover:shadow-[inset_13rem_0_0_0]
-                                     hover:shadow-blue-400 duration-[400ms,700ms] transition-[color,box-shadow]">
+                                    <button className="  px-12 py-4 text-2xl  text-white font-semibold w-52 shadow2xl rounded  hover:shadow-[inset_13rem_0_0_0]
+                                     hover:shadow-black hover:border-none duration-[400ms,700ms] transition-[color,box-shadow,border] border">
                                         Tienda
                                     </button>
                                 </Link>  
-                                    <button className="border-2 px-12 py-4 text-2xl  w-52 shadow2xl rounded-2xl hover:text-[#2b2d42] hover:shadow-[inset_13rem_0_0_0]
-                                     hover:shadow-blue-400 duration-[400ms,700ms] transition-[color,box-shadow]">
+                                    <button className="border px-12 py-4 text-2xl  w-52 shadow2xl rounded hover:text-[#2b2d42] hover:shadow-[inset_13rem_0_0_0]
+                                     hover:shadow-blue-400 hover:border-none duration-[400ms,700ms] transition-[color,box-shadow,border]">
                                         <a href="#categories-list" className="text-[#edf2f4] font-bold">Colección</a>   
                                     </button>                         
                                 </div>
