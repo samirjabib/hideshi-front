@@ -37,69 +37,36 @@ export const Header = ({auth}) => {
     }
    
     return (
-        <header className= {`absolute h-20 flex flex-col  justify-center p-4 w-full top-0 z-50  
-        ${ open ? 'bg-white'  : 'bg-transparent'}        
-        `}>
+        <header className= {`absolute h-20 flex flex-col  justify-center p-4 w-full top-0 z-50`}>
             <nav className=" w-full flex justify-between h-16 p-2 items-center ">
+
                 <h2 className="md:hidden">
                     <Link className="font-semibold md:hidden text-xl md:text-2xl p-2 self-center" to='/'>HIDESHI</Link>
                 </h2>
-                <Link to='/'>
+
+                <Link to='/' className="flex flex-row"> 
                     <img src="" alt="LOGO" className="self-center  border-2 border-black w-16 h-12 flex items-center justify-center"/>
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>
 
-                  {/* DESKTOP NAV */}
-                <ul className={`
-                    flex flex-col items-center w-72 h-screen fixed mt-20 gap-4 p-4 left-0  font-medium text-white top-0 z-40  
-                    md:flex md:items-center md:flex-row  md:justify-around md:mt-0  md:w-40 md:h-auto md:static md:shadow-none md:mx-20
-                    md:text-[#2b2d42] transition-all duration-500
-                    
-                    ${
-                        open 
-                            ? 'left-0 '
-                            : 'left-[-40rem] bg-transparent transition-none'
-                    }
-                    
-                
-                `}>
-                   {
-                    navLinks.map( (link, index) => {
-                        const { path, display} = link
+                <div className={`w-full h-screen absolute top-0 bg-black/50`}></div>
+
+                {/* desktop  */}
+                <ul
+                    className={`border-2 border-black fixed left-0 top-0 w-3/4 h-screen z-[999] bg_light_primary`}
+                >
+                    {navLinks.map( ({display, path}, index) => {
                         return(
-                            <li key={index} className='text-lg mt-12 md:mt-0'>
-                                <NavLink className='m-12 relative group' to={path}>
-                                      {display}
-                                   
-                                    <span className={`
-                                        absolute -bottom-2 left-1/2 w-0 h-2  bg-[#2b2d42] group-hover:w-1/2 group-hover:transition-all 
-                                        ${open ? 'bg-[#ffffff]' : 'bg-[#2b2d42]' }`}>
-                                        
-                                    </span>
-                                    <span className={`
-                                        absolute -bottom-2 right-1/2 w-0 h-2 bg-[#2b2d42] group-hover:w-1/2 group-hover:transition-all 
-                                        ${open ? 'bg-[#ffffff]' : 'bg-[#2b2d42]' }`}>
-                                    </span>
-                                </NavLink>
+                            <li key={index}>
+                                <NavLink to={path}>{display}</NavLink>
                             </li>
                         )
-                    })
-                   }
-              
+                    })}
                 </ul>
 
-                <div className={
-                `   
-                    md:hidden
-                    ${
-                        open
-                            ? 'fixed  h-screen z-30  top-20 left-0  bg-black w-72 '
-                            : 'hidden'
-                    }
-                `
 
-                }></div>
-                
+
+         
 
                 <div className="flex md:gap-4 cursor-pointer">
                     <GrFavorite size={22} className='self-center hidden md:block'/>
