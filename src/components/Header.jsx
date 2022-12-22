@@ -30,7 +30,7 @@ export const Header = ({auth}) => {
 
 
     return (
-        <header className= {`fixed h-20 flex flex-col  justify-center p-4 w-full top-0 z-50`}>
+        <header className= {`absolute h-20 flex flex-col  justify-center p-4 w-full top-0 z-50`}>
             <nav className=" w-full flex justify-between h-16 p-2 items-center ">
 
                 <h2 className="md:hidden">

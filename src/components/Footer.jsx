@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Footer = () => {
     return (
-        <footer className="w-full bg-[#ffffff] text-black py-16">
+        <footer className="w-full bg-bg_light_primary text-bg_dark_primary py-16 relative">
             <div className="md:px-12 lg:px-28">
                 <div className="container m-auto space-y-6  ">
                     <img 
@@ -17,9 +17,9 @@ export const Footer = () => {
                         className="flex flex-col items-center justify-center gap-4 py-4 sm:flex-row sm:gap-8"
                     >
                         <li role="listitem"><a href="#" className="hover:text-primary">Home</a></li>
-                        <li role="listitem"><a href="#" className="hover:text-primary">Features</a></li>
-                        <li role="listitem"><a href="#" className="hover:text-primary">Get started</a></li>
-                        <li role="listitem"><a href="#" className="hover:text-primary">About us</a></li>
+                        <li role="listitem"><a href="#" className="hover:text-primary">Tienda</a></li>
+                        <li role="listitem"><a href="#" className="hover:text-primary">Coleccion</a></li>
+                        <li role="listitem"><a href="#" className="hover:text-primary">Sobre Nosotros</a></li>
                     </ul>
 
                     <div className="m-auto flex w-max items-center justify-between space-x-4">
@@ -62,7 +62,9 @@ export const Footer = () => {
                         </Link>
                     </div>
                 </div>
+                <span className='text-text_gray_for_span text-xs w-40 text-center  mx-auto block mt-20 uppercase font-sanss'>todos los diseños son de uso reservado para hideshi sas</span>
             </div>
+
       </footer>
                                           
     );
