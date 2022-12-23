@@ -14,8 +14,8 @@ export const ProductDetailPage = () => {
 
     return(
         <div className=" w-full p-4 flex flex-col md:flex-row md:justify-center h-screen mx-auto ">
-            <img src={img} className=' black h-4/6 object-contain md:object-cover '/>
-            <div className=" h-full flex flex-col p-4  md:mt-16 md:ml-12">
+            <img src={img} className=' mt-20black h-4/6 object-contain md:object-cover '/>
+            <div className=" h-full flex flex-col p-4 mt-24 md:mt-16 md:ml-12">
                 <h2 className="mt-2 uppercase font-bold font-sans text-xs">{name}</h2>
                 <span className="font-sans text-[.8rem] mt-4 ">COP{price}</span>
                 <div className="flex flex-col">   

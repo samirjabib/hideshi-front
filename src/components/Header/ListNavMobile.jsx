@@ -31,7 +31,7 @@ export const ListNavMobile = ({open, navLinks, setOpen}) => {
         <ul
             className={` fixed left-0 top-0 w-11/12 h-screen z-[999] bg-bg_light_primary drop-shadow-2xl flex flex-col
             p-4 transition-all duration-300
-            ${open ? '' : 'left-[-100%]'}
+            ${open ? 'max-w-md' : 'left-[-100%]'}
             `}
             ref={menuMobileRef}
         >
