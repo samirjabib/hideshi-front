@@ -20,7 +20,6 @@ export const Header = ({auth}) => {
     const [ open, setOpen ] = useState(false)
     const [openBag, setBag ] = useState(false)
     const [ backgroundScroll, setBackgroundScroll ] = useState(true);
-    console.log(backgroundScroll)
 
 
     const backgroundHandle = () => {

@@ -15,7 +15,9 @@ export const Hero = () => {
                             <div className="shadow-xl " key={background.id}>
 
                                 <img src={background.image} className='w-full h-screen object-cover' />
-                                <h1 className="absolute text-gray-200 font-bold text-7xl sm:text-8xl md:text-9xl top-[30%] left-[50%] transform translate-x-[-50%] translate-y-[50%] tracking-wide ">HIDESHI</h1>
+                                <h1 
+                                    className="absolute text-gray-200 font-bold text-7xl sm:text-8xl md:text-9xl top-[30%] left-[50%] transform translate-x-[-50%] translate-y-[50%] tracking-wide"
+                                >HIDESHI</h1>
 
                                 <div className= "absolute top-[55%] bottom-[50%] justify-center items-center flex-col md:flex-row flex w-full  h-32 gap-6">
                                 <Link to='/shop'>
