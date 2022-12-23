@@ -6,8 +6,8 @@ export const Layout = ({auth}) => {
 
     return (
        <main className="App">
-            <Header auth={auth}/>
-                <Outlet /> 
+            <Header auth={auth} className="relative"/>
+                    <Outlet /> 
             <Footer/>
         </main>
     )
