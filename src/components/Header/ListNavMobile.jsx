@@ -12,6 +12,7 @@ export const ListNavMobile = ({open, navLinks, setOpen}) => {
     }
 
     const menuMobileRef = useRef();
+    
 
     useEffect( () => {
         document.addEventListener( "click" , handleOutSideClick, true )
@@ -30,11 +31,11 @@ export const ListNavMobile = ({open, navLinks, setOpen}) => {
 
     return(
         <ul
-        className={` fixed left-0 top-0 w-11/12 h-screen z-[999] bg-bg_light_primary drop-shadow-2xl flex flex-col
-        p-4 transition-all duration-300
-        ${open ? '' : 'left-[-100%]'}
-        `}
-        ref={menuMobileRef}
+            className={` fixed left-0 top-0 w-11/12 h-screen z-[999] bg-bg_light_primary drop-shadow-2xl flex flex-col
+            p-4 transition-all duration-300
+            ${open ? '' : 'left-[-100%]'}
+            `}
+            ref={menuMobileRef}
         >
             <AiOutlineClose 
                 className={`self-end  border-black md:hidden`} 
