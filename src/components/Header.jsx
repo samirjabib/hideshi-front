@@ -20,8 +20,7 @@ export const Header = ({auth}) => {
     const [ open, setOpen ] = useState(false)
     const [openBag, setBag ] = useState(false)
     const [ backgroundScroll, setBackgroundScroll ] = useState();
-    console.log(backgroundScroll)
-
+    console.log(open)
 
     const backgroundHandle = () => {
         if(window.scrollY >= 100){
@@ -30,13 +29,8 @@ export const Header = ({auth}) => {
             setBackgroundScroll(true);
         }
     }
-
-    window.addEventListener("scroll", backgroundHandle)
-
-    const menuRef = useRef()
-        
+   
     const navLinks = getLinksToNavBar(auth)
-    console.log(navLinks)
 
     return (
         <header 
@@ -58,7 +52,7 @@ export const Header = ({auth}) => {
 
                 <ListNavDesktop navLinks ={navLinks} setOpen ={ setOpen }/>
                 {/* mobile  */}
-                <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen }/>
+                <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen } />
         
                 <div className="flex gap-2 md:gap-4 cursor-pointer items-baseline ">
                     <RiShoppingBagLine size={22} onClick={ () => setBag(!openBag)}/>
