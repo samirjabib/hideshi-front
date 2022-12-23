@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {  HiOutlineUserCircle } from 'react-icons/hi';
 import {RiShoppingBagLine} from 'react-icons/ri'
@@ -19,6 +19,20 @@ export const Header = ({auth}) => {
 
     const [ open, setOpen ] = useState(false)
     const [openBag, setBag ] = useState(false)
+    const [ backgroundScroll, setBackgroundScroll ] = useState();
+    console.log(backgroundScroll)
+
+
+    const backgroundHandle = () => {
+        if(window.scrollY >= 100){
+            setBackgroundScroll(false);
+        } else {
+            setBackgroundScroll(true);
+        }
+    }
+
+    window.addEventListener("scroll", backgroundHandle)
+
     const menuRef = useRef()
         
     const navLinks = getLinksToNavBar(auth)
@@ -30,7 +44,10 @@ export const Header = ({auth}) => {
 
 
     return (
-        <header className= {`absolute h-20 flex flex-col  justify-center p-4 w-full top-0 z-50`}>
+        <header 
+            className= {`fixed h-20 flex flex-col  justify-center p-4 w-full top-0 z-[50] ${ backgroundScroll ? 'bg-transparent' : 'bg-bg_light_primary' }`}
+            onChange={ backgroundHandle }
+        >
             <nav className=" w-full flex justify-between h-16 p-2 items-center ">
 
                 <h2 className="md:hidden">
