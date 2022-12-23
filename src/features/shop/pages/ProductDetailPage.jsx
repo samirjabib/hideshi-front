@@ -16,12 +16,15 @@ export const ProductDetailPage = () => {
         <div className=" w-full p-4 md:flex md:justify-center h-screen">
             <img src={img} className=' black h-4/6 object-contain'/>
             <div className=" h-full flex flex-col p-4">
-                <h2 className="mt-6 uppercase font-bold font-sans text-xs">{name}</h2>
+                <h2 className="mt-2 uppercase font-bold font-sans text-xs">{name}</h2>
                 <span className="font-sans text-[.8rem] mt-4 ">COP{price}</span>
-                <option className="mt-4 flex flex-row w-10/12 justify-between text-center uppercase ">
-                    <div className="border border-black text-base py-[.5em] px-4 ">xs</div>
-
-
+                <option className="mt-4 flex flex-row w-10/12 justify-between text-center uppercase my-4 font-medium ">
+                    <div className="border-[1.3px] border-gray-300 text-xs py-2 px-4 w-12 ">xs</div>
+                    <div className="border-[1.3px] border-gray-300 text-xs py-2 px-4 w-12 ">s</div>
+                    <div className="border-[1.3px] border-gray-300 text-xs py-2 px-4 w-12 ">m</div>
+                    <div className="border-[1.3px] border-gray-300 text-xs py-2 px-4 w-12 ">l</div>
+                    <div className="border-[1.3px] border-gray-300 text-xs py-2 px-4 w-12 ">xl</div>
+                    <div className="border-[1.3px] border-gray-300 text-xs py-2 px-4 w-12 ">xxl</div>
                 </option>
                 <button className="bg-black w-full text-bg_light_primary text-sm uppercase p-[1em] shadow">add to bag</button>
             </div>
