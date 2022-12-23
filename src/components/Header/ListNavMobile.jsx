@@ -17,13 +17,11 @@ export const ListNavMobile = ({open, navLinks, setOpen}) => {
     useEffect( () => {
         document.addEventListener( "click" , handleOutSideClick, true )
 
-    }, [])
+    })
 
     const handleOutSideClick = ( { target }) => {
         if(!menuMobileRef.current.contains( target )){
             setOpen(false)
-        } else {
-            setOpen(true)
         }
     }
 

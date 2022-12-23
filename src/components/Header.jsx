@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import {  HiOutlineUserCircle } from 'react-icons/hi';
-import {RiShoppingBagLine} from 'react-icons/ri'
+import {RiShoppingBagLine, RiWindowsFill} from 'react-icons/ri'
 import { AiOutlineMenu } from 'react-icons/ai'
 
 import { Link } from "react-router-dom";
@@ -19,8 +19,9 @@ export const Header = ({auth}) => {
 
     const [ open, setOpen ] = useState(false)
     const [openBag, setBag ] = useState(false)
-    const [ backgroundScroll, setBackgroundScroll ] = useState();
-    console.log(open)
+    const [ backgroundScroll, setBackgroundScroll ] = useState(true);
+    console.log(backgroundScroll)
+
 
     const backgroundHandle = () => {
         if(window.scrollY >= 100){
@@ -29,6 +30,10 @@ export const Header = ({auth}) => {
             setBackgroundScroll(true);
         }
     }
+
+    useEffect( () => {
+        window.addEventListener('scroll', backgroundHandle)
+    }, [])
    
     const navLinks = getLinksToNavBar(auth)
 
@@ -47,7 +52,6 @@ export const Header = ({auth}) => {
                     <img src="" alt="LOGO" className="self-center  border-2 border-black w-16 h-12 flex items-center justify-center"/>
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>
-
                 <div className={`w-full h-screen fixed  right-0 top-0 bg-black/50 ${open ? 'block' : 'hidden'}`}></div>
 
                 <ListNavDesktop navLinks ={navLinks} setOpen ={ setOpen }/>
