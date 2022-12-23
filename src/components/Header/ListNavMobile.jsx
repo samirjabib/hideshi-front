@@ -21,7 +21,7 @@ export const ListNavMobile = ({open, navLinks, setOpen}) => {
                 onClick={ onCloseNavBar}
                 size={24}
             />
-            <NavLinks navLinks={navLinks}/>
+            <NavLinks navLinks={navLinks} setOpen={setOpen}/>
             <GetEmail/>
         </ul>
 

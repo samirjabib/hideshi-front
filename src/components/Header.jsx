@@ -38,11 +38,6 @@ export const Header = ({auth}) => {
     const navLinks = getLinksToNavBar(auth)
     console.log(navLinks)
 
-
-
-
-
-
     return (
         <header 
             className= {`fixed h-20 flex flex-col  justify-center p-4 w-full top-0 z-[50] ${ backgroundScroll ? 'bg-transparent' : 'bg-bg_light_primary' }`}
@@ -61,7 +56,7 @@ export const Header = ({auth}) => {
 
                 <div className={`w-full h-screen fixed  right-0 top-0 bg-black/50 ${open ? 'block' : 'hidden'}`}></div>
 
-                <ListNavDesktop navLinks ={navLinks}/>
+                <ListNavDesktop navLinks ={navLinks} setOpen ={ setOpen }/>
                 {/* mobile  */}
                 <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen }/>
         
