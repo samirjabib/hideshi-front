@@ -1,5 +1,4 @@
 export const Card = ( { product }) => {
-    console.log(product)
     const { id, name, img, price, quantity = 4 , category='coleccion', } = product
 
     const priceNumber = parseFloat(price)

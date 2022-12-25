@@ -35,6 +35,13 @@ export const Header = ({auth}) => {
         setBag(!openBag)
     }
 
+    
+    const handleOutSideClick = ( { target }) => {
+        if(!menuMobileRef.current.contains( target )){
+            setOpen(false)
+        }
+    }
+
     useEffect( () => {
         window.addEventListener('scroll', backgroundHandle)
     }, [])
@@ -62,7 +69,7 @@ export const Header = ({auth}) => {
                 {/* mobile  */}
                 <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen } />
 
-                <SideBarBag openBag={openBag} onHandleBag ={ onHandleBag }/>
+                <SideBarBag openBag={openBag} onHandleBag ={ onHandleBag } />
 
 
         
