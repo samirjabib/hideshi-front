@@ -17,11 +17,15 @@ export const SideBarBag = ( {onHandleBag, openBag}) => {
             </div>
             <span className="border bg-text_gray_for_span mt-14 w-full "></span>
             <CartShop/>
+
+            <button className="border-2 border-black mt-12 text-bg_light_primary bg-bg_dark_primary text-sm font-bold py-2">CHECKOUT</button>
+
             <span className="border bg-text_gray_for_span mt-10 w-full"></span>
 
-            <button className="border-2 border-black mt-12">CHECKOUT</button>
-            <input className="w-full border-2 border-black mt-8 mb-4" placeholder="E-mail"/>
-            <button className="border-2 border-black w-full">Suscribe</button>
+            <p className="mt-8 text-[12px] uppercase font-700">¡¡no te pierdas nuestras promociones!!</p>
+            <input className="w-full border-b p-2  text-sm outline-none border-black mt-2 " placeholder="E-mail"/>
+            <button className="border border-black mt-4  bg-text_dark_primary text-sm font-bold py-2 uppercase font-400 shadow transition-all duration-300 hover:bg-black hover:text-white">Suscribe</button>
+         
 
         </div>
     )
