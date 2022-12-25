@@ -9,13 +9,17 @@ export const SideBarBag = ( {onHandleBag, openBag}) => {
         
         ${openBag ? 'left-0': 'left-[-100%]'} `}>
         
-        <AiOutlineClose 
-                className={`self-end border-2 border-black `} 
-                onClick={ onHandleBag }
-                size={24}
-        />
+        <div className="w-full   flex flex-row justify-between mb-2">
+            <h6 className=" text-sm font-semibold">SHOPPING BAG</h6>
+            <AiOutlineClose 
+                    className={`self-end  font-bold `} 
+                    onClick={ onHandleBag }
+                    size={22}
+            />
+        </div>
+    
 
-        <span className="border border-black/30 mt-2"></span>
+        <span className="border border-black/30 my-4"></span>
         <CartShop/>
 
 

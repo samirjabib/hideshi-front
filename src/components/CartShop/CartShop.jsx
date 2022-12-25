@@ -1,7 +1,10 @@
-export const CartShop = () => {
+import { ListProducts } from "./ListProducts"
+
+export const CartShop = ({ products }) => {
+
     return(
         <div className="border-2 border-black">
-            soy el CartShop
+            <ListProducts products = { products }/>
         </div>
     )
 }
