@@ -6,7 +6,7 @@ export const CartShop = () => {
     const { products }=useProductsStore()
     
     return(
-        <div className="border-2 border-black ">
+        <div className="">
             <ListProducts products = { products }/>
         </div>
     )
