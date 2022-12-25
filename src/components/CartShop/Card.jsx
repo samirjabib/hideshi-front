@@ -3,7 +3,7 @@ export const Card = ( { product }) => {
     const { id, name, img, price, quantity = '', category='coleccion'} = product
 
     return(
-        <div className="gap-2 flex flex-row border-2 border-black p-2">
+        <div className="gap-2 flex flex-row  p-2">
             <img src={img} alt={name} className='w-[35%] object-contain'/>
             <div>
                 <p>{name}</p>

@@ -4,7 +4,7 @@ import { CartShop } from "./CartShop"
 export const SideBarBag = ( {onHandleBag, openBag}) => {
 
     return(
-        <div className={`fixed left-0 top-0 w-11/12  max-w-[18rem] h-screen overflow-scroll bg-bg_light_primary drop-shadow-2xl  z-[999] 
+        <div className={`fixed left-0 top-0 w-11/12  max-w-[18rem] h-screen overflow-scroll bg-bg_light_primary shadow-2xl  z-[999] 
             transition-all duration-300 flex-col flex p-4
         ${openBag ? 'left-0': 'left-[-100%]'} `}>
             <div className="w-[15.7rem] flex fixed flex-row justify-between mb-2 bg-bg_light_primary top-0 h-12 py-4 z-[999]">
@@ -14,7 +14,6 @@ export const SideBarBag = ( {onHandleBag, openBag}) => {
                         onClick={ onHandleBag }
                         size={22}
                 />
-
             </div>
             <span className="border border-black/30 mt-10 w-full"></span>
             <CartShop/>
