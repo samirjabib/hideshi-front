@@ -6,7 +6,7 @@ export const ListProducts = ( { products }) => {
     console.log(products)
 
     return(
-        <div className="overflow-scroll">
+        <div className="">
             { products.map( ( product) => {
                 return(
                     <Card product={product}/>

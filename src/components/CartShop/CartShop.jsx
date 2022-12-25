@@ -6,7 +6,7 @@ export const CartShop = () => {
     const { products }=useProductsStore()
     
     return(
-        <div className="">
+        <div className=" bg-bg_light_primary overflow-scroll h-[70%]">
             <ListProducts products = { products }/>
         </div>
     )
