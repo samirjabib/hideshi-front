@@ -12,10 +12,16 @@ export const ShopPage = () => {
    const  [open, setOpen ] = useState(true)
 
 
+    const timeToStartAD = () => {
+      
+    
+    }
+
+
    useEffect( () => {
-     setTimeout( () => {
-       setOpen(false)
-     }, 5000)
+        setTimeout( () => {
+            setOpen(false)
+        }, 4000)
    }, [])
  
    
@@ -27,6 +33,7 @@ export const ShopPage = () => {
         <div className=" w-full">
             <div 
                 data-aos='fade-up'
+                data-aos-duration="5000"
                 className={`bg-bg_dark_primary fixed text-bg_light_primary w-ful text-sm text-center h-24 flex items-center justify-center z-[999] transition-all duration-200 animate-bounce w-full ${open ? 'top-0' : 'top-[-100%] g'}`}>No te pierdas de nuestras promociones en envios! 🔥</div>
             <ProductsList products ={products}/>
         </div>

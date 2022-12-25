@@ -60,7 +60,12 @@ export const Header = ({auth}) => {
                 </h2>
 
                 <Link to='/' className="flex flex-row"> 
-                    <img src="" alt="LOGO" className="self-center  border-2 border-black w-16 h-12 flex items-center justify-center"/>
+                    <img 
+                    src=""
+                    alt="LOGO" 
+                    className="self-center  border-2 border-black w-16 h-12 flex items-center justify-center"
+                    data-aos='fade-right'
+                    />
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>
                 <div className={`w-full h-screen fixed  right-0 top-0 bg-black/50 ${open || openBag ? 'block' : 'hidden'}`}></div>
