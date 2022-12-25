@@ -13,7 +13,7 @@ export const ProductDetailPage = () => {
     const {  name, img, price } = product
 
     return(
-        <div className=" w-full p-4 flex flex-col md:flex-row md:justify-center h-screen mx-auto container mt-36 border-2 ">
+        <div className=" w-full p-4 flex flex-col md:flex-row md:justify-center h-screen mx-auto container mt-36    ">
             <img src={img} className=' mt-20black h-3/6 object-contain md:object-cover '/>
             <div className=" h-full flex flex-col p-4 mt-24 md:mt-16 md:ml-12">
                 <h2 className="mt-2 uppercase font-bold font-sans text-xs">{name}</h2>

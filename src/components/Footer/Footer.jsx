@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 
 export const Footer = () => {
     return (
-        <footer className="w-full bg-bg_light_primary text-bg_dark_primary py-16 relative">
-            <div className="md:px-12 lg:px-28">
-                <div className="container m-auto space-y-6  ">
+        <footer className="w-full bg-bg_light_primary text-bg_dark_primary py-16 relative containe">
+            <div className="md:px-12 lg:px-28 w-1/3 mx-auto flex flex-col">
+                <div className="r  space-y-6 ">
                     <img 
                         src="images/logo.svg" 
                         alt="HIDESHI-LOGO" 
-                        className="flex justify-center w-44 m-auto items-center border-2 border-black" 
+                        className="flex justify-center w-44 m-auto items-center" 
                     />
 
                     <ul
                         role="list"
-                        className="flex flex-col items-center justify-center gap-4 py-4 sm:flex-row sm:gap-8 upper"
+                        className="flex flex-col items-center justify-between w-full gap-4 py-4 sm:flex-row sm:gap-8 upper"
                     >
                         <li role="listitem"><a href="#" className="hover:text-primary">Home</a></li>
                         <li role="listitem"><a href="#" className="hover:text-primary">Tienda</a></li>

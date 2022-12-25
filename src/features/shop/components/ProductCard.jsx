@@ -8,7 +8,7 @@ export const ProductCard = ({product}) => {
     const navigate = useNavigate();
     
     return (
-        <div className=' cursor-pointer transition-transform duration-200 hover:scale-105'>
+        <div className=' cursor-pointer transition-transform duration-200 hover:scale-95'>
             <img 
                 src={img}
                 alt="image"

@@ -11,6 +11,7 @@ export const ListNavMobile = ({open, navLinks, setOpen}) => {
         setOpen(false)
     }
 
+
     const menuMobileRef = useRef();
     
 
@@ -29,7 +30,7 @@ export const ListNavMobile = ({open, navLinks, setOpen}) => {
 
     return(
         <ul
-            className={` fixed left-0 top-0 w-11/12 h-screen z-[999] bg-bg_light_primary drop-shadow-2xl flex flex-col
+            className={` fixed left-0 top-0 w-8/12 h-screen z-[999] bg-bg_light_primary drop-shadow-2xl flex flex-col
             p-4 transition-all duration-300
             ${open ? 'max-w-md' : 'left-[-100%]'}
             `}
@@ -40,7 +41,8 @@ export const ListNavMobile = ({open, navLinks, setOpen}) => {
                 onClick={ onCloseNavBar}
                 size={24}
             />
-            <NavLinks navLinks={navLinks} setOpen={setOpen}/>
+            <span className="border border-black/30 mt-2"></span>
+                <NavLinks navLinks={navLinks} setOpen={setOpen}/>
             <GetEmail/>
         </ul>
 
