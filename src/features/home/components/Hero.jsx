@@ -7,8 +7,6 @@ export const Hero = () => {
 
     return (
         <Fragment>
-            
-            
                 {
                     heroBackgrounds.map( background => {
                         return(
@@ -26,8 +24,7 @@ export const Hero = () => {
                                         Tienda
                                     </button>
                                 </Link>  
-                                    <button className="border px-12 py-4 text-2xl  w-52 shadow2xl rounded hover:text-[#2b2d42] hover:shadow-[inset_13rem_0_0_0]
-                                     hover:shadow-blue-400 hover:border-none duration-[400ms,700ms] transition-[color,box-shadow,border]">
+                                    <button className="border px-12 py-4 text-2xl  w-52 shadow2xl rounded hover:text-[#2b2d42]  transition-[color,box-shadow,border]">
                                         <a href="#categories-list" className="text-[#edf2f4] font-bold">Colección</a>   
                                     </button>                         
                                 </div>
