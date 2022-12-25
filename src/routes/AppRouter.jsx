@@ -11,7 +11,7 @@ const auth = {
     user:{
         id:2, 
         user:'bamba', 
-        role:'admin'
+        role:'user'
     },
     status:'not-authenticated',
     

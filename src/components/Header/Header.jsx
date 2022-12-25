@@ -4,7 +4,7 @@ import {  HiOutlineUserCircle } from 'react-icons/hi';
 import {RiShoppingBagLine, RiWindowsFill} from 'react-icons/ri'
 import { AiOutlineMenu } from 'react-icons/ai'
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { getLinksToNavBar } from "../../utils";
 import { ListNavMobile } from "./ListNavMobile";
@@ -19,8 +19,12 @@ export const Header = ({auth}) => {
 
     const [ open, setOpen ] = useState(false)
     const [ openBag, setBag ] = useState(false)
+    const [ navLinks, setNavLinks ] = useState([])
 
     const [ backgroundScroll, setBackgroundScroll ] = useState(true);
+    
+    const navigate = useNavigate()
+
 
 
     const backgroundHandle = () => {
@@ -45,8 +49,15 @@ export const Header = ({auth}) => {
     useEffect( () => {
         window.addEventListener('scroll', backgroundHandle)
     }, [])
-   
-    const navLinks = getLinksToNavBar(auth)
+    
+
+     useEffect( () => {
+        const navLinks = getLinksToNavBar(auth)
+        setNavLinks(navLinks) 
+    }, [auth])
+
+    console.log(navLinks)
+    console.log(auth)
 
     return (
         <header 
@@ -84,7 +95,7 @@ export const Header = ({auth}) => {
                         <span className="absolute top-[60%] left-[20%] bottom-[50%] py-[10px] rounded-full text-[.6rem] bg-black w-full h-[6px] flex items-center justify-center text-white">4</span>
                     </div>
                     
-                    <HiOutlineUserCircle size={22} className=' hidden md:block ' />
+                    <HiOutlineUserCircle size={22} className=' hidden md:block ' onClick={()=> navigate('/auth/')} />
                     <span className="self-center md:hidden">
                         <AiOutlineMenu size={22}  onClick={ () => setOpen(!open)}/>
                     </span> 

@@ -1,8 +1,9 @@
 
 const defaultNav = [
     { path:'/', display:'Home'},
-    { path:'/auth/login',  display:'Login'},
     { path:'/shop', display:'Shop'},
+    { path:'/auth/login',  display:'Login'},
+
 ]
 
 const authNav = [
@@ -18,13 +19,14 @@ const adminNav = [
 ]
 
 
+
 export const getLinksToNavBar = ( auth ) => {
     const { role } = auth.user
 
-    if(role === 'user'){
+    if( auth.status ==='authenticated' && role === 'user'){
         return authNav
     }
-    if(role ==='admin'){
+    if( role ==='admin'){
         return adminNav
     }
     if(auth.status === 'not-authenticated'){
