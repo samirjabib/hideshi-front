@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import { ProductDetailPage, ShopPage } from "../pages"
+import { Checkout, ProductDetailPage, ShopPage } from "../pages"
 
 export const ShopRouter = () => {
     return(
@@ -7,6 +7,7 @@ export const ShopRouter = () => {
             <Routes>       
                 <Route path="/" element={<ShopPage/>}/>
                 <Route path="/:id" element={<ProductDetailPage/>}/>
+                <Route path="/checkout" element={<Checkout/>}/>
             </Routes>
         </div>
 

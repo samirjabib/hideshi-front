@@ -79,7 +79,10 @@ export const Header = ({auth}) => {
 
         
                 <div className="flex gap-2 md:gap-4 cursor-pointer items-baseline ">
-                    <RiShoppingBagLine size={22} onClick={ onHandleBag }/>
+                    <div className="relative" onClick={ onHandleBag }>
+                        <RiShoppingBagLine size={22} />
+                        <span className="absolute top-[60%] left-[20%] bottom-[50%] py-[10px] rounded-full text-[.6rem] bg-black w-full h-[6px] flex items-center justify-center text-white">4</span>
+                    </div>
                     
                     <HiOutlineUserCircle size={22} className=' hidden md:block ' />
                     <span className="self-center md:hidden">
