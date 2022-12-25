@@ -13,7 +13,7 @@ const auth = {
         user:'bamba', 
         role:'admin'
     },
-    status:'authenticated',
+    status:'not-authenticated',
     
 }
 

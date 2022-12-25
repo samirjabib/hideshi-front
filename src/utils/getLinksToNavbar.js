@@ -26,7 +26,8 @@ export const getLinksToNavBar = ( auth ) => {
     }
     if(role ==='admin'){
         return adminNav
-    } else {
+    }
+    if(auth.status === 'not-authenticated'){
         return defaultNav
     }
 
