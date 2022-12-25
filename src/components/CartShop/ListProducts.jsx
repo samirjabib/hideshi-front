@@ -11,7 +11,7 @@ export const ListProducts = ( { products }) => {
                 return(
                     <div className="flex flex-col p-2">
                         <Card product={product}/>
-                        <span className="border border-black/30 mt-10 w-full"></span>
+                        <span className="border bg-text_dark_primary mt-10 w-full"></span>
                     </div>
 
                 )

@@ -15,8 +15,9 @@ export const SideBarBag = ( {onHandleBag, openBag}) => {
                         size={22}
                 />
             </div>
-            <span className="border border-black/30 mt-10 w-full"></span>
+            <span className="border bg-text_gray_for_span mt-10 w-full"></span>
             <CartShop/>
+            <span className="border bg-text_gray_for_span mt-10 w-full"></span>
 
             <button className="border-2 border-black mt-12">CHECKOUT</button>
             <input className="w-full border-2 border-black mt-8 mb-4" placeholder="E-mail"/>
