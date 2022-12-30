@@ -23,7 +23,8 @@ export const shopSlice = createSlice({
                 }
             } else {
                 let item = { ...payload, quantity:1}
-                state.cartItems.push(item, 'item subido')
+                state.cartItems.push(item)
+                console.log('item subido')
             }
         },
 
