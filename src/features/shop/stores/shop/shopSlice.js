@@ -48,6 +48,12 @@ export const shopSlice = createSlice({
                 state.cartItems = cartItemsFiltered;
                 console.log('item elminado')
             }
+        },
+
+        getTotalsItemsInCart : (state) => {
+            let { total, quantity } = {
+                
+            }
         }
     }
 });
