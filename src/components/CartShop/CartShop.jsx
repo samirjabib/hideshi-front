@@ -5,6 +5,7 @@ import { ListProducts } from "./ListProducts"
 export const CartShop = () => {
 
     const { products }=useProductsStore()
+    
 
     
     return(

@@ -1,9 +1,12 @@
+import { useShopStore } from "../../features";
+
 export const Card = ( { product }) => {
-    const { id, name, img, price, quantity = 4 , category='coleccion', } = product
 
-    const priceNumber = parseFloat(price)
+    const {onHandleAddToCart, onHandleDecrementItemInCart} = useShopStore()
 
-    const total = quantity * priceNumber;
+    const { id, name, img, price , category='coleccion', } = product
+
+
 
     return(
         <div className="gap-2 flex flex-row-reverse justify-between p-2 mt-8">
@@ -14,12 +17,22 @@ export const Card = ( { product }) => {
                 <div>
                     <div className="flex flex-row justify-between mt-4">
                         <div className=" flex items-center gap-2">
-                            <button className="text-[.6rem] text-text_gray_for_span">--</button>
-                            <span className="text-[.7rem]">{quantity}</span>
-                            <button className="text-[.6rem] text-text_gray_for_span">+</button>
+                            <button 
+                                className="text-[.6rem] text-text_gray_for_span"
+                                onClick={() =>onHandleDecrementItemInCart (product)}
+                            >
+                                -
+                            </button>
+                            <span className="text-[.7rem]">quantity</span>
+                            <button 
+                                className="text-[.6rem] text-text_gray_for_span"
+                                onClick={ () =>onHandleAddToCart(product)}
+                            >
+                                +
+                            </button>
                         </div>
 
-                        <div className="text-[.7rem] text-bg_dark_primary flex items-center"> $<span>{total}</span></div>
+                        <div className="text-[.7rem] text-bg_dark_primary flex items-center"> $<span>total</span></div>
                     </div>
                 </div>
             </div>

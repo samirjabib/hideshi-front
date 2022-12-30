@@ -34,14 +34,13 @@ export const shopSlice = createSlice({
                 item => item.id === payload.id
             );
 
-            const quantityItem = state.cartItems[existingItem].quantity
-
-            if( quantityItem > 1){
+           
+            if( state.cartItems[existingItem].quantity > 1){
                 state.cartItems[existingItem] = {
                     ...state.cartItems[existingItem],
                     quantity: state.cartItems[existingItem].quantity -= 1
                 }
-            } else if( quantityItem === 1){
+            } else if( state.cartItems[existingItem].quantity === 1){
                 const cartItemsFiltered = state.cartItems.filter(
                     (item) => item.id !== payload.id
                 )
