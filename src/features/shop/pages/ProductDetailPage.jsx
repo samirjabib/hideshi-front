@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
+import { useShopStore } from "../hooks";
 import { getProductById } from "../utils";
 
 export const ProductDetailPage = () => {
@@ -9,7 +10,11 @@ export const ProductDetailPage = () => {
 
     const product = useMemo( () => getProductById( id ), [id])
 
-    const {  name, img, price } = product
+    const {  onHandleAddToCart  } = useShopStore()
+    
+
+
+    const {  name, img, price } = product 
 
     return(
         <div className=" w-full p-4 flex flex-col md:flex-row md:justify-center h-screen mx-auto container mt-36">
@@ -27,7 +32,12 @@ export const ProductDetailPage = () => {
                         <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">xl</div>
                         <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 flex justify-center items-center ">xxl</div>
                     </option>
-                        <button className="bg-black w-full  text-sm uppercase py-4 shadow text-gray-200">add to bag</button>
+                        <button 
+                            className="bg-black w-full  text-sm uppercase py-4 shadow text-gray-200" 
+                            onClick={ () => onHandleAddToCart(product) }
+                        >
+                            add to bag
+                        </button>
                         <button className="bg-bg_light_primary border border-black w-full  text-sm uppercase py-4 shadow mt-4 text-black transition-all duration-200 hover:bg-bg_dark_primary hover:text-bg_light_primary hidden md:block">CHECKOUT</button>
                 </div>
 

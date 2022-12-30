@@ -1,31 +1,24 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, decreaseCount, increaseCount, removeFromCart, setCartOpen } from "../stores";
+import { addItemToCart } from "../stores";
 
 export const useShopStore = () => {
 
+    const {cartTotalQuantity, cartItems} = useSelector( (state)  => state.shop)
+
+    console.log(cartItems)
+
+
+
     const dispatch = useDispatch();
-    const { cart } = useSelector( state => state.cart )
-    
 
-    const onHandleCartSideBar = () => {
-        setCartOpen();
-    };
-
-    const addToCart = (item) => {
-        dispatch(addToCart(item));
-    };
-
-    const removeFromCart = ( id ) => {
-        dispatch(removeFromCart(id))
+    const onHandleAddToCart = (item) => {
+        dispatch(addItemToCart(item));
     }
-    
+
 
     return{
-        //Propierties 
-        cart,
-
-        //Method
-        
+        onHandleAddToCart
     }
-}
 
+
+}

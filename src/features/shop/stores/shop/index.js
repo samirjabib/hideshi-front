@@ -1,1 +1,1 @@
-export * from './shopSlice';
+export * from './shopSlice'

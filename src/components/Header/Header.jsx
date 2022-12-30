@@ -56,8 +56,6 @@ export const Header = ({auth}) => {
         setNavLinks(navLinks) 
     }, [auth])
 
-    console.log(navLinks)
-    console.log(auth)
 
     return (
         <header 

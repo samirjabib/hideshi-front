@@ -2,31 +2,37 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    isCartOpen:false,
-    cart:[],
-    items:[],
+    cartItems:[],
+    cartTotalQuantity:0,
+    cartTotalAmout:0,
 };
 
 export const shopSlice = createSlice({
-    name:'cart',
+    name:"cart",
     initialState,
     reducers:{
+        addItemToCart: ( state, { payload }) => {
+            const existingItem = state.cartItems.findIndex( //Encontramos si el objeto existe por su id
+                item => item.id === payload.id
+            );
 
-        setCartOpen: (state) => {
-            state.isCartOpen = !state.isCartOpen
-        },
-
-        addToCart: ( state, { payload }) => {
-            state.cart = [ ...state.cart, payload ]
+            if(existingItem >= 0){
+                state.cartItems[existingItem] = { //Si existe le sumamos 1 a su propiedad quantity.
+                    ...state.cartItems[existingItem], 
+                    quantity: state.cartItems[existingItem].quantity + 1
+                }
+            } else {
+                let item = { ...payload, quantity:1}
+                state.cartItems.push(item, 'item subido')
+            }
         },
 
         removeFromCart : (state, { payload } ) => {
-            state.cart = state.cart.filter( (item) => item.id !== payload.id)
+            state.cartItems = state.cartItems.filter( (item) => item.id !== payload.id)
         },
 
-
         increaseCount: ( state, { payload }) => {
-            state.cart = state.cart.map( item => {
+            state.cartItems = state.cartItems.map( item => {
                 if(item.id === payload.id){
                     item.count++
                 }
@@ -34,7 +40,7 @@ export const shopSlice = createSlice({
         },
 
         decreaseCount : ( state, { payload} ) => {
-            state.cart = state.cart.map( (item) => {
+            state.cartItems = state.cartItems.map( (item) => {
                 if(item.id === payload.id && item.count > 1){
                     item.count--;
                 }
@@ -45,12 +51,10 @@ export const shopSlice = createSlice({
 
 
 export const {
-    addToCart,
+    addItemToCart,
     decreaseCount,
     increaseCount,
     removeFromCart,
-    setCartOpen,
 } = shopSlice.actions
 
 
-export default shopSlice;
