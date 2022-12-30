@@ -4,8 +4,13 @@ export const Card = ( { product }) => {
 
     const {onHandleAddToCart, onHandleDecrementItemInCart} = useShopStore()
 
-    const { id, name, img, price , category='coleccion', } = product
+    const { id, name, img, price , quantity, category } = product
 
+    console.log(quantity)
+
+    const priceNumber = parseFloat(price);
+
+    const total = quantity * priceNumber;
 
 
     return(
@@ -23,7 +28,7 @@ export const Card = ( { product }) => {
                             >
                                 -
                             </button>
-                            <span className="text-[.7rem]">quantity</span>
+                            <span className="text-[.7rem]">{quantity}</span>
                             <button 
                                 className="text-[.6rem] text-text_gray_for_span"
                                 onClick={ () =>onHandleAddToCart(product)}
@@ -32,7 +37,7 @@ export const Card = ( { product }) => {
                             </button>
                         </div>
 
-                        <div className="text-[.7rem] text-bg_dark_primary flex items-center"> $<span>total</span></div>
+                        <div className="text-[.7rem] text-bg_dark_primary flex items-center"> $<span>{total}</span></div>
                     </div>
                 </div>
             </div>

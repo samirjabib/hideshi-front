@@ -5,7 +5,6 @@ export const useShopStore = () => {
 
     const {cartTotalQuantity, cartItems} = useSelector( (state)  => state.shop)
 
-    console.log(cartItems)
 
 
 
@@ -21,6 +20,7 @@ export const useShopStore = () => {
 
 
     return{
+        cartItems,
 
         //Methods
         onHandleAddToCart,
