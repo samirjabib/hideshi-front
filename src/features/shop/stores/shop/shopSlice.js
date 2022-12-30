@@ -16,6 +16,7 @@ export const shopSlice = createSlice({
                 item => item.id === payload.id
             );
 
+
             if(existingItem >= 0){
                 state.cartItems[existingItem] = { //Si existe le sumamos 1 a su propiedad quantity.
                     ...state.cartItems[existingItem], 
@@ -28,24 +29,26 @@ export const shopSlice = createSlice({
             }
         },
 
-        removeFromCart : (state, { payload } ) => {
-            state.cartItems = state.cartItems.filter( (item) => item.id !== payload.id)
-        },
-
-        increaseCount: ( state, { payload }) => {
-            state.cartItems = state.cartItems.map( item => {
-                if(item.id === payload.id){
-                    item.count++
-                }
-            })
-        },
-
         decreaseCount : ( state, { payload} ) => {
-            state.cartItems = state.cartItems.map( (item) => {
-                if(item.id === payload.id && item.count > 1){
-                    item.count--;
+            const existingItem = state.cartItems.findIndex(
+                item => item.id === payload.id
+            );
+
+            const quantityItem = state.cartItems[existingItem].quantity
+
+            if( quantityItem > 1){
+                state.cartItems[existingItem] = {
+                    ...state.cartItems[existingItem],
+                    quantity: state.cartItems[existingItem].quantity -= 1
                 }
-            })
+            } else if( quantityItem === 1){
+                const cartItemsFiltered = state.cartItems.filter(
+                    (item) => item.id !== payload.id
+                )
+
+                state.cartItems = cartItemsFiltered;
+                console.log('item elminado')
+            }
         }
     }
 });
@@ -54,8 +57,6 @@ export const shopSlice = createSlice({
 export const {
     addItemToCart,
     decreaseCount,
-    increaseCount,
-    removeFromCart,
 } = shopSlice.actions
 
 
