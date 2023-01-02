@@ -72,7 +72,7 @@ export const Header = ({auth}) => {
                     <img 
                     src=""
                     alt="logo" 
-                    className="self-center border-2 border-black w-16 h-12 mr-8 flex items-center justify-center"
+                    className="self-center border-2 border-black w-16 h-12 mr-6 flex items-center justify-center"
                     />
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>

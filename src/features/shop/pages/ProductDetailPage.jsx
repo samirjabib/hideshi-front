@@ -24,21 +24,29 @@ export const ProductDetailPage = () => {
                 <span className="font-sans text-[.8rem] mt-4 ">COP{price}</span>
                 <div className="flex flex-col">   
 
-                    <option className="mt-8 flex flex-row w-full } justify-between text-center uppercase my-4 font-medium md:gap-2 max-w-sm ">
+                    <div className="mt-8 flex flex-row w-full } justify-between text-center uppercase my-4 font-medium md:gap-2 max-w-sm ">
                         <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">xs</div>
                         <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">s</div>
                         <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">m</div>
                         <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">l</div>
                         <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">xl</div>
                         <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 flex justify-center items-center ">xxl</div>
-                    </option>
+                    </div>
                         <button 
-                            className="bg-black w-full  text-sm uppercase py-4 shadow text-gray-200" 
+                            className="bg-black w-full  text-sm uppercase py-4 shadow text-gray-200 mt-4" 
                             onClick={ () => onHandleAddToCart(product) }
                         >
                             add to bag
                         </button>
-                        <button className="bg-bg_light_primary border border-black w-full  text-sm uppercase py-4 shadow mt-4 text-black transition-all duration-200 hover:bg-bg_dark_primary hover:text-bg_light_primary hidden md:block">CHECKOUT</button>
+
+                        <button 
+                            className="bg-bg_light_primary border border-bg_dark_primary mt-4 w-full 
+                             text-sm uppercase py-4 shadow text-bg_dark_primary 
+                            hover:bg-bg_dark_primary hover:text-bg_light_primary" 
+                        >
+                            CHECKOUT
+                        </button>
+                
                 </div>
 
             </div>
