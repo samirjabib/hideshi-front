@@ -71,9 +71,8 @@ export const Header = ({auth}) => {
                 <Link to='/' className="flex flex-row"> 
                     <img 
                     src=""
-                    alt="LOGO" 
-                    className="self-center  border-2 border-black w-16 h-12 flex items-center justify-center"
-                    data-aos='fade-right'
+                    alt="logo" 
+                    className="self-center border-2 border-black w-16 h-12 mr-8 flex items-center justify-center"
                     />
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>
