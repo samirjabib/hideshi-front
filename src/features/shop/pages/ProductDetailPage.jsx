@@ -1,5 +1,6 @@
 import { useMemo } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { MaterialSpecifications } from "../components";
 import { useShopStore } from "../hooks";
 import { getProductById } from "../utils";
 
@@ -23,7 +24,6 @@ export const ProductDetailPage = () => {
                 <h2 className="uppercase font-bold font-sans text-xs">{name}</h2>
                 <span className="font-sans text-[.8rem] mt-4 ">COP{price}</span>
                 <div className="flex flex-col">   
-
                     <div className="mt-8 flex flex-row w-full } justify-between text-center uppercase my-4 font-medium md:gap-2 max-w-sm ">
                         <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">xs</div>
                         <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">s</div>
@@ -40,15 +40,14 @@ export const ProductDetailPage = () => {
                         </button>
 
                         <button 
-                            className="bg-bg_light_primary border border-bg_dark_primary mt-4 w-full 
+                            className="bg-bg_light_primary border border-bg_dark_primary mt-4 w-full transition-all duration
                              text-sm uppercase py-4 shadow text-bg_dark_primary 
                             hover:bg-bg_dark_primary hover:text-bg_light_primary" 
                         >
-                            CHECKOUT
+                            <Link to='/shop/checkout'>CHECKOUT</Link>
                         </button>
-                
                 </div>
-
+                <MaterialSpecifications/>
             </div>
         </div>
     )
