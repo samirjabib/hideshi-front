@@ -20,7 +20,7 @@ export const MaterialSpecifications = () => {
                 <li>- {description.label}</li>
             </ul>
 
-            <p className="uppercase text-sm font-bold mt-4 decoration-dotted">size chart</p>
+            <p className="uppercase text-sm font-bold mt-4 decoration-dotted decoration-black decoration-slice">size chart</p>
         </div>
     )
 }

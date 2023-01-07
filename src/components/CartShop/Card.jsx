@@ -4,9 +4,8 @@ export const Card = ( { product }) => {
 
     const {onHandleAddToCart, onHandleDecrementItemInCart} = useShopStore()
 
-    const { id, name, img, price , quantity, category } = product
+    const {  name, img, price , quantity, category } = product
 
-    console.log(quantity)
 
     const priceNumber = parseFloat(price);
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import {  HiOutlineUserCircle } from 'react-icons/hi';
-import {RiShoppingBagLine, RiWindowsFill} from 'react-icons/ri'
+import {RiShoppingBagLine} from 'react-icons/ri'
 import { AiOutlineMenu } from 'react-icons/ai'
 
 import { Link, useNavigate } from "react-router-dom";
