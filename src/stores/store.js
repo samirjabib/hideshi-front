@@ -1,4 +1,4 @@
-import { productSlice, shopSlice } from "../features";
+import { productSlice, shopSlice, authSlice } from "../features";
 
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -15,6 +15,7 @@ const persistConfig = {
 const reducer = combineReducers({
     products:productSlice.reducer,
     shop:shopSlice.reducer,
+    auth:authSlice.reducer,
 
 })
 

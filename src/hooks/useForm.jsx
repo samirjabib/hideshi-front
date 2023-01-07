@@ -1,48 +1,7 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+export const useForm = () => {
+    const hola = 'hola'
 
-export const useForm = ( initialForm = {}, formValidations = {} ) => { 
+    return{
 
-    const [ formState, setFormState ] = useState( initialForm );
-    const [ formValidation, setFormValidation ] = useState({});
-
-    const onInputChange = ({ target }) => { 
-        const { name, value } = target; 
-        setFormState({ 
-            ...formState, 
-            [ name ]: value 
-        });
-    }
-
-    useEffect( () => {
-        createValidations();
-    });
-
-    const onResetForm = () => {
-        setFormState( initialForm ); 
-    };
-
-
-    const createValidations = () => {
-        const formCheckedValues = {};
-
-        for(const formField of Object.keys( formValidations )){
-            const [ fn, errorMessage ] = formValidation[formField];
-            
-
-            formCheckedValues[`${formField}Valid`] = fn(formState[formField]) ? null : errorMessage;
-        };
-        setFormValidation( formCheckedValues);
-    };
-
-    return {
-        //Propierties
-
-        formState,
-        ...formState,  
-
-        //Methods
-        onInputChange, 
-        onResetForm, 
     }
 }
