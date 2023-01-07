@@ -1,3 +1,1 @@
-export { default as hideshiApi } from './hideshiApi';
-
-
+export * from './hideshiApi';

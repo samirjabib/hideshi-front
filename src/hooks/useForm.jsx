@@ -16,10 +16,6 @@ export const useForm = ( initialForm = {}, formValidations = {} ) => {
 
     useEffect( () => {
         createValidations();
-    }, []);
-
-    useEffect( () => {
-        createValidations();
     });
 
     const onResetForm = () => {
@@ -36,7 +32,7 @@ export const useForm = ( initialForm = {}, formValidations = {} ) => {
 
             formCheckedValues[`${formField}Valid`] = fn(formState[formField]) ? null : errorMessage;
         };
-        setFormState( formCheckedValues);
+        setFormValidation( formCheckedValues);
     };
 
     return {
