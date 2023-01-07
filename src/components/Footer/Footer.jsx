@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 export const Footer = () => {
     return (
-        <footer className="w-full bg-bg_light_primary text-bg_dark_primary py-16 relative container text-center">
-            <div className="md:px-12 lg:px-28 w-full items-center flex flex-col">
-                <div className="r  space-y-6 ">
+        <footer className="w-full bg-bg_light_primary text-bg_dark_primary py-16 relative container text-center mx-auto ">
+            <div className="md:px-12 lg:px-28 w-full items-center flex flex-col  ">
+                <div className="space-y-6 ">
                     <img 
                         src="images/logo.svg" 
                         alt="HIDESHI-LOGO" 

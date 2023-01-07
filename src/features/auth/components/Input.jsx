@@ -14,9 +14,9 @@ export const Input = ({ value, onInputChange, name , placeholder, type}) => {
     }
 
     return(
-        <div className="relative">
+        <div className="relative w-full">
             <input 
-            className="border-b outline-none bg-none mt-2" 
+            className="border-b outline-none bg-none mt-2 w-full" 
             type={ (type === 'password') ? showPassword : type}
             name={name} 
             placeholder={placeholder}

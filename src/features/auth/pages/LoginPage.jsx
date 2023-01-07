@@ -1,18 +1,18 @@
-import { useForm } from '../../../hooks'
-import { useAuthStore } from '../hooks'
+
+import { useNavigate } from 'react-router-dom'
 import { Input } from '../components'
 
-    const loginFormFields = {email:'', password:'',}
+const loginFormFields = {email:'', password:'',}
 
 export const Login = () => {
 
-    const { startLogin } = useAuthStore()
+    const navigate = useNavigate();
 
     const onInputChange = () => console.log('samir')
 
     return(
-        <section class=" min-h-[50rem] flex justify-center mx-auto container max-w-6xl items-center">
-            <div className=" flex  w-full  justify-center p-12 bg-bg_light_primary">
+        <section className=" min-h-[50rem] flex justify-center mx-auto container  items-center">
+            <div className=" flex  w-full  justify-center p-12 bg-bg_light_primary max-w-5xl mt-24">
                 <div className="md:w-1/2 px-8 md:px-16">
                     <h2 className="font-bold text-2xl text-[#2b2d42]">Login</h2>
                     <p className="text-xs mt-4 text-bg_dark_primary mb-4 ">If you are already a member, easily log in</p>
@@ -38,7 +38,7 @@ export const Login = () => {
                         <hr className="border-gray-400"/>
                     </div>
 
-                    <button className="bg-white border py-2 w-full  mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-[#002D74]">
+                    <button className="bg-white border py-2 w-full  mt-5 flex justify-center items-center text-sm duration-300 hover:bg-bg_dark_primary hover:text-bg_light_primary  text-[#002D74]">
                         <svg className="mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px">
                         <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
                         <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" />
@@ -54,7 +54,12 @@ export const Login = () => {
 
                     <div className="mt-3 text-xs flex justify-between items-center text-text_gray_for_span">
                         <p>Don't have an account?</p>
-                        <button className="py-2 px-5 border  text-bg_dark_primary bg-bg_light_primary">Register</button>
+                        <button 
+                            className="py-2 px-5 border  text-bg_dark_primary bg-bg_light_primary"
+                            onClick={ () =>  navigate('/auth/register')}
+                        >
+                          Register
+                        </button>
                     </div>
                 </div>
             </div>
