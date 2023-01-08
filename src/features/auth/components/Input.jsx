@@ -11,7 +11,7 @@ export const Input = ({ onInputChange, name , placeholder, type, value}) => {
         } else {
             setShowPassword('password')
         }
-    }
+    };
 
     return(
         <div className="relative w-full">
