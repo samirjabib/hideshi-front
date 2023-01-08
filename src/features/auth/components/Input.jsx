@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const Input = ({ value, onInputChange, name , placeholder, type}) => {
+export const Input = ({ onInputChange, name , placeholder, type, value}) => {
 
 
     const [ showPassword, setShowPassword ] = useState('password')

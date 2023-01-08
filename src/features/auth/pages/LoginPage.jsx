@@ -1,5 +1,6 @@
 
 import { useNavigate } from 'react-router-dom'
+import { useForm } from '../../../hooks';
 import { Input } from '../components'
 
 const loginFormFields = {email:'', password:'',}
@@ -8,7 +9,7 @@ export const Login = () => {
 
     const navigate = useNavigate();
 
-    const onInputChange = () => console.log('samir')
+    const { onInputChange, email, password } = useForm(loginFormFields);
 
     return(
         <section className=" min-h-[50rem] flex justify-center mx-auto container  items-center">
@@ -22,12 +23,14 @@ export const Login = () => {
                             type='email' 
                             placeholder='E-mail' 
                             name='email'
+                            value={email}
                         />
                         <Input 
                             onInputChange={onInputChange} 
                             type='password' 
                             placeholder='Password' 
                             name='password'
+                            value={password}
                         />
                         <button className="bg-bg_dark_primary text-bg_light_primary py-2 mt-4">Login</button>
                     </form>

@@ -1,15 +1,21 @@
 
 import { Input } from '../components'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useForm } from '../../../hooks';
 
-const loginFormFields = {email:'', password:'',}
+const registerFormFields = {
+    name:'', 
+    email:'', 
+    password:'',
+    confirmPassword:''
+}
 
 export const Register = () => {
 
     const navigate = useNavigate();
 
 
-    const onInputChange = () => console.log('samir')
+    const { onInputChange, name, email, password, confirmPassword } = useForm(registerFormFields);
 
     return(
         <section className=" min-h-[50rem] flex justify-center mx-auto container  items-center">
@@ -23,24 +29,28 @@ export const Register = () => {
                             type='text' 
                             placeholder='Name' 
                             name='name'
+                            value={name}
                         />
                          <Input 
                             onInputChange={onInputChange} 
                             type='email' 
                             placeholder='E-mail' 
                             name='email'
+                            value={email}
                         />
                         <Input 
                             onInputChange={onInputChange} 
                             type='password' 
                             placeholder='Password' 
                             name='password'
+                            value={password}
                         />
                          <Input 
                             onInputChange={onInputChange} 
                             type='password' 
                             placeholder='Confirm password' 
                             name='confirmPassword'
+                            value={confirmPassword}
                         />
                         <button className="bg-bg_dark_primary text-bg_light_primary py-2 mt-4">Login</button>
                     </form>
