@@ -7,7 +7,7 @@ import { ProductsList } from "../components";
 
 export const ShopPage = () => {
 
-   const { products ,startLoadingProducts } = useProductsStore();
+   const { products } = useProductsStore();
 
    const  [open, setOpen ] = useState(true)
 
@@ -20,9 +20,6 @@ export const ShopPage = () => {
 //    }, [])
  
    
-    useEffect(() => {
-        startLoadingProducts();
-    },[products])
 
     return(
         <div className=" w-full">

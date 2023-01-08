@@ -7,20 +7,12 @@ export const useProductsStore = () => {
     const { products } = useSelector( state => state.products )
 
 
-
-
-    const startLoadingProducts = async() => {
-        console.log('product has been changed')
-    }
-
-
     return {
         //Propierties
         products,
 
-        //Methods
 
-        startLoadingProducts,
+
     }
 
 

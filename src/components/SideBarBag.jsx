@@ -3,7 +3,7 @@ import { AiOutlineClose } from "react-icons/ai"
 import { useNavigate } from "react-router-dom";
 import { CartShop } from "./CartShop"
 
-export const SideBarBag = ( {onHandleBag, openBag}) => {
+export const SideBarBag = ( {onHandleBag, openBag, setBag}) => {
     
     const navigate = useNavigate() 
 
@@ -11,11 +11,30 @@ export const SideBarBag = ( {onHandleBag, openBag}) => {
         navigate('shop/checkout')
     }
 
+    const sideBarRef = useRef();
+    
+
+    useEffect( () => {
+        document.addEventListener( "click" , handleOutSideClick, true )
+    },[])
+
+    const handleOutSideClick = ( { target }) => {
+        if(!sideBarRef.current.contains( target )){
+            setBag(false)
+        }
+    }
+
+
+    
+
+
     return(
         <div 
             className={`fixed left-0 top-0 w-11/12  max-w-[18rem] h-screen overflow-scroll bg-bg_light_primary shadow-2xl  z-[999] 
             transition-all duration-300 flex-col flex p-4
             ${openBag ? 'left-0': 'left-[-100%]'} `}
+            ref={sideBarRef}
+
         
         >
             <div className="w-[15.7rem] flex fixed flex-row justify-between mb-2 bg-bg_light_primary top-0 h-12 py-4 z-[999] mt-4">

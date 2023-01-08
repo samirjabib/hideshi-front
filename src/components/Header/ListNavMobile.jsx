@@ -38,7 +38,7 @@ export const ListNavMobile = ({open, navLinks, setOpen}) => {
             ref={menuMobileRef}
         >
             <AiOutlineClose 
-                className={`self-end  border-black md:hidden`} 
+                className={`self-end cursor-pointer border-black md:hidden`} 
                 onClick={ onCloseNavBar}
                 size={24}
             />
