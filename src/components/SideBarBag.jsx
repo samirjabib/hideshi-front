@@ -19,7 +19,7 @@ export const SideBarBag = ( {onHandleBag, openBag, setBag}) => {
     },[])
 
     const handleOutSideClick = ( { target }) => {
-        if(!sideBarRef.current.contains( target )){
+        if(!sideBarRef.current?.contains( target )){
             setBag(false)
         }
     }

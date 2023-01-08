@@ -22,6 +22,7 @@ export const Input = ({ onInputChange, name , placeholder, type, value}) => {
             placeholder={placeholder}
             value={value}
             onChange={onInputChange}
+            autoComplete="new-password"            
             />
 
             <svg 

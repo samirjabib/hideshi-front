@@ -2,6 +2,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useForm } from '../../../hooks';
 import { Input } from '../components'
+import { useAuthStore } from '../hooks/useAuthStore';
 
 const loginFormFields = {email:'', password:'',}
 
@@ -10,6 +11,14 @@ export const Login = () => {
     const navigate = useNavigate();
 
     const { onInputChange, email, password } = useForm(loginFormFields);
+    const { startLogin } = useAuthStore();
+
+
+    const onHandleLogin = (event) => {
+        event.preventDefault()
+
+        startLogin({email, password})
+    }
 
     return(
         <section className=" min-h-[50rem] flex justify-center mx-auto container  items-center">
@@ -17,7 +26,10 @@ export const Login = () => {
                 <div className="md:w-1/2 px-8 md:px-16">
                     <h2 className="font-bold text-2xl text-[#2b2d42]">Login</h2>
                     <p className="text-xs mt-4 text-bg_dark_primary mb-4 ">If you are already a member, easily log in</p>
-                    <form action="" class="flex flex-col gap-4">
+                    <form 
+                        action="" 
+                        className="flex flex-col gap-4"
+                    >
                         <Input 
                             onInputChange={onInputChange} 
                             type='email' 
@@ -32,7 +44,12 @@ export const Login = () => {
                             name='password'
                             value={password}
                         />
-                        <button className="bg-bg_dark_primary text-bg_light_primary py-2 mt-4">Login</button>
+                        <button 
+                            className="bg-bg_dark_primary text-bg_light_primary py-2 mt-4"
+                            onClick={onHandleLogin}
+                        >
+                            Login
+                        </button>
                     </form>
 
                     <div className="mt-6 grid grid-cols-3 items-center text-gray-400">

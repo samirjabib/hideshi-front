@@ -23,7 +23,10 @@ export const Register = () => {
                 <div className="md:w-1/2 px-8 md:px-16">
                     <h2 className="font-bold text-2xl text-[#2b2d42]">Registrate</h2>
                     <p className="text-xs mt-4 text-bg_dark_primary mb-4 ">¿No tienes cuenta todavia?</p>
-                    <form action="" class="flex flex-col gap-4">
+                    <form 
+                        action="" 
+                        class="flex flex-col gap-4"
+                    >
                         <Input 
                             onInputChange={onInputChange} 
                             type='text' 

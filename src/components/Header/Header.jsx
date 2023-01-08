@@ -21,12 +21,11 @@ export const Header = ({auth}) => {
     const [ openBag, setBag ] = useState(false)
     const [ navLinks, setNavLinks ] = useState([])
 
-    const [ backgroundScroll, setBackgroundScroll ] = useState(true);
-    
     const navigate = useNavigate()
 
 
-
+    const [ backgroundScroll, setBackgroundScroll ] = useState(true);
+    
     const backgroundHandle = () => {
         if(window.scrollY >= 100){
             setBackgroundScroll(false);
@@ -38,9 +37,6 @@ export const Header = ({auth}) => {
     const onHandleBag = () => {
         setBag(!openBag)
     }
-
-    
-
 
     useEffect( () => {
         window.addEventListener('scroll', backgroundHandle)

@@ -20,7 +20,7 @@ export const ListNavMobile = ({open, navLinks, setOpen}) => {
     },[])
 
     const handleOutSideClick = ( { target }) => {
-        if(!menuMobileRef.current.contains( target )){
+        if(!menuMobileRef.current?.contains( target )){
             setOpen(false)
         }
     }
