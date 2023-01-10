@@ -10,6 +10,7 @@ import { getLinksToNavBar } from "../../utils";
 import { ListNavMobile } from "./ListNavMobile";
 import { ListNavDesktop } from "./ListNavDesktop";
 import { SideBarBag } from "../SideBarBag";
+import { useBackgroundScroll, useOpen } from "../../hooks";
 
 
 
@@ -17,22 +18,25 @@ import { SideBarBag } from "../SideBarBag";
 
 export const Header = ({auth}) => {
 
-    const [ open, setOpen ] = useState(false)
-    const [ openBag, setBag ] = useState(false)
+    // const [ open, setOpen ] = useState(false)
+    // const [ openBag, setBag ] = useState(false)
     const [ navLinks, setNavLinks ] = useState([])
+
+    const {open, openBag, setBag, setOpen} = useOpen()
+    const { backgroundHandle, backgroundScroll } = useBackgroundScroll()
 
     const navigate = useNavigate()
 
 
-    const [ backgroundScroll, setBackgroundScroll ] = useState(true);
+    // const [ backgroundScroll, setBackgroundScroll ] = useState(true);
     
-    const backgroundHandle = () => {
-        if(window.scrollY >= 100){
-            setBackgroundScroll(false);
-        } else {
-            setBackgroundScroll(true);
-        }
-    }
+    // const backgroundHandle = () => {
+    //     if(window.scrollY >= 100){
+    //         setBackgroundScroll(false);
+    //     } else {
+    //         setBackgroundScroll(true);
+    //     }
+    // }
 
     const onHandleBag = () => {
         setBag(!openBag)
@@ -40,7 +44,6 @@ export const Header = ({auth}) => {
 
     useEffect( () => {
         window.addEventListener('scroll', backgroundHandle)
-
     }, [])
     
 

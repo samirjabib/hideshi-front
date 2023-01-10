@@ -27,9 +27,6 @@ export const SideBarBag = ( {onHandleBag, openBag, setBag}) => {
     }
 
 
-    
-
-
     return(
         <div 
             className={`fixed left-0 top-0 w-11/12  max-w-[24rem] h-screen overflow-scroll bg-bg_light_primary shadow-2xl  z-[999] 
