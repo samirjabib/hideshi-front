@@ -40,6 +40,7 @@ export const Header = ({auth}) => {
 
     useEffect( () => {
         window.addEventListener('scroll', backgroundHandle)
+
     }, [])
     
 
@@ -74,7 +75,7 @@ export const Header = ({auth}) => {
                 {/* mobile  */}
                 <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen } />
 
-                <SideBarBag openBag={openBag} onHandleBag ={ onHandleBag } setBag={ setBag} />
+                <SideBarBag openBag={openBag} onHandleBag ={ onHandleBag } setBag={ setBag } />
 
 
         

@@ -17,6 +17,8 @@ export const ListNavMobile = ({open, navLinks, setOpen}) => {
 
     useEffect( () => {
         document.addEventListener( "click" , handleOutSideClick, true )
+
+        return document.removeEventListener("click", handleOutSideClick, false)
     },[])
 
     const handleOutSideClick = ( { target }) => {

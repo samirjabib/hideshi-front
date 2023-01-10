@@ -16,6 +16,8 @@ export const SideBarBag = ( {onHandleBag, openBag, setBag}) => {
 
     useEffect( () => {
         document.addEventListener( "click" , handleOutSideClick, true )
+
+        return document.removeEventListener("click", handleOutSideClick, false)
     },[])
 
     const handleOutSideClick = ( { target }) => {
@@ -30,17 +32,17 @@ export const SideBarBag = ( {onHandleBag, openBag, setBag}) => {
 
     return(
         <div 
-            className={`fixed left-0 top-0 w-11/12  max-w-[18rem] h-screen overflow-scroll bg-bg_light_primary shadow-2xl  z-[999] 
+            className={`fixed left-0 top-0 w-11/12  max-w-[24rem] h-screen overflow-scroll bg-bg_light_primary shadow-2xl  z-[999] 
             transition-all duration-300 flex-col flex p-4
             ${openBag ? 'left-0': 'left-[-100%]'} `}
             ref={sideBarRef}
 
         
         >
-            <div className="w-[15.7rem] flex fixed flex-row justify-between mb-2 bg-bg_light_primary top-0 h-12 py-4 z-[999] mt-4">
+            <div className="w-[21rem] flex fixed flex-row justify-between mb-2 bg-bg_light_primary top-0 h-12 py-4 z-[999] mt-4">
                 <h6 className=" text-sm font-semibold flex flex-row self-end">SHOPPING BAG</h6>
                 <AiOutlineClose 
-                        className={`self-end font-bold `} 
+                        className={`self-end font-bold cursor-pointer `} 
                         onClick={ onHandleBag }
                         size={22}
                 />
