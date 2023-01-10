@@ -53,7 +53,6 @@ export const shopSlice = createSlice({
                 console.log('item elminado')
             }
         },
-
     }
 });
 
