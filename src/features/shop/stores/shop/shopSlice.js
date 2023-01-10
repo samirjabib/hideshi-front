@@ -56,8 +56,8 @@ export const shopSlice = createSlice({
             }
         },
 
-        setCartIsOpen: (state) => {
-            state.isCartOpen = !state.payload;
+        setCartIsOpen: (state, { payload }) => {
+            state.isCartOpen = payload;
         },
     }
 });

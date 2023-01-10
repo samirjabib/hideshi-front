@@ -18,7 +18,7 @@ export const useShopStore = () => {
     }
 
     const onHandleBag = () => {
-        dispatch(setCartIsOpen())
+        dispatch(setCartIsOpen(!isCartOpen))
     }
 
 
