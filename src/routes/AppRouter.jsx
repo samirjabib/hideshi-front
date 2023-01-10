@@ -44,7 +44,7 @@ export const AppRouter = () => {
                         (auth.status == "not-authenticated")
                         ? 
                             <>
-                                <Route path='/' element={<Home/>}/>
+                                <Route index path='/' element={<Home/>}/>
                                 <Route path='/auth/*' element={ <AuthRoutes/>}/>
                                 <Route path='/shop/*' element={<ShopRouter/>} />
                                 <Route path='/*' element={ <MissingURL/>}/>

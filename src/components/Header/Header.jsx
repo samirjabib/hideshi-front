@@ -10,6 +10,7 @@ import { getLinksToNavBar } from "../../utils";
 import { ListNavMobile } from "./ListNavMobile";
 import { ListNavDesktop } from "./ListNavDesktop";
 import { SideBarBag } from "../SideBarBag";
+import { useShopStore } from "../../features";
 
 
 
@@ -23,6 +24,7 @@ export const Header = ({auth}) => {
 
     const navigate = useNavigate()
 
+    const { onHandleOpenCart,  isCartOpen  } = useShopStore();
 
     const [ backgroundScroll, setBackgroundScroll ] = useState(true);
     
@@ -34,9 +36,6 @@ export const Header = ({auth}) => {
         }
     }
 
-    const onHandleBag = () => {
-        setBag(!openBag)
-    }
 
     useEffect( () => {
         window.addEventListener('scroll', backgroundHandle)
@@ -74,19 +73,24 @@ export const Header = ({auth}) => {
                 {/* mobile  */}
                 <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen } />
 
-                <SideBarBag openBag={openBag} onHandleBag ={ onHandleBag } setBag={ setBag} />
+                <SideBarBag openBag={isCartOpen} onHandleBag ={ onHandleOpenCart }/>
 
 
         
                 <div className="flex gap-2 md:gap-4 cursor-pointer items-baseline ">
-                    <div className="relative" onClick={ onHandleBag }>
+                    <div className="relative" onClick={ onHandleOpenCart }>
                         <RiShoppingBagLine size={22} />
                         <span className="absolute top-[60%] left-[20%] bottom-[50%] py-[10px] rounded-full text-[.6rem] bg-black w-full h-[6px] flex items-center justify-center text-white">4</span>
                     </div>
                     
-                    <HiOutlineUserCircle size={22} className=' hidden md:block ' onClick={()=> navigate('/auth/')} />
+                    <HiOutlineUserCircle 
+                        size={22} 
+                        className=' hidden md:block ' 
+                        onClick={()=> navigate('/auth/login')}
+                    
+                     />
                     <span className="self-center md:hidden">
-                        <AiOutlineMenu size={22}  onClick={ () => setOpen(!open)}/>
+                        <AiOutlineMenu size={22}   onClick={ () => setOpen(!open)}/>
                     </span> 
 
                 </div>

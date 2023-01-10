@@ -5,17 +5,17 @@ const initialState = {
     cartItems:[],
     cartTotalQuantity:0,
     cartTotalAmout:0,
+    isCartOpen:'samir',
 };
 
 export const shopSlice = createSlice({
-    name:"cart",
+    name:"shop",
     initialState,
     reducers:{
         addItemToCart: ( state, { payload }) => {
             const existingItem = state.cartItems.findIndex( //Encontramos si el objeto existe por su id
                 item => item.id === payload.id
-            );
-
+        );
 
             if(existingItem >= 0){
                 state.cartItems[existingItem] = { //Si existe le sumamos 1 a su propiedad quantity.
@@ -54,7 +54,11 @@ export const shopSlice = createSlice({
             let { total, quantity } = {
                 
             }
-        }
+        },
+
+        setCartOpen: (state, { payload }) => {
+            state.isCartOpen = payload;
+        },
     }
 });
 
@@ -62,6 +66,7 @@ export const shopSlice = createSlice({
 export const {
     addItemToCart,
     decreaseCount,
+    setCartOpen,
 } = shopSlice.actions
 
 

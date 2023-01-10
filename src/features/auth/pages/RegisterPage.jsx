@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from '../../../hooks';
 
 const registerFormFields = {
-    name:'', 
+    firstName:'', 
+    lastName:'',
     email:'', 
     password:'',
     confirmPassword:''
@@ -15,7 +16,7 @@ export const Register = () => {
     const navigate = useNavigate();
 
 
-    const { onInputChange, name, email, password, confirmPassword } = useForm(registerFormFields);
+    const { onInputChange, firstName, lastName, email, password, confirmPassword } = useForm(registerFormFields);
 
     return(
         <section className=" min-h-[50rem] flex justify-center mx-auto container  items-center">
@@ -30,9 +31,16 @@ export const Register = () => {
                         <Input 
                             onInputChange={onInputChange} 
                             type='text' 
-                            placeholder='Name' 
-                            name='name'
-                            value={name}
+                            placeholder='First Name' 
+                            name='lastName'
+                            value={firstName}
+                        />
+                         <Input 
+                            onInputChange={onInputChange} 
+                            type='text' 
+                            placeholder='Last Name' 
+                            name='firstName'
+                            value={lastName}
                         />
                          <Input 
                             onInputChange={onInputChange} 

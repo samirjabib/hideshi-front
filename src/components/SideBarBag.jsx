@@ -3,7 +3,7 @@ import { AiOutlineClose } from "react-icons/ai"
 import { useNavigate } from "react-router-dom";
 import { CartShop } from "./CartShop"
 
-export const SideBarBag = ( {onHandleBag, openBag, setBag}) => {
+export const SideBarBag = ( {onHandleBag, openBag }) => {
     
     const navigate = useNavigate() 
 
@@ -20,7 +20,7 @@ export const SideBarBag = ( {onHandleBag, openBag, setBag}) => {
 
     const handleOutSideClick = ( { target }) => {
         if(!sideBarRef.current?.contains( target )){
-            setBag(false)
+            onHandleBag()
         }
     }
 
@@ -40,7 +40,7 @@ export const SideBarBag = ( {onHandleBag, openBag, setBag}) => {
             <div className="w-[15.7rem] flex fixed flex-row justify-between mb-2 bg-bg_light_primary top-0 h-12 py-4 z-[999] mt-4">
                 <h6 className=" text-sm font-semibold flex flex-row self-end">SHOPPING BAG</h6>
                 <AiOutlineClose 
-                        className={`self-end font-bold `} 
+                        className={`self-end font-bold cursor-pointer`} 
                         onClick={ onHandleBag }
                         size={22}
                 />

@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const hideshiApi = axios.create({
-    baseURL:'https://hideshi-store.onrender.com/api/v1'
+    baseURL:'https://hideshi-store.onrender.com/api/v1/'
 });
 
 

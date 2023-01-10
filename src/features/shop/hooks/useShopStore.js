@@ -1,12 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addItemToCart, decreaseCount } from "../stores";
+import { addItemToCart, decreaseCount, setCartOpen } from "../stores";
 
 export const useShopStore = () => {
 
-    const {cartTotalQuantity, cartItems} = useSelector( (state)  => state.shop)
+    const {cartTotalQuantity, cartItems, isCartOpen } = useSelector( (state)  => state.shop)
 
-
-
+    console.log(isCartOpen)
 
     const dispatch = useDispatch();
 
@@ -19,12 +18,20 @@ export const useShopStore = () => {
     }
 
 
+    const onHandleOpenCart = () => {
+        dispatch(setCartOpen(!isCartOpen))
+    };
+
+
+
     return{
         cartItems,
+        isCartOpen,
 
         //Methods
         onHandleAddToCart,
-        onHandleDecrementItemInCart
+        onHandleDecrementItemInCart,
+        onHandleOpenCart,
     }
 
 

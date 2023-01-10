@@ -16,7 +16,7 @@ export const Login = () => {
 
     const onHandleLogin = (event) => {
         event.preventDefault()
-
+        console.log('click')
         startLogin({email, password})
     }
 

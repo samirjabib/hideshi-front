@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { MaterialSpecifications } from "../components";
 import { useShopStore } from "../hooks";
 import { getProductById } from "../utils";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const ProductDetailPage = () => {
 
@@ -11,7 +13,9 @@ export const ProductDetailPage = () => {
 
     const product = useMemo( () => getProductById( id ), [id])
 
-    const {  onHandleAddToCart  } = useShopStore()
+    const {  onHandleAddToCart  } = useShopStore();
+
+
     
 
 
