@@ -20,7 +20,7 @@ export const SideBarBag = ( {onHandleBag, openBag }) => {
 
     const handleOutSideClick = ( { target }) => {
         if(!sideBarRef.current?.contains( target )){
-            onHandleBag()
+            onHandleBag(!openBag)
         }
     }
 

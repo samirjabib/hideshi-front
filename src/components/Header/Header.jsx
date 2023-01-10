@@ -19,7 +19,6 @@ import { useShopStore } from "../../features";
 export const Header = ({auth}) => {
 
     const [ open, setOpen ] = useState(false)
-    const [ openBag, setBag ] = useState(false)
     const [ navLinks, setNavLinks ] = useState([])
 
     const navigate = useNavigate()
@@ -67,13 +66,13 @@ export const Header = ({auth}) => {
                     />
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>
-                <div className={`w-full h-screen fixed  right-0 top-0 bg-black/50 ${open || openBag ? 'block' : 'hidden'}`}></div>
+                <div className={`w-full h-screen fixed  right-0 top-0 bg-black/50 ${open || isCartOpen ? 'block' : 'hidden'}`}></div>
 
                 <ListNavDesktop navLinks ={navLinks} setOpen ={ setOpen }/>
                 {/* mobile  */}
                 <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen } />
 
-                <SideBarBag openBag={isCartOpen} onHandleBag ={ onHandleOpenCart }/>
+                <SideBarBag openBag={isCartOpen} onHandleBag ={ onHandleOpenCart } />
 
 
         
