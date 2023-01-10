@@ -5,7 +5,7 @@ const initialState = {
     cartItems:[],
     cartTotalQuantity:0,
     cartTotalAmout:0,
-    isCartOpen:'samir',
+    isCartOpen:false,
 };
 
 export const shopSlice = createSlice({
@@ -56,8 +56,8 @@ export const shopSlice = createSlice({
             }
         },
 
-        setCartOpen: (state, { payload }) => {
-            state.isCartOpen = payload;
+        setCartIsOpen: (state) => {
+            state.isCartOpen = !state.payload;
         },
     }
 });
@@ -66,7 +66,7 @@ export const shopSlice = createSlice({
 export const {
     addItemToCart,
     decreaseCount,
-    setCartOpen,
+    setCartIsOpen,
 } = shopSlice.actions
 
 

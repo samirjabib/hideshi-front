@@ -23,7 +23,8 @@ export const Header = ({auth}) => {
 
     const navigate = useNavigate()
 
-    const { onHandleOpenCart,  isCartOpen  } = useShopStore();
+    const { onHandleBag,  isCartOpen } = useShopStore();
+    console.log(isCartOpen)
 
     const [ backgroundScroll, setBackgroundScroll ] = useState(true);
     
@@ -72,12 +73,12 @@ export const Header = ({auth}) => {
                 {/* mobile  */}
                 <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen } />
 
-                <SideBarBag openBag={isCartOpen} onHandleBag ={ onHandleOpenCart } />
+                <SideBarBag openBag={isCartOpen} onHandleBag ={ onHandleBag }/>
 
 
         
                 <div className="flex gap-2 md:gap-4 cursor-pointer items-baseline ">
-                    <div className="relative" onClick={ onHandleOpenCart }>
+                    <div className="relative" onClick={ onHandleBag }>
                         <RiShoppingBagLine size={22} />
                         <span className="absolute top-[60%] left-[20%] bottom-[50%] py-[10px] rounded-full text-[.6rem] bg-black w-full h-[6px] flex items-center justify-center text-white">4</span>
                     </div>

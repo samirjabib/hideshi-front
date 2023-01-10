@@ -18,9 +18,12 @@ export const SideBarBag = ( {onHandleBag, openBag }) => {
         document.addEventListener( "click" , handleOutSideClick, true )
     },[])
 
+
+
+    
     const handleOutSideClick = ( { target }) => {
         if(!sideBarRef.current?.contains( target )){
-            onHandleBag(!openBag)
+            onHandleBag()
         }
     }
 
