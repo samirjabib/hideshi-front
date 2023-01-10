@@ -10,47 +10,30 @@ import { getLinksToNavBar } from "../../utils";
 import { ListNavMobile } from "./ListNavMobile";
 import { ListNavDesktop } from "./ListNavDesktop";
 import { SideBarBag } from "../SideBarBag";
-import { useBackgroundScroll, useOpen } from "../../hooks";
+import { useBackgroundScroll, useNavLinks, useOpen } from "../../hooks";
+import { useShopStore } from "../../features";
 
 
 
 
 
-export const Header = ({auth}) => {
+export const Header = () => {
 
-    // const [ open, setOpen ] = useState(false)
-    // const [ openBag, setBag ] = useState(false)
-    const [ navLinks, setNavLinks ] = useState([])
 
-    const {open, openBag, setBag, setOpen} = useOpen()
+    const {open,   setOpen} = useOpen()
     const { backgroundHandle, backgroundScroll } = useBackgroundScroll()
+    // const {isCartOpen, onSetCartOpen} = useShopStore()
+    const { navLinks } = useNavLinks()
+
+    const { isCartOpen, onSetCartOpen } = useShopStore()
+
 
     const navigate = useNavigate()
-
-
-    // const [ backgroundScroll, setBackgroundScroll ] = useState(true);
-    
-    // const backgroundHandle = () => {
-    //     if(window.scrollY >= 100){
-    //         setBackgroundScroll(false);
-    //     } else {
-    //         setBackgroundScroll(true);
-    //     }
-    // }
 
     const onHandleBag = () => {
         setBag(!openBag)
     }
 
-    useEffect( () => {
-        window.addEventListener('scroll', backgroundHandle)
-    }, [])
-    
-
-     useEffect( () => {
-        const navLinks = getLinksToNavBar(auth)
-        setNavLinks(navLinks) 
-    }, [auth])
 
 
     return (
@@ -72,23 +55,23 @@ export const Header = ({auth}) => {
                     />
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>
-                <div className={`w-full h-screen fixed  right-0 top-0 bg-black/50 ${open || openBag ? 'block' : 'hidden'}`}></div>
+                <div className={`w-full h-screen fixed  right-0 top-0 bg-black/50 ${open || isCartOpen ? 'block' : 'hidden'}`}></div>
 
                 <ListNavDesktop navLinks ={navLinks} setOpen ={ setOpen }/>
                 {/* mobile  */}
                 <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen } />
 
-                <SideBarBag openBag={openBag} onHandleBag ={ onHandleBag } setBag={ setBag } />
+                <SideBarBag openBag={isCartOpen} setBag={ onSetCartOpen } />
 
 
         
                 <div className="flex gap-2 md:gap-4 cursor-pointer items-baseline ">
-                    <div className="relative" onClick={ onHandleBag }>
+                    <div className="relative" onClick={ () => onSetCartOpen(!isCartOpen) }>
                         <RiShoppingBagLine size={22} />
                         <span className="absolute top-[60%] left-[20%] bottom-[50%] py-[10px] rounded-full text-[.6rem] bg-black w-full h-[6px] flex items-center justify-center text-white">4</span>
                     </div>
                     
-                    <HiOutlineUserCircle size={22} className=' hidden md:block ' onClick={()=> navigate('/auth/')} />
+                    <HiOutlineUserCircle size={22} className=' hidden md:block ' onClick={()=> navigate('/auth/login')} />
                     <span className="self-center md:hidden">
                         <AiOutlineMenu size={22}  onClick={ () => setOpen(!open)}/>
                     </span> 

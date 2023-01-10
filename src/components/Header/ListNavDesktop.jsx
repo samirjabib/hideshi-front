@@ -4,7 +4,7 @@ export const ListNavDesktop = ({navLinks, setOpen}) => {
 
 
     return(
-        <ul className='hidden md:flex gap-8  mr-36 font-400 w-1/3 justify-between'>
+        <ul className='hidden md:flex gap-8  w-36 justify-around  mr-36'>
             <NavLinks navLinks={navLinks} desktop={true} setOpen ={ setOpen }/>
         </ul>
     )

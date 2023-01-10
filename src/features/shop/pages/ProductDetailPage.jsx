@@ -10,8 +10,10 @@ export const ProductDetailPage = () => {
     
     const product = useMemo( () => getProductById( id ), [id])
     
-    const {  onHandleAddToCart  } = useShopStore()
-    
+    const {  onHandleAddToCart, onSetCartOpen  } = useShopStore()
+
+
+
 
     const {  name, img, price } = product 
 

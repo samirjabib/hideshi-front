@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useBackgroundScroll = () => {
     
@@ -11,6 +11,11 @@ export const useBackgroundScroll = () => {
             setBackgroundScroll(true);
         }
     }
+
+    useEffect( () => {
+        window.addEventListener('scroll', backgroundHandle)
+    }, [])
+    
 
     return{
         backgroundScroll,
