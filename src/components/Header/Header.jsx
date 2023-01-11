@@ -22,23 +22,26 @@ export const Header = () => {
 
     const {open,   setOpen} = useOpen()
     const { backgroundHandle, backgroundScroll } = useBackgroundScroll()
-    // const {isCartOpen, onSetCartOpen} = useShopStore()
     const { navLinks } = useNavLinks()
-
     const { isCartOpen, onSetCartOpen } = useShopStore()
 
 
     const navigate = useNavigate()
 
-    const onHandleBag = () => {
-        setBag(!openBag)
-    }
+    
+    var body = document.getElementsByTagName('body')[0]
 
+
+    if(open || isCartOpen){
+        body.style.overflow ='hidden'
+    } else {
+        body.style.overflow = 'auto'
+    }
 
 
     return (
         <header 
-            className= {`fixed h-20 flex flex-col  justify-center p-4 w-full top-0 z-[50]  ${ backgroundScroll ? 'bg-transparent' : 'bg-bg_light_primary' }`}
+            className= {`fixed h-20 flex flex-col  justify-center p-4 w-full top-0 z-[50] ${ backgroundScroll ? 'bg-transparent' : 'bg-bg_light_primary' }`}
             onChange={ backgroundHandle }
         >
             <nav className=" w-full flex justify-between h-16 p-2 items-center ">
@@ -55,7 +58,7 @@ export const Header = () => {
                     />
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>
-                <div className={`w-full h-screen fixed  right-0 top-0 bg-black/50 ${open || isCartOpen ? 'block' : 'hidden'}`}></div>
+                <div className={`w-full h-screen fixed scroll- z-50 right-0 top-0 bg-black/70 ${open || isCartOpen ? 'block' : 'hidden'}`}></div>
 
                 <ListNavDesktop navLinks ={navLinks} setOpen ={ setOpen }/>
                 {/* mobile  */}
