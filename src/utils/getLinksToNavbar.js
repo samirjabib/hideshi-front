@@ -18,17 +18,22 @@ const adminNav = [
 
 
 
-export const getLinksToNavBar = ( auth ) => {
-    const { role } = auth.user
+export const getLinksToNavBar = (auth) => {
+    console.log(auth)
 
-    if( auth.status ==='authenticated' && role === 'user'){
+
+    if( auth.status ==='authenticated' && auth.role === 'user'){
         return authNav
     }
-    if( role ==='admin'){
+    if( auth.status==='authenticated' && auth.role ==='admin'){
         return adminNav
     }
     if(auth.status === 'not-authenticated'){
         return defaultNav
     }
 
+
 }
+
+
+

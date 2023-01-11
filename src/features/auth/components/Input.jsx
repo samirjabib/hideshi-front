@@ -30,7 +30,7 @@ export const Input = ({ onInputChange, name , placeholder, type, value}) => {
                 width="16" 
                 height="16" 
                 fill="gray" 
-                className={`bi bi-eye absolute top-1/2 right-3 -translate-y-1/2 cur ${(name === 'password' ? '' : 'hidden')}` }
+                className={`bi bi-eye absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer ${(name === 'password' ? '' : 'hidden')}` }
                 viewBox="0 0 16 16"
                 onClick={onHandlePassword}
             >

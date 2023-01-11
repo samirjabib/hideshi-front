@@ -17,11 +17,11 @@ import { useShopStore } from "../../features";
 
 
 
-export const Header = () => {
+export const Header = ({auth}) => {
 
     const {open,   setOpen} = useOpen()
     const { backgroundHandle, backgroundScroll } = useBackgroundScroll()
-    const { navLinks } = useNavLinks()
+    const { navLinks } = useNavLinks(auth)
     const { isCartOpen, onSetCartOpen } = useShopStore()
 
     const navigate = useNavigate()

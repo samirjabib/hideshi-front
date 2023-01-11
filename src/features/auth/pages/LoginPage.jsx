@@ -6,17 +6,19 @@ import { useAuthStore } from '../hooks/useAuthStore';
 
 const loginFormFields = {email:'', password:'',}
 
+{}
 export const Login = () => {
 
     const navigate = useNavigate();
 
-    const { onInputChange, email, password } = useForm(loginFormFields);
+    const { onInputChange, email, password, onResetForm } = useForm(loginFormFields);
     const { startLogin } = useAuthStore();
 
 
     const onHandleLogin = (event) => {
         event.preventDefault()
         startLogin({email, password})
+        onResetForm();
     }
 
     return(

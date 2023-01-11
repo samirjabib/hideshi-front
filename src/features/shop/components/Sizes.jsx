@@ -1,33 +1,9 @@
-import { useState } from "react";
-
-const sizes = [
-    {
-        id:0,
-        display:'xs',
-    },
-    {
-        id:1,
-        display:'s',
-    },
-    {
-        id:2,
-        display:'l',
-    },
-    {
-        id:3,
-        display:'xl',
-    },
-    {
-        id:4,
-        display:'xxl',
-    },
-]
 
 
-export const Sizes = () => {
 
 
-    const [ isSelected, setIsSelected ] = useState(null);
+export const Sizes = ({sizes, isSelected, setIsSelected }) => {
+
 
 
     return(
@@ -36,7 +12,7 @@ export const Sizes = () => {
                 sizes.map( (size) => {
                     return(
                         <div 
-                            className={`${(isSelected === size.display) ? "border-black" : "border-gray-300"} border-[1.3px]  text-xs py-4 px-4 w-12 cursor-pointer `}
+                            className={`${(isSelected === size.display) ? "border-black bg-black/4" : "border-gray-300"} border-[1.3px]  text-xs py-4 px-4 w-12 cursor-pointer hover:bg-black/3 `}
                             key={size.id}
                             onClick={ () => setIsSelected(size.display)}
                         >

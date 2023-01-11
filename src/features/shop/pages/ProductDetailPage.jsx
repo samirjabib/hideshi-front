@@ -1,22 +1,57 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { MaterialSpecifications, Sizes } from "../components";
 import { useShopStore } from "../hooks";
 import { getProductById } from "../utils";
 
+const sizes = [
+    {
+        id:0,
+        display:'xs',
+    },
+    {
+        id:1,
+        display:'s',
+    },
+    {
+        id:2,
+        display:'l',
+    },
+    {
+        id:3,
+        display:'xl',
+    },
+    {
+        id:4,
+        display:'xxl',
+    },
+]
+
 export const ProductDetailPage = () => {
+
     const { id } = useParams();
-    const product = useMemo( () => getProductById( id ), [id])
+    const [ size, setIsSelected ] = useState(null);
     const {  onHandleAddToCart  } = useShopStore()
 
+    const product = useMemo( () => getProductById( id ), [id])
+    const {  name, img, price, } = product 
 
+    const item = {
+        name,
+        img,
+        price,
+        size,
+    }
 
-
-
-    
-
-    const {  name, img, price } = product 
+    const onSubmitProduct = () => {
+        if(size === null){
+            alert('select size')
+        } else {
+            onHandleAddToCart(item)
+        }
+        
+    }
 
     return(
         <div className=" w-full p-4 flex flex-col md:flex-row md:justify-center h-screen mx-auto container mt-24">
@@ -25,10 +60,10 @@ export const ProductDetailPage = () => {
                 <h2 className="uppercase font-bold font-sans text-xs">{name}</h2>
                 <span className="font-sans text-[.8rem] mt-4 ">COP{price}</span>
                 <div className="flex flex-col">   
-                    <Sizes/>
+                    <Sizes sizes={sizes} isSelected={size} setIsSelected={setIsSelected}/>
                         <button 
                             className="bg-black w-full  text-sm uppercase py-4 shadow text-gray-200 mt-4" 
-                            onClick={ () => onHandleAddToCart(product) }
+                            onClick={onSubmitProduct}
                         >
                             add to bag
                         </button>

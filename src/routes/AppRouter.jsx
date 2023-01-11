@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { Layout } from "../components";
-import { AuthRoutes, Home, ShopRouter } from "../features";
+import { AuthRoutes, Home, ShopRouter, useAuthStore } from "../features";
 import { DashboardRoutes } from "../features";
 import { MissingURL } from "./components";
 
@@ -26,7 +26,17 @@ import { useEffect } from "react";
 
 
 export const AppRouter = () => {
-    
+
+    const { status, user} = useAuthStore()
+    console.log(user)
+
+    const auth = {
+        ...user,
+        status
+    }
+
+    console.log(auth)
+
 
     useEffect( () => {
         Aos.init({
@@ -41,7 +51,7 @@ export const AppRouter = () => {
             <Routes>
                 <Route path='/' element={<Layout auth={auth}/>}>
                     {
-                        (auth.status == "not-authenticated")
+                        (status === "not-authenticated")
                         ? 
                             <>
                                 <Route path='/' element={<Home/>}/>

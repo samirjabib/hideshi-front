@@ -3,6 +3,7 @@ import { Footer } from "./Footer/Footer"
 import { Header } from "./Header"
 
 export const Layout = ({auth}) => {
+    
 
     return (
        <main className="App">
