@@ -1,19 +1,20 @@
 import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
-import { MaterialSpecifications } from "../components";
+
+import { MaterialSpecifications, Sizes } from "../components";
 import { useShopStore } from "../hooks";
 import { getProductById } from "../utils";
 
 export const ProductDetailPage = () => {
-
     const { id } = useParams();
-    
     const product = useMemo( () => getProductById( id ), [id])
+    const {  onHandleAddToCart  } = useShopStore()
+
+
+
+
+
     
-    const {  onHandleAddToCart, onSetCartOpen  } = useShopStore()
-
-
-
 
     const {  name, img, price } = product 
 
@@ -24,14 +25,7 @@ export const ProductDetailPage = () => {
                 <h2 className="uppercase font-bold font-sans text-xs">{name}</h2>
                 <span className="font-sans text-[.8rem] mt-4 ">COP{price}</span>
                 <div className="flex flex-col">   
-                    <div className="mt-8 flex flex-row w-full } justify-between text-center uppercase my-4 font-medium md:gap-2 max-w-sm ">
-                        <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">xs</div>
-                        <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">s</div>
-                        <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">m</div>
-                        <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">l</div>
-                        <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 ">xl</div>
-                        <div className="border-[1.3px] border-gray-300 text-xs py-4 px-4 w-12 flex justify-center items-center ">xxl</div>
-                    </div>
+                    <Sizes/>
                         <button 
                             className="bg-black w-full  text-sm uppercase py-4 shadow text-gray-200 mt-4" 
                             onClick={ () => onHandleAddToCart(product) }
