@@ -19,25 +19,20 @@ import { useShopStore } from "../../features";
 
 export const Header = () => {
 
-
     const {open,   setOpen} = useOpen()
     const { backgroundHandle, backgroundScroll } = useBackgroundScroll()
     const { navLinks } = useNavLinks()
     const { isCartOpen, onSetCartOpen } = useShopStore()
 
-
     const navigate = useNavigate()
 
-    
-    var body = document.getElementsByTagName('body')[0]
-
+    const body = document.getElementsByTagName('body')[0]
 
     if(open || isCartOpen){
         body.style.overflow ='hidden'
     } else {
         body.style.overflow = 'auto'
     }
-
 
     return (
         <header 
