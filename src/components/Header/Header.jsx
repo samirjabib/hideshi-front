@@ -1,26 +1,22 @@
-import { useEffect, useState } from "react";
 
 import {  HiOutlineUserCircle } from 'react-icons/hi';
 import {RiShoppingBagLine} from 'react-icons/ri'
 import { AiOutlineMenu } from 'react-icons/ai'
-
 import { Link, useNavigate } from "react-router-dom";
 
 import { ListNavMobile } from "./ListNavMobile";
 import { ListNavDesktop } from "./ListNavDesktop";
 import { SideBarBag } from "../SideBarBag";
 import { useBackgroundScroll, useNavLinks, useOpen } from "../../hooks";
-import { useShopStore } from "../../features";
-
-
-
+import { AddProductModal, useProductsStore, useShopStore } from "../../features";
 
 
 export const Header = ({auth}) => {
-    const {open,   setOpen} = useOpen()
+    const {open, setOpen} = useOpen()
     const { backgroundHandle, backgroundScroll } = useBackgroundScroll()
     const { navLinks } = useNavLinks(auth)
     const { isCartOpen, onSetCartOpen } = useShopStore()
+    const {setProductModal, isOpenProduct } = useProductsStore()
 
     const navigate = useNavigate()
 
@@ -34,7 +30,7 @@ export const Header = ({auth}) => {
 
     const body = document.getElementsByTagName('body')[0]
 
-    if(open || isCartOpen){
+    if(open || isCartOpen || isOpenProduct){
         body.style.overflow ='hidden'
     } else {
         body.style.overflow = 'auto'
@@ -59,13 +55,15 @@ export const Header = ({auth}) => {
                     />
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>
-                <div className={`w-full h-screen fixed scroll- z-50 right-0 top-0 bg-black/70 ${open || isCartOpen ? 'block' : 'hidden'}`}></div>
+                <div className={`w-full h-screen fixed scroll- z-50 right-0 top-0 bg-black/70 ${open || isCartOpen || isOpenProduct ? 'block' : 'hidden'}`}></div>
 
                 <ListNavDesktop navLinks ={navLinks} setOpen ={ setOpen }/>
                 {/* mobile  */}
                 <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen } />
 
                 <SideBarBag openBag={isCartOpen} setBag={ onSetCartOpen } />
+
+                <AddProductModal setProductModal={setProductModal} isOpenProduct={isOpenProduct}/>
 
 
         

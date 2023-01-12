@@ -8,18 +8,17 @@ import { dummieData } from "../../../shop";
 export const productSlice = createSlice({
     name:'products',
     initialState:{
-        isLoadingProducts:true,
+        isLoading:true,
         products:dummieData,
-        page:0,
-        isOpenModalProduct:false,
+        isOpenProduct:false,
     },
     reducers:{
         openProductModal: (state, { payload }) => {
-            state.isOpenModalProduct = payload;
+            state.isOpenProduct = payload;
         },
         onAddProduct: (state, { payload }) => {
             console.log(payload, 'payload on the reducer')
-            state.isLoadingProducts = false,
+            state.isLoading = false,
             state.products.push(payload)
         },
     }
@@ -27,6 +26,6 @@ export const productSlice = createSlice({
 
 
 
-export const { onSetProducts, onLoadingProducts } = productSlice.actions;
+export const { openProductModal, onLoadingProducts } = productSlice.actions;
 
 

@@ -5,7 +5,7 @@ import { useProductsStore } from "../hooks"
 
 export const StateProducts = () => {
 
-    const { products } = useProductsStore();
+    const { products, setProductModal } = useProductsStore();
 
     const [openModal, setOpenModal ] = useState(false);
 
@@ -22,6 +22,7 @@ export const StateProducts = () => {
                     <DropDown/>
                     <button
                         className="bg-bg_dark_primary text-bg_light_primary w-full p-2.5 rounded-md mt-4"
+                        onClick={setProductModal}
                     >
                         Add Product
                     </button>
