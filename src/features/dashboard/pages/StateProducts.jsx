@@ -1,9 +1,14 @@
 import { Input } from "../../auth/components"
 import { DropDown } from "../component"
+import { useProductsStore } from "../hooks"
 
 export const StateProducts = () => {
+
+    const { products } = useProductsStore()
+    console.log(products)
+
     return(
-        <div className="w-full  ">
+        <div className="w-full container mx-auto max-w-5xl">
             <h2 className="text-lg font-semibold">Products</h2>
             <div>
                 <form className="w-full rounded-md p-4 bg-bg_light_primary mt-6">
@@ -19,12 +24,33 @@ export const StateProducts = () => {
                             Add Product
                         </button>
                     </div>
-
-                    <div>
-
-                    </div>
-                    
                 </form>
+
+                <table className="w-full border-2 border-black mt-4 table-auto" >
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Img</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {products.map( ({id, img, name, price}) => {
+                                const category = 't-shirt'
+                                return(
+                                    <tr key={id}>
+                                        <td>{name}</td>
+                                        <td>{category}</td>
+                                        <td>{price}</td>
+                                        <img src={img} alt='img'/>
+                                    </tr>
+                                )
+                            })
+
+                            }
+                        </tbody>
+                </table>
             </div>
            
         </div>

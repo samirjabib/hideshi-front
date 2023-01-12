@@ -15,7 +15,6 @@ export const DropDown = () => {
 
     const [ isOpen, setIsOpen ] = useState(false);
     const [ isSelected, setIsSelected ] = useState('Category')
-    console.log(isOpen)
 
     const onHandleOpen = (event) => {
         event.preventDefault()

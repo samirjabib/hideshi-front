@@ -15,7 +15,7 @@ const adminNav = [
     { path:'/', display:'Home'},
     { path:'/shop', display:'Shop'},
     { 
-        path:'/dashboard/settings', 
+        path:'/dashboard/state-products', 
         display:'Dasboard',
         submenu:{
             path:'/dashboard/orders', display:'orders',
