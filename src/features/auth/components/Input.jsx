@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const Input = ({ onInputChange, name , placeholder, type, value}) => {
+export const Input = ({ onInputChange, name , placeholder, type, value, styles}) => {
 
 
     const [ showPassword, setShowPassword ] = useState('password')
@@ -16,7 +16,7 @@ export const Input = ({ onInputChange, name , placeholder, type, value}) => {
     return(
         <div className="relative w-full">
             <input 
-            className="border-b outline-none bg-none mt-2 w-full" 
+            className={`border-b outline-none  mt-2 w-full ${styles}`}
             type={ (type === 'password') ? showPassword : type}
             name={name} 
             placeholder={placeholder}

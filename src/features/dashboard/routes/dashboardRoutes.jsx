@@ -4,6 +4,8 @@ import { LayoutDashboard } from "../component"
 import {  Orders, Settings, StateProducts } from '../pages'
 
 export const DashboardRoutes = ({role}) => {
+    console.log(role)
+
     return(
         <Routes>
             <Route path="/" element={<LayoutDashboard/>}>
@@ -20,6 +22,7 @@ export const DashboardRoutes = ({role}) => {
                     :
                         <>
                             <Route path="/state-products" element={ <StateProducts/> }/>
+                            <Route path="/orders" element={ <Orders/> } />
                             <Route path="/settings" element={ <Settings/> } />
                             <Route path='/*' element={ <MissingURL/>}/>
                         </>

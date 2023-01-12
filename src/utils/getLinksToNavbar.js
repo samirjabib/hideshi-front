@@ -7,19 +7,27 @@ const defaultNav = [
 const authNav = [
     { path:'/', display:'Home'},
     { path:'/shop', display:'Shop'},
-    { path:'/dashboard/settings', display:'Dashboard'},
+    { path:'/dashboard/settings', display:'Dashboard'
+},
 ]
 
 const adminNav = [
     { path:'/', display:'Home'},
     { path:'/shop', display:'Shop'},
-    { path:'/dashboard/settings', display:'Dasboard'},
+    { 
+        path:'/dashboard/settings', 
+        display:'Dasboard',
+        submenu:{
+            path:'/dashboard/orders', display:'orders',
+            path:'/dashboard/state-products', display:'state-products',
+            path:'/dashboard/settings', display:'settings',
+        }
+    },
 ]
 
 
 
 export const getLinksToNavBar = (auth) => {
-    console.log(auth)
 
 
     if( auth.status ==='authenticated' && auth.role === 'user'){

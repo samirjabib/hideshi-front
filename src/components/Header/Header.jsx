@@ -6,7 +6,6 @@ import { AiOutlineMenu } from 'react-icons/ai'
 
 import { Link, useNavigate } from "react-router-dom";
 
-import { getLinksToNavBar } from "../../utils";
 import { ListNavMobile } from "./ListNavMobile";
 import { ListNavDesktop } from "./ListNavDesktop";
 import { SideBarBag } from "../SideBarBag";
@@ -18,7 +17,6 @@ import { useShopStore } from "../../features";
 
 
 export const Header = ({auth}) => {
-
     const {open,   setOpen} = useOpen()
     const { backgroundHandle, backgroundScroll } = useBackgroundScroll()
     const { navLinks } = useNavLinks(auth)
@@ -69,11 +67,15 @@ export const Header = ({auth}) => {
                         <span className="absolute top-[60%] left-[20%] bottom-[50%] py-[10px] rounded-full text-[.6rem] bg-black w-full h-[6px] flex items-center justify-center text-white">4</span>
                     </div>
                     
-                    <HiOutlineUserCircle size={22} className=' hidden md:block ' onClick={()=> navigate('/auth/login')} />
+                    <HiOutlineUserCircle 
+                        size={22} 
+                        className=' hidden md:block '
+                        onClick={()=> navigate('/auth/login')}
+                    />
+                       
                     <span className="self-center md:hidden">
                         <AiOutlineMenu size={22}  onClick={ () => setOpen(!open)}/>
                     </span> 
-
                 </div>
 
             </nav>

@@ -1,7 +1,7 @@
 export const Settings = () => {
     return(
         <div>
-            SETTINGS USER
+            <h2>Dashboard OverView</h2>
         </div>
     )
 }

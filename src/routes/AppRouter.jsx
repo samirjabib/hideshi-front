@@ -35,7 +35,6 @@ export const AppRouter = () => {
         status
     }
 
-    console.log(auth)
 
 
     useEffect( () => {

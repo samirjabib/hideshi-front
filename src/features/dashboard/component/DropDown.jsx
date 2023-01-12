@@ -1,0 +1,57 @@
+
+import { useState } from 'react'
+import { MdArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md'
+
+const listCategories = [ 
+    { id:1, name:'T-shirt', },
+    { id:2, name:'Cap', },
+    { id:3, name:'Pants', },
+    { id:4, name:'Jewelry', },
+
+]
+
+export const DropDown = () => {
+
+    const [ isOpen, setIsOpen ] = useState(false);
+    const [ isSelected, setIsSelected ] = useState('Category')
+    console.log(isOpen)
+
+    const onHandleOpen = (event) => {
+        event.preventDefault()
+        setIsOpen(!isOpen)
+    };
+
+    
+
+    return(
+        <div className="relative flex flex-col">
+            <button 
+                className={` flex flex-row justify-between p-2.5 rounded-md  border ${isOpen ? 'bg-bg_light_primary' : 'bg-[#f4f5f7]'}`}
+                onClick={onHandleOpen}                
+            >
+                {isSelected}
+                {
+                    isOpen
+                        ? <MdOutlineArrowDropUp className='self-center'/>
+                        : <MdArrowDropDown className='self-center'/>
+                }
+            </button>
+            {
+                isOpen && (
+                    <div className='mt-1 border rounded-md transition-all duration-150 '>
+                        {listCategories.map( ({name, id}) => {
+                        return(
+                            <div className=' w-full text-sm p-2 bg-[#f4f5f7] transition-all duration-100 hover:bg-bg_light_primary' key={id}>
+                                <h3>{name}</h3>
+                            </div>
+                        )
+                           
+                        })
+
+                        }
+                    </div>
+                )
+            }
+        </div>
+    )
+}
