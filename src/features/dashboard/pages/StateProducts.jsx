@@ -8,7 +8,7 @@ export const StateProducts = () => {
     console.log(products)
 
     return(
-        <div className="w-full container mx-auto max-w-5xl">
+        <div className="w-full container mx-auto max-w-5xl ">
             <h2 className="text-lg font-semibold">Products</h2>
             <div className="">
                 <form className="w-full rounded-md p-8 bg-bg_light_primary mt-6">
@@ -26,7 +26,7 @@ export const StateProducts = () => {
                     </div>
                 </form>
 
-                <table className="w-full border rounded-md mt-4 table-auto " >
+                <table className="w-full border rounded-md mt-4 table-auto overflow-scroll" >
                         <thead className="">
                             <tr className="flex rounded-md h-14 items-center justify-between text-center p-6">
                                 <th className="w-24">Name</th>

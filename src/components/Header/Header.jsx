@@ -24,6 +24,14 @@ export const Header = ({auth}) => {
 
     const navigate = useNavigate()
 
+    const onHandleDashboardAndLogin = () => {
+        if(auth.status === 'authenticated'){
+            navigate('/dashboard/state-products')
+        }else{
+            navigate('/auth/login')
+        }
+    }
+
     const body = document.getElementsByTagName('body')[0]
 
     if(open || isCartOpen){
@@ -70,7 +78,7 @@ export const Header = ({auth}) => {
                     <HiOutlineUserCircle 
                         size={22} 
                         className=' hidden md:block '
-                        onClick={()=> navigate('/auth/login')}
+                        onClick={onHandleDashboardAndLogin}
                     />
                        
                     <span className="self-center md:hidden">
