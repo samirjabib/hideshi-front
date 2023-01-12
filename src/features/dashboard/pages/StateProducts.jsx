@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Input } from "../../auth/components"
 import { DropDown, ListProductTables } from "../component"
 import { useProductsStore } from "../hooks"
@@ -7,7 +7,12 @@ export const StateProducts = () => {
 
     const { products, setProductModal } = useProductsStore();
 
-    const [openModal, setOpenModal ] = useState(false);
+    const openModal =(event) => {
+        event.preventDefault()
+        setProductModal()
+    }
+
+  
 
 
     return(
@@ -22,7 +27,7 @@ export const StateProducts = () => {
                     <DropDown/>
                     <button
                         className="bg-bg_dark_primary text-bg_light_primary w-full p-2.5 rounded-md mt-4"
-                        onClick={setProductModal}
+                        onClick={openModal}
                     >
                         Add Product
                     </button>
