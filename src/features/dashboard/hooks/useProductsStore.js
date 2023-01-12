@@ -8,8 +8,8 @@ export const useProductsStore = () => {
     const { products, isOpenProduct } = useSelector( state => state.products )
 
 
-    const setProductModal = () => {
-        dispatch(openProductModal(!isOpenProduct))
+    const setProductModal = (payload) => {
+        dispatch(openProductModal(payload))
     }
 
 

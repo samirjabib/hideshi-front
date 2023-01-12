@@ -9,7 +9,7 @@ export const StateProducts = () => {
 
     const openModal =(event) => {
         event.preventDefault()
-        setProductModal()
+        setProductModal(true)
     }
 
   

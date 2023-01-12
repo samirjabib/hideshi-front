@@ -1,6 +1,5 @@
 export const ListProductTables = ({products}) => {
     const category = 'T-shirt'
-    console.log(products)
     return(
         <div className="relative overflow-x-auto mt-14 rounded-lg">
             <table className="w-full text-sm text-left text-gray-500">
@@ -22,10 +21,11 @@ export const ListProductTables = ({products}) => {
                 </thead>
                 <tbody>
                     {products.map( ({name, price,img,id}) => {
-                        console.log(name)
-
                         return(
-                            <tr className="border-b bg-bg_light_primary  border-gray-300">
+                            <tr 
+                                className="border-b bg-bg_light_primary  border-gray-300"
+                                key={id}
+                            >
                                 <th scope="row" className="px-6 py-4 font-medium whitespace-nowra">
                                     {name}
                                 </th>
