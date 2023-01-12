@@ -14,7 +14,7 @@ const listCategories = [
 export const DropDown = () => {
 
     const [ isOpen, setIsOpen ] = useState(false);
-    const [ isSelected, setIsSelected ] = useState('Category')
+    const [ isSelected, setIsSelected ] = useState('Category');
 
     const onHandleOpen = (event) => {
         event.preventDefault()
@@ -24,9 +24,6 @@ export const DropDown = () => {
     useEffect( () => {
         setIsOpen(false)
     }, [isSelected])
-
-
-    
 
     return(
         <div className="relative flex flex-col">
@@ -53,10 +50,8 @@ export const DropDown = () => {
                             >
                                 <h3>{name}</h3>
                             </div>
-                        )
-                           
-                        })
-
+                        ) 
+                            })
                         }
                     </div>
                 )

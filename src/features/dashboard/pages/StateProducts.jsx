@@ -1,13 +1,17 @@
+import { useState } from "react"
 import { Input } from "../../auth/components"
 import { DropDown, ListProductTables } from "../component"
 import { useProductsStore } from "../hooks"
 
 export const StateProducts = () => {
 
-    const { products } = useProductsStore()
+    const { products } = useProductsStore();
+
+    const [openModal, setOpenModal ] = useState(false);
+
 
     return(
-        <div className="w-full container mx-auto max-w-5xl ">
+        <div className="w-full container mx-auto max-w-5xl relative ">
             <h2 className="text-lg font-semibold">Products</h2>
             <form className="w-full rounded-md p-8 bg-bg_light_primary mt-6">
                 <div className="">
