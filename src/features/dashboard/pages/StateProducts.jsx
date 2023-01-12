@@ -26,13 +26,13 @@ export const StateProducts = () => {
                     </div>
                 </form>
 
-                <table className="w-full border-2 border-black mt-4 table-auto" >
-                        <thead className=" ">
-                            <tr className="flex border-2 justify-around border-red-500 text-center">
-                                <th className="w-20 border-2 border-black">Name</th>
-                                <th className="w-20 border-2 border-black">Category</th>
-                                <th className="w-20 border-2 border-black">Price</th>
-                                <th className="w-20 border-2 border-black">Img</th>
+                <table className="w-full border rounded-md mt-4 table-auto " >
+                        <thead className="">
+                            <tr className="flex rounded-md h-12 items-center justify-around text-center p-2">
+                                <th className="w-24">Name</th>
+                                <th className="w-24">Category</th>
+                                <th className="w-24">Price</th>
+                                <th className="w-24">Img</th>
                             </tr>
                         </thead>
                         <tbody
@@ -41,14 +41,14 @@ export const StateProducts = () => {
                             {products.map( ({id, img, name, price}) => {
                                 const category = 't-shirt'
                                 return(
-                                    <tr key={id} className='border-2 border-green-500 flex flex-row justify-around items-center'>
-                                        <td className="border-2 border-black w-20">{name}</td>
-                                        <td className="border-2 border-black w-20">{category}</td>
-                                        <td className="border-2 border-black w-20">{price}</td>
+                                    <tr key={id} className='flex flex-row justify-around items-center border text-center p-2'>
+                                        <td className="w-24">{name}</td>
+                                        <td className="w-24">{category}</td>
+                                        <td className="w-24">COP {price}</td>
                                         <img 
                                             src={img} 
                                             alt='img'
-                                            className="border-2 border-black h-20 w-20"
+                                            className=" h-20 w-20"
                                         />
                                     </tr>
                                 )
