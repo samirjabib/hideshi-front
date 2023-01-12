@@ -36,7 +36,7 @@ export const ListProductTables = ({products}) => {
                                     {price}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <img src={img} alt='img'/>
+                                    <img src={img} alt='img' className="w-8 h-8"/>
                                 </td>
                             </tr>
                         )

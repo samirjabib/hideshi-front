@@ -31,10 +31,10 @@ export const DropDown = () => {
     return(
         <div className="relative flex flex-col">
             <button 
-                className={` flex flex-row justify-between p-2.5 rounded-md  border ${isOpen ? 'bg-bg_light_primary' : 'bg-[#f4f5f7]'}`}
+                className={` flex flex-row justify-between p-2.5 rounded-md  border ${isOpen ? 'bg-bg_light_primary' : 'bg-[#f4f5f7] '}`}
                 onClick={onHandleOpen}                
             >
-                {isSelected}
+                <span className={`${isSelected !== 'Category' ? 'text-bg_dark_primary' : 'text-text_gray_for_span'}`}>{isSelected}</span>
                 {
                     isOpen
                         ? <MdOutlineArrowDropUp className='self-center'/>
