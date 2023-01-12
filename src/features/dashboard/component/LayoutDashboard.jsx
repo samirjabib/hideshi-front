@@ -12,7 +12,7 @@ export const LayoutDashboard = () => {
     return (
        <main className="mt-20 flex flex-row">
                 <Sidebar/>
-                <div className="bg-[#f9fafb] w-full h-screen p-8">
+                <div className="bg-[#f9fafb] w-full h-[130vh] p-8">
                     <Outlet /> 
                 </div>
         </main>

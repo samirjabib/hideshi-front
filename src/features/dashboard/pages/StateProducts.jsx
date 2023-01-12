@@ -27,23 +27,29 @@ export const StateProducts = () => {
                 </form>
 
                 <table className="w-full border-2 border-black mt-4 table-auto" >
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th>Img</th>
+                        <thead className=" ">
+                            <tr className="flex border-2 justify-around border-red-500 text-center">
+                                <th className="w-20 border-2 border-black">Name</th>
+                                <th className="w-20 border-2 border-black">Category</th>
+                                <th className="w-20 border-2 border-black">Price</th>
+                                <th className="w-20 border-2 border-black">Img</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody
+                            className="bg-bg_light_primary"
+                        >
                             {products.map( ({id, img, name, price}) => {
                                 const category = 't-shirt'
                                 return(
-                                    <tr key={id}>
-                                        <td>{name}</td>
-                                        <td>{category}</td>
-                                        <td>{price}</td>
-                                        <img src={img} alt='img'/>
+                                    <tr key={id} className='border-2 border-green-500 flex flex-row justify-around items-center'>
+                                        <td className="border-2 border-black w-20">{name}</td>
+                                        <td className="border-2 border-black w-20">{category}</td>
+                                        <td className="border-2 border-black w-20">{price}</td>
+                                        <img 
+                                            src={img} 
+                                            alt='img'
+                                            className="border-2 border-black h-20 w-20"
+                                        />
                                     </tr>
                                 )
                             })
