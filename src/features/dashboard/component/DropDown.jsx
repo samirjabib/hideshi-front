@@ -1,4 +1,5 @@
 
+import { useEffect } from 'react';
 import { useState } from 'react'
 import { MdArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md'
 
@@ -21,6 +22,11 @@ export const DropDown = () => {
         setIsOpen(!isOpen)
     };
 
+    useEffect( () => {
+        setIsOpen(false)
+    }, [isSelected])
+
+
     
 
     return(
@@ -38,10 +44,14 @@ export const DropDown = () => {
             </button>
             {
                 isOpen && (
-                    <div className='mt-1 border rounded-md transition-all duration-150 '>
+                    <div className='mt-1 border rounded-md '>
                         {listCategories.map( ({name, id}) => {
                         return(
-                            <div className=' w-full text-sm p-2 bg-[#f4f5f7] transition-all duration-100 hover:bg-bg_light_primary' key={id}>
+                            <div 
+                                className=' w-full text-sm p-2 bg-[#f4f5f7] transition-all duration-200 hover:bg-bg_light_primary' 
+                                key={id}
+                                onClick = {() =>  setIsSelected(name)}
+                            >
                                 <h3>{name}</h3>
                             </div>
                         )
