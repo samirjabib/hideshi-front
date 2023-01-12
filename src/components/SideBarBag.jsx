@@ -17,7 +17,7 @@ export const SideBarBag = ( {openBag, setBag}) => {
     useEffect( () => {
         document.addEventListener( "click" , handleOutSideClick, true )
 
-        return document.removeEventListener("click", handleOutSideClick, false)
+        return document.removeEventListener("click", handleOutSideClick)
     },[])
 
     const handleOutSideClick = ( { target }) => {

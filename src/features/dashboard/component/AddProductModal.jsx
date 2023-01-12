@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useRef } from "react"
 import { AiOutlineClose } from "react-icons/ai"
 
@@ -7,15 +8,18 @@ export const AddProductModal = ({setProductModal, isOpenProduct}) => {
 
 
 
-    
+    useEffect( () => {
+        document.addEventListener("click", handleOutSideClick, true)
+
+        return document.removeEventListener("click", handleOutSideClick)
+    }, [])
 
 
     const handleOutSideClick = ({ target }) => {
         if(!productModalRef.current?.contains(target)){
-            console.log('click outside')
-        } else {
-            console.log('click inside')
+            setProductModal(false)
         }
+      
     }
 
     return(
