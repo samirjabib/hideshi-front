@@ -1,7 +1,7 @@
 export const ListProductTables = ({products}) => {
     const category = 'T-shirt'
     return(
-        <div className="relative overflow-x-auto mt-14 rounded-lg">
+        <div className="relative overflow-x-auto mt-14 rounded-lg border">
             <table className="w-full text-sm text-left text-gray-500">
                 <thead className="text-xs text-text_gray_for_span uppercase bg-[#f4f5f7] border">
                     <tr>
