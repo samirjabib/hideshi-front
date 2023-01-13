@@ -27,7 +27,7 @@ export const AddProductModal = ({setProductModal, isOpenProduct}) => {
 
     return(
         <div 
-        className={`fixed left-0 top-0 w-11/12  md:max-w-[42rem] h-screen overflow-scroll bg-bg_light_primary shadow-2xl  z-[999]
+        className={`fixed left-0 top-0 w-11/12  md:max-w-[42rem] h-screen overflow-scroll bg-bg_light_primary shadow-2xl  z-[999] overflow-y-hidden
         transition-all duration-300 flex-col flex
         ${isOpenProduct ? 'left-0': 'left-[-100%]'} `}
         ref={productModalRef}
@@ -56,7 +56,7 @@ export const AddProductModal = ({setProductModal, isOpenProduct}) => {
             <UploadPicture/>
 
             <FormCrud/>
-            <div className="flex flex-col w-full border-2 border-black justify-center p-6 md:flex-row items-center gap-4">
+            <div className="flex flex-col w-full justify-center p-6 md:flex-row items-center gap-4 relative bottom-10 md:ml-20">
                 
                 <button 
                     className=" bg-bg_dark_primary py-2.5 text-bg_light_primary text-sm w-full md:w-56 border border-black"
@@ -65,7 +65,7 @@ export const AddProductModal = ({setProductModal, isOpenProduct}) => {
                     Add Product
                 </button>
                 <button 
-                    className="border border-black text-sm  py-2.5 w-full md:w-56 transition-all duration-150 text-red-500 hover:bg-red-500 hover:text-white"
+                    className="border border-black text-sm  py-2.5 w-full md:w-56 transition-all duration-150 text-black hover:bg-red-500 hover:text-white"
 
                 >
                     Cancel

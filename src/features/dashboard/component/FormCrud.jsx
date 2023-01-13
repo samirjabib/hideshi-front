@@ -12,7 +12,7 @@ const crudFormFields = {
 export const FormCrud = () => {
 
     return(
-        <form className="border-2 borderck-bla p-6 w-full">
+        <form className="p-6 w-full">
             <InputCrud/>
             <InputCrud/>
             <InputCrud/>
