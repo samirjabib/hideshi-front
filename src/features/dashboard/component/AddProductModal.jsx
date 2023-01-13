@@ -56,19 +56,21 @@ export const AddProductModal = ({setProductModal, isOpenProduct}) => {
             <UploadPicture/>
 
             <FormCrud/>
-            <div className="flex flex-col w-full border-2 border-black justify-around p-6">
+            <div className="flex flex-col w-full border-2 border-black justify-center p-6 md:flex-row items-center gap-4">
                 
                 <button 
-                    className="py-2 bg-bg_dark_primary text-bg_light_primary"
-                    
+                    className=" bg-bg_dark_primary py-2.5 text-bg_light_primary text-sm w-full md:w-56 border border-black"
+
                 >
                     Add Product
                 </button>
                 <button 
-                    className="border-black border transition-all duration-150 text-red-500 hover:bg-red-500 hover:text-white px-2 py-2 mt-4"
+                    className="border border-black text-sm  py-2.5 w-full md:w-56 transition-all duration-150 text-red-500 hover:bg-red-500 hover:text-white"
+
                 >
                     Cancel
                 </button>
+              
             </div>
             
         </div>
