@@ -1,12 +1,10 @@
-export const InputCrud = ({productName, placeholder, value, name, onInputChange}) => {
+export const InputCrud = () => {
     return(
-        <div>
-            <label htmlFor="">{productName}</label>
+        <div className="grid grid-cols-1 md:grid-cols-4 ">
+            <label className="col-span-1">Product Title</label>
             <input 
-                placeholder={placeholder}
-                className=''
-                onChange={onInputChange}
+                className="bg-[#f4f5f7] rounded px-2 py-3 w-full outline-none col-span-3"  
             />
         </div>
     )
-}
+};
