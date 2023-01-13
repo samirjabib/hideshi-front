@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useRef } from "react"
+import { FormCrud } from "./FormCrud"
 import { HeaderProductModal } from "./HeaderProductModal"
 import { UploadPicture } from "./UploadPicture"
 
@@ -32,8 +33,7 @@ export const AddProductModal = ({setProductModal, isOpenProduct}) => {
         >  
             <HeaderProductModal setProductModal={setProductModal}/>
             <UploadPicture/>
-            <form className="border-2 border-black">
-            </form>
+            <FormCrud/>
         </div>
     )
 }
