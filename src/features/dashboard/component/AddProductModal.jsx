@@ -27,7 +27,7 @@ export const AddProductModal = ({setProductModal, isOpenProduct}) => {
 
     return(
         <div 
-        className={`fixed left-0 top-0 w-11/12  md:max-w-[42rem] h-screen overflow-scroll bg-bg_light_primary shadow-2xl  z-[999] overflow-y-hidden
+        className={`fixed left-0 top-0 w-11/12  md:max-w-[42rem] h-screen overflow-scroll bg-bg_light_primary shadow-2xl  z-[999] 
         transition-all duration-300 flex-col flex
         ${isOpenProduct ? 'left-0': 'left-[-100%]'} `}
         ref={productModalRef}

@@ -1,4 +1,4 @@
-export const InputCrud = () => {
+export const InputCrud = ({placeholder, name, label}) => {
     return(
         <div className="grid grid-cols-1 md:grid-cols-4 mb-6 md:mb-8">
             <label className="col-span-1">Product Title</label>
