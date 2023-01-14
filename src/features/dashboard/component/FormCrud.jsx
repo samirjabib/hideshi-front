@@ -42,7 +42,8 @@ export const FormCrud = () => {
                 onInputChange={onInputChange}
             />
             <div 
-                    className="grid grid-cols-1 md:grid-cols-4 mb-6 md:mb-8 w-full">    
+                className="grid grid-cols-1 md:grid-cols-4 mb-6 md:mb-8 w-full"
+            >    
                 <label 
                     className="block mb-2 text-base text-bg_dark_primary">Details</label>
                 <textarea 
