@@ -3,7 +3,7 @@ import { InputCrud } from "./InputCrud"
 
 
 const crudFormFields = {
-    title:'',
+    name:'',
     category:'',
     details:'',
     price:null,
@@ -16,22 +16,23 @@ export const FormCrud = () => {
         isFormValid, 
         formState, 
         onResetForm,
-        title,
+        name,
         category,
         details,
         price,
     } = useForm( crudFormFields );
 
-
+    console.log(name)
 
 
     return(
         <form className="p-6 w-full">
             <InputCrud
                 placeholder='Insert name' 
-                name={title}
+                name='name'
                 label='Product Name'
                 type='text'
+                value={name}
                 onInputChange={onInputChange}
             />
             <InputCrud 
@@ -40,7 +41,6 @@ export const FormCrud = () => {
                 name='category'
                 value={category}
                 onInputChange={onInputChange}
-
             />
             <InputCrud 
                 placeholder='Insert price' 
@@ -61,7 +61,7 @@ export const FormCrud = () => {
                     placeholder="Write details here..."
                     name="details"
                     value={details}
-                    onInputChange={onInputChange}
+                    onChange={onInputChange}
                     >
                 </textarea>
             </div>

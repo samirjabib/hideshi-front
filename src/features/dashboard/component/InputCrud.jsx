@@ -1,4 +1,4 @@
-export const InputCrud = ({placeholder, name, label, type}) => {
+export const InputCrud = ({placeholder, name, label, type, onInputChange}) => {
     return(
         <div className="grid grid-cols-1 md:grid-cols-4 mb-6 md:mb-8">
             <label className="col-span-1 text-sm">{label}</label>
@@ -7,6 +7,7 @@ export const InputCrud = ({placeholder, name, label, type}) => {
                 type={type}
                 name={name}
                 placeholder={placeholder}
+                onChange={onInputChange}
             />
         </div>
     )
