@@ -6,11 +6,9 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
     const [ formState, setFormState ] = useState(initialForm)
     const [ formValidation, setFormValidation ] = useState({});
 
-
     useEffect( () => {
         setFormState(initialForm)
     },[]);
-
 
     const createValidators = () => {
         const formCheckedValues = {};
@@ -33,6 +31,22 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
         })
     };
 
+    const onFileInputChange = ( {target }) => {
+        if(target.files === 0) return
+        const {files, name} = target
+        
+        const filesToUpload = [];
+        for (const file of files){
+            filesToUpload.push(file)
+        }
+        console.log(filesToUpload)
+        setFormState({
+            ...formState,
+            [name] : filesToUpload
+        })
+    }
+
+
     const isFormValid = useMemo( () => {
         for(const formValue of Object.keys(formValidation)){
             if(formValidation(formValue) !== null) return false
@@ -51,5 +65,6 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
 
         onInputChange,
         onResetForm,
+        onFileInputChange
     }
 }

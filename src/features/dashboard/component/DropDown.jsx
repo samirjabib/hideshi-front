@@ -1,20 +1,11 @@
 
-import { useEffect } from 'react';
-import { useState } from 'react'
+import { useEffect, useState } from 'react';
 import { MdArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md'
 
-const listCategories = [ 
-    { id:1, name:'T-shirt', },
-    { id:2, name:'Cap', },
-    { id:3, name:'Pants', },
-    { id:4, name:'Jewelry', },
 
-]
-
-export const DropDown = () => {
-
+export const DropDown = ({formCrud, isSelected, setIsSelected, listCategories }) => {
+    
     const [ isOpen, setIsOpen ] = useState(false);
-    const [ isSelected, setIsSelected ] = useState('Category');
 
     const onHandleOpen = (event) => {
         event.preventDefault()
@@ -26,12 +17,12 @@ export const DropDown = () => {
     }, [isSelected])
 
     return(
-        <div className="relative flex flex-col">
+        <div className={`relative ${formCrud ? 'col-span-3' : 'flex flex-col'}`}>
             <button 
                 className={` flex flex-row justify-between p-2.5 rounded-md  border ${isOpen ? 'bg-bg_light_primary' : 'bg-[#f4f5f7] '}`}
                 onClick={onHandleOpen}                
             >
-                <span className={`${isSelected !== 'Category' ? 'text-bg_dark_primary' : 'text-text_gray_for_span'}`}>{isSelected}</span>
+                <span className={`text-sm ${isSelected !== 'Category' ? 'text-bg_dark_primary' : 'text-text_gray_for_span'}`}>{isSelected}</span>
                 {
                     isOpen
                         ? <MdOutlineArrowDropUp className='self-center'/>
@@ -44,7 +35,7 @@ export const DropDown = () => {
                         {listCategories.map( ({name, id}) => {
                         return(
                             <div 
-                                className=' w-full text-sm p-2 bg-[#f4f5f7] transition-all duration-200 hover:bg-bg_light_primary' 
+                                className=' w-full text-sm p-2 bg-[#f4f5f7] text-text_gray_for_span transition-all duration-200 hover:bg-bg_light_primary' 
                                 key={id}
                                 onClick = {() =>  setIsSelected(name)}
                             >

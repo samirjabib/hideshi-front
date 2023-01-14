@@ -12,6 +12,11 @@ export const useProductsStore = () => {
         dispatch(openProductModal(payload))
     }
 
+    const addProduct = (productData) => {
+        console.log(productData)
+
+    }
+
 
     return {
         //Propierties
@@ -19,6 +24,7 @@ export const useProductsStore = () => {
         isOpenProduct,
         
         setProductModal,
+        addProduct,
         
     }
 }

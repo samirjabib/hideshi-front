@@ -1,70 +1,107 @@
 import { useForm } from "../../../hooks"
 import { InputCrud } from "./InputCrud"
-
+import { UploadPicture } from "./UploadPicture";
+import { DropDown} from './DropDown'
+import { useCategorySelected, useProductsStore } from "..";
 
 const crudFormFields = {
     name:'',
-    category:'',
+    category:null,
     details:'',
     price:null,
+    productImg:null
 }
 
 export const FormCrud = () => {
+    const { isSelected, setIsSelected, listCategories } = useCategorySelected();
+    const { addProduct } = useProductsStore()
 
     const { 
-        onInputChange, 
-        isFormValid, 
-        formState, 
-        onResetForm,
+        //Propierties
         name,
         category,
         details,
         price,
+        productImg,
+        isFormValid, 
+        formState,
+
+        //Methods
+        onInputChange,
+        onFileInputChange,
+        onResetForm,
+       
     } = useForm( crudFormFields );
 
-    console.log(name)
 
+    const productData = {
+        ...formState,
+        category: isSelected
+    }
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        addProduct(productData);
+    }
 
     return(
-        <form className="p-6 w-full">
-            <InputCrud
-                placeholder='Insert name' 
-                name='name'
-                label='Product Name'
-                type='text'
-                value={name}
-                onInputChange={onInputChange}
-            />
-            <InputCrud 
-                placeholder='Insert category'
-                label='Category'
-                name='category'
-                value={category}
-                onInputChange={onInputChange}
-            />
-            <InputCrud 
-                placeholder='Insert price' 
-                name='price'
-                label='Price'
-                type='number'
-                value={price}
-                onInputChange={onInputChange}
-            />
-            <div 
-                className="grid grid-cols-1 md:grid-cols-4 mb-6 md:mb-8 w-full"
-            >    
-                <label 
-                    className="block mb-2 text-sm text-bg_dark_primary">Details</label>
-                <textarea 
-                    rows="4" 
-                    className="block p-2.5 w-full text-sm col-span-3 text-gray-900 rounded-lg bg-[#f4f5f7] outline-none" 
-                    placeholder="Write details here..."
-                    name="details"
-                    value={details}
-                    onChange={onInputChange}
-                    >
-                </textarea>
+        <>
+            <UploadPicture onFileInputChange={onFileInputChange} productImg={productImg}/>
+            <div>
+                {!!productImg && 
+                        console.log(!!productImg)
+                }
             </div>
-        </form>
+
+            <form className="p-6 w-full">
+                <InputCrud
+                    placeholder='Insert name' 
+                    name='name'
+                    label='Product Name'
+                    type='text'
+                    value={name}
+                    onInputChange={onInputChange}
+                />
+                <div className="grid grid-cols-1 md:grid-cols-4 mb-6 md:mb-8">
+                    <label htmlFor="">Category</label>
+                    <DropDown 
+                        formCrud={true} 
+                        setIsSelected={setIsSelected} 
+                        listCategories={listCategories}
+                        isSelected={isSelected}
+                    />
+                </div>
+                <InputCrud 
+                    placeholder='Insert category'
+                    label='Category'
+                    name='category'
+                    value={category}
+                    onInputChange={onInputChange}
+                />
+                <InputCrud 
+                    placeholder='Insert price' 
+                    name='price'
+                    label='Price'
+                    type='number'
+                    value={price}
+                    onInputChange={onInputChange}
+                />
+                <div 
+                    className="grid grid-cols-1 md:grid-cols-4 mb-6 md:mb-8 w-full"
+                >    
+                    <label 
+                        className="block mb-2 text-sm text-bg_dark_primary">Details</label>
+                    <textarea 
+                        rows="4" 
+                        className="block p-2.5 w-full text-sm col-span-3 text-gray-900 rounded-lg bg-[#f4f5f7] outline-none" 
+                        placeholder="Write details here..."
+                        name="details"
+                        value={details}
+                        onChange={onInputChange}
+                        >
+                    </textarea>
+                </div>
+            </form>
+        </>
     )
 }

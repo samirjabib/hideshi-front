@@ -1,9 +1,10 @@
 import { Input } from "../../auth/components"
 import { DropDown, ListProductTables } from "../component"
-import { useProductsStore } from "../hooks"
+import { useCategorySelected, useProductsStore } from "../hooks"
 
 export const StateProducts = () => {
 
+    const { isSelected,  listCategories, setIsSelected} = useCategorySelected()
     const { products, setProductModal } = useProductsStore();
 
     const openModal =(event) => {
@@ -23,7 +24,11 @@ export const StateProducts = () => {
                         styles={'bg-[#f4f5f7] p-2.5 rounded-md mb-4'} 
                         placeholder='Search product by name'    
                     />
-                    <DropDown/>
+                    <DropDown
+                        isSelected={isSelected}
+                        listCategories={listCategories}
+                        setIsSelected={setIsSelected}
+                    />
                     <button
                         className="bg-bg_dark_primary text-bg_light_primary w-full p-2.5 rounded-md mt-4"
                         onClick={openModal}
