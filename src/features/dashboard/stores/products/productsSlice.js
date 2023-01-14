@@ -1,10 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { dummieData } from "../../../shop";
 
-
-
-
-
 export const productSlice = createSlice({
     name:'products',
     initialState:{
