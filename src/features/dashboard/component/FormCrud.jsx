@@ -22,24 +22,32 @@ export const FormCrud = () => {
         price,
     } = useForm( crudFormFields );
 
+
+
+
     return(
         <form className="p-6 w-full">
             <InputCrud
-
-                placeholder='Product Name' 
+                placeholder='Insert name' 
                 name={title}
-                label=''
+                label='Product Name'
+                type='text'
                 onInputChange={onInputChange}
             />
             <InputCrud 
-                placeholder='' 
-                name=''
+                placeholder='Insert category'
+                label='Category'
+                name='category'
+                value={category}
                 onInputChange={onInputChange}
 
             />
             <InputCrud 
-                placeholder='' 
-                name=''
+                placeholder='Insert price' 
+                name='price'
+                label='Price'
+                type='number'
+                value={price}
                 onInputChange={onInputChange}
             />
             <div 
@@ -51,6 +59,8 @@ export const FormCrud = () => {
                     rows="4" 
                     className="block p-2.5 w-full text-sm col-span-3 text-gray-900 rounded-lg bg-[#f4f5f7] outline-none" 
                     placeholder="Write details here..."
+                    name="details"
+                    value={details}
                     onInputChange={onInputChange}
                     >
                 </textarea>

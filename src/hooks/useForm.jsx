@@ -24,9 +24,8 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
         setFormValidation(formCheckedValues);
     };
 
-    const onInputChange = (event) => {
-        event.preventDefault();
-        const { name, value} = event.target;
+    const onInputChange = ({target}) => {
+        const { name, value} = target;
 
         setFormState({
             ...formState,
