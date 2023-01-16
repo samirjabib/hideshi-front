@@ -18,11 +18,7 @@ export const useProductsStore = () => {
     const addProduct = async (productData) => {
         dispatch(checkingStatus())
         try{
-            const { data } = await hideshiApi.post('/product', productData,{
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
+            const { data } = await hideshiApi.post('/product', productData)
             console.log(data)
         }catch(error){
             console.log(error)

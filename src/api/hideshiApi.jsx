@@ -9,6 +9,7 @@ const hideshiApi = axios.create({
 hideshiApi.interceptors.request.use( config => {
     config.headers = {
         ...config.headers,
+        "Content-type": "multipart/form-data",
         "x-token": localStorage.getItem('token')
     }
 

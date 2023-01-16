@@ -3,6 +3,7 @@ import { InputCrud } from "./InputCrud"
 import { UploadPicture } from "./UploadPicture";
 import { DropDown} from './DropDown'
 import { useCategorySelected, useProductsStore } from "..";
+import { useUploadFile } from "../hooks/useUploadFile";
 
 const crudFormFields = {
     name:'',
@@ -13,7 +14,7 @@ const crudFormFields = {
 }
 
 export const FormCrud = () => {
-    const { isSelected, setIsSelected, listCategories } = useCategorySelected();
+    const { isSelected , setIsSelected, listCategories } = useCategorySelected();
     const { addProduct } = useProductsStore()
 
     const { 
@@ -21,37 +22,43 @@ export const FormCrud = () => {
         name,
         details,
         price,
-        productImg,
         quantity,
         isFormValid, 
         formState,
 
         //Methods
         onInputChange,
-        onFileInputChange,
         onResetForm,
        
     } = useForm( crudFormFields );
 
-    const productData = {
-        name,
-        details,
-        price:parseFloat(price),
-        quantity:parseInt(quantity),
-        categoryId: isSelected,
-        productImg,
-    }
+    const { files , onFileInputChange} = useUploadFile()
+
+    const categoryId = isSelected
+
+    const formData = new FormData()
+
+    formData.append('name', name)
+    formData.append('price', price)
+    formData.append('quantity',quantity)
+    formData.append('details', details)
+    formData.append('productImg', files)
+    formData.append('categoryId', categoryId)
+
 
     const onSubmit = (event) => {
         event.preventDefault();
-        addProduct(productData);
+        addProduct(formData);
         onResetForm()
     }
 
     return(
         <>
-            <UploadPicture onFileInputChange={onFileInputChange} productImg={productImg}/>
-            <form className="p-6 w-full"
+            <UploadPicture onFileInputChange={onFileInputChange}/>
+            <form 
+                className="p-6 w-full"
+                method="POST"
+                encType="multipart/form-data"
                 onSubmit={onSubmit}
             >
                 <InputCrud

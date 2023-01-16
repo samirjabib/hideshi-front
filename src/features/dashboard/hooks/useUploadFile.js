@@ -20,13 +20,8 @@ export const useUploadFile = () => {
                 file,                
             })
         }
-    
-        return {
-            filesToUpload,
-        }
       
     }
-    
 
 
     return{ 
