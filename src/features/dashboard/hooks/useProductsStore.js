@@ -7,7 +7,7 @@ export const useProductsStore = () => {
 
     const dispatch = useDispatch();
 
-    const { products, isOpenProduct } = useSelector( state => state.products )
+    const { products, isOpenProduct, isLoading } = useSelector( state => state.products )
     
 
     const setProductModal = (payload) => {
@@ -15,18 +15,16 @@ export const useProductsStore = () => {
     }
 
 
-
     const addProduct = async(productData) => {
-        console.log(productData)
-        // dispatch(checkingStatus())
-        // try {
-        //     const { data } = await hideshiApi.post('/product', productData)
-        //     console.log(data)
-        //     // dispatch(onAddProduct(data))
-        // } catch (error) {
-        //     console.log(error)
-        // }
-
+    
+        dispatch(checkingStatus())
+        try{
+            const { data } = hideshiApi.post('/product', productData)
+            console.log(data)
+        }catch(error){
+            console.log(error)
+        }
+ 
     }
 
 

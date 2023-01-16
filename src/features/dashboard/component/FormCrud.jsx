@@ -6,9 +6,10 @@ import { useCategorySelected, useProductsStore } from "..";
 
 const crudFormFields = {
     name:'',
-    category:null,
     details:'',
+    categoryId:'Category',
     price:null,
+    quantity:null,
     productImg:null
 }
 
@@ -19,10 +20,11 @@ export const FormCrud = () => {
     const { 
         //Propierties
         name,
-        category,
         details,
         price,
         productImg,
+        quantity,
+        categoryId,
         isFormValid, 
         formState,
 
@@ -33,20 +35,15 @@ export const FormCrud = () => {
        
     } = useForm( crudFormFields );
 
-    console.log(isSelected)
-
-
-
     const productData = {
         ...formState,
-        category: isSelected
+        categoryId: isSelected,
     }
-
-    console.log(productData)
 
     const onSubmit = (event) => {
         event.preventDefault();
         addProduct(productData);
+        onResetForm()
     }
 
     return(
@@ -84,6 +81,14 @@ export const FormCrud = () => {
                     label='Price'
                     type='number'
                     value={price}
+                    onInputChange={onInputChange}
+                />
+                 <InputCrud 
+                    placeholder='Insert quantity' 
+                    name='quantity'
+                    label='Quantiy'
+                    type='number'
+                    value={quantity}
                     onInputChange={onInputChange}
                 />
                 <div 

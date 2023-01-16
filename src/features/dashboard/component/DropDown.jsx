@@ -33,11 +33,12 @@ export const DropDown = ({formCrud, isSelected, setIsSelected, listCategories })
                 isOpen && (
                     <div className='mt-1 border rounded-md '>
                         {listCategories.map( ({name, id}) => {
+                            
                         return(
                             <div 
                                 className=' w-full text-sm p-2 bg-[#f4f5f7] text-text_gray_for_span transition-all duration-200 hover:bg-bg_light_primary' 
                                 key={id}
-                                onClick = {() =>  setIsSelected(name)}
+                                onClick = {() => setIsSelected(id)}
                             >
                                 <h3>{name}</h3>
                             </div>

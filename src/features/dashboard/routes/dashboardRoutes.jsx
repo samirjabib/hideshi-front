@@ -4,7 +4,6 @@ import { LayoutDashboard } from "../component"
 import {  Orders, Settings, StateProducts } from '../pages'
 
 export const DashboardRoutes = ({role}) => {
-    console.log(role)
 
     return(
         <Routes>

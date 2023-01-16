@@ -5,7 +5,7 @@ import { dummieData } from "../../../shop";
 export const productSlice = createSlice({
     name:'products',
     initialState:{
-        isLoading:true,
+        isLoading:false,
         products:dummieData,
         isOpenProduct:false,
         categories:[]
