@@ -51,22 +51,8 @@ export const AddProductModal = ({setProductModal, isOpenProduct}) => {
                     </p>
                 </div>
             </div>
-
-
             <FormCrud/>
-            <div className="flex flex-col w-full justify-center p-6 md:flex-row items-center gap-4 relative bottom-10 md:ml-20">
-                
-                <button 
-                    className=" bg-bg_dark_primary py-2.5 text-bg_light_primary text-sm w-full md:w-56 border border-black"
-                >
-                    Add Product
-                </button>
-                <button 
-                    className="border border-black text-sm  py-2.5 w-full md:w-56 transition-all duration-150 text-black hover:bg-red-500 hover:text-white"
-                >
-                    Cancel
-                </button>
-            </div>
+          
         </div>
     )
 }

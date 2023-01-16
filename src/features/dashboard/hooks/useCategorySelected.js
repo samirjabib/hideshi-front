@@ -1,14 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { hideshiApi } from '../../../api';
 
-const listCategories = [ 
-    { id:1, name:'T-shirt', },
-    { id:2, name:'Cap', },
-    { id:3, name:'Pants', },
-    { id:4, name:'Jewelry', },
-]
+
 
 export const useCategorySelected = () => {
     const [ isSelected, setIsSelected ] = useState('Category');
+    const [ listCategories, setCategories ] = useState([])
+
+    useEffect( () => {
+        hideshiApi.get('/category')
+            .then( response => setCategories(response.data) )
+            .catch( error => console.log(error))
+    }, [])
 
     return{
         isSelected,
