@@ -43,7 +43,7 @@ export const UploadPicture = ({onFileInputChange, productImg }) => {
                                         key={index}
                                         className='text-text_gray_for_span text-xs'
                                     >
-                                        {productImg.name}
+                                        {productImg.file.name}
                                     </span>)}</div>
                             }
                     </div> 
