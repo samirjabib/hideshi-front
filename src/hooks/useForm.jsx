@@ -10,6 +10,11 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
         setFormState(initialForm)
     },[]);
 
+
+    useEffect(() => {
+        createValidators()
+    }, [])
+
     const createValidators = () => {
         const formCheckedValues = {};
 
@@ -37,7 +42,7 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
         
         const filesToUpload = [];
         for (const file of files){
-            filesToUpload.push(file)
+            filesToUpload.push({file})
         }
         console.log(filesToUpload)
         setFormState({

@@ -7,7 +7,6 @@ import { useCategorySelected, useProductsStore } from "..";
 const crudFormFields = {
     name:'',
     details:'',
-    categoryId:'Category',
     price:null,
     quantity:null,
     productImg:null
@@ -24,7 +23,6 @@ export const FormCrud = () => {
         price,
         productImg,
         quantity,
-        categoryId,
         isFormValid, 
         formState,
 
@@ -36,8 +34,12 @@ export const FormCrud = () => {
     } = useForm( crudFormFields );
 
     const productData = {
-        ...formState,
+        name,
+        details,
+        price:parseFloat(price),
+        quantity:parseInt(quantity),
         categoryId: isSelected,
+        productImg,
     }
 
     const onSubmit = (event) => {
@@ -49,12 +51,6 @@ export const FormCrud = () => {
     return(
         <>
             <UploadPicture onFileInputChange={onFileInputChange} productImg={productImg}/>
-            <div>
-                {!!productImg && 
-                        console.log(!!productImg)
-                }
-            </div>
-
             <form className="p-6 w-full"
                 onSubmit={onSubmit}
             >

@@ -1,6 +1,6 @@
 
 import {  HiOutlineUserCircle } from 'react-icons/hi';
-import {RiShoppingBagLine} from 'react-icons/ri'
+import { RiShoppingBagLine , RiLogoutBoxRLine} from 'react-icons/ri'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { Link, useNavigate } from "react-router-dom";
 
@@ -8,7 +8,7 @@ import { ListNavMobile } from "./ListNavMobile";
 import { ListNavDesktop } from "./ListNavDesktop";
 import { SideBarBag } from "../SideBarBag";
 import { useBackgroundScroll, useNavLinks, useOpen } from "../../hooks";
-import { AddProductModal, useProductsStore, useShopStore } from "../../features";
+import { AddProductModal, useAuthStore, useProductsStore, useShopStore } from "../../features";
 
 
 export const Header = ({auth}) => {
@@ -17,6 +17,7 @@ export const Header = ({auth}) => {
     const { navLinks } = useNavLinks(auth)
     const { isCartOpen, onSetCartOpen } = useShopStore()
     const {setProductModal, isOpenProduct } = useProductsStore()
+    const { startLogout } = useAuthStore()
 
     const navigate = useNavigate()
 
@@ -75,7 +76,7 @@ export const Header = ({auth}) => {
                     
                     <HiOutlineUserCircle 
                         size={22} 
-                        className=' hidden md:block '
+                        className=' hidden md:block'
                         onClick={onHandleDashboardAndLogin}
                     />
                        
