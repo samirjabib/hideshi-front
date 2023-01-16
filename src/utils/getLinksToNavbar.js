@@ -17,7 +17,7 @@ const adminNav = [
 
 
 export const getLinksToNavBar = (auth) => {
-
+    
 
     if( auth.status ==='authenticated' && auth.role === 'user'){
         return authNav

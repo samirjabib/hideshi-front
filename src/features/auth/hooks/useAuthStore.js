@@ -7,8 +7,8 @@ import { hideshiApi } from '../../../api';
 export const useAuthStore = () => {
 
     const { status, user, errorMesage } = useSelector( state => state.auth)
-
-   
+    
+    
     //Admin1@gmail.com // 4321admin
 
     const dispatch = useDispatch();
@@ -17,9 +17,11 @@ export const useAuthStore = () => {
         dispatch(onChecking());
         try{
             const { data } = await hideshiApi.post('/auth/login', {email, password});
+            console.log(data)
             const { user, token} = data;
             localStorage.setItem('token', token)
             localStorage.setItem('token-init-date', new Date().getTime());
+
             dispatch(onLogin({
                 firstName: user.firstName,
                 lastName:user.lastName,

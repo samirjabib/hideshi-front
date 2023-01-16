@@ -28,7 +28,6 @@ import { useEffect } from "react";
 export const AppRouter = () => {
 
     const { status, user} = useAuthStore()
-    console.log(user)
 
     const auth = {
         ...user,
@@ -56,14 +55,15 @@ export const AppRouter = () => {
                                 <Route path='/' element={<Home/>}/>
                                 <Route path='/auth/*' element={ <AuthRoutes/>}/>
                                 <Route path='/shop/*' element={<ShopRouter/>} />
-                                <Route path='/*' element={ <MissingURL/>}/>
+                                <Route path='/*' element={ <Navigate to='/'/>}/>
                             </>
                         :
                             <>
                                 <Route path='/' element={<Home/>}/>
                                 <Route path='/shop/*' element={<ShopRouter/>} />
                                 <Route path="/dashboard/*" element={ <DashboardRoutes role={auth.role}/> }/>
-                                <Route path='/*' element={ <MissingURL/>}/>
+                                <Route path='/*' element={ <Navigate to='/'/>}/>
+
                             </>
                     }
                 </Route>

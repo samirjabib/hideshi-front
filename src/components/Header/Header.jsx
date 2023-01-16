@@ -1,7 +1,7 @@
 
 import {  HiOutlineUserCircle } from 'react-icons/hi';
 import { RiShoppingBagLine , RiLogoutBoxRLine} from 'react-icons/ri'
-import { AiOutlineMenu } from 'react-icons/ai'
+import { AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai'
 import { Link, useNavigate } from "react-router-dom";
 
 import { ListNavMobile } from "./ListNavMobile";
@@ -79,7 +79,14 @@ export const Header = ({auth}) => {
                         className=' hidden md:block'
                         onClick={onHandleDashboardAndLogin}
                     />
-                       
+
+                    <AiOutlineLogout
+                    
+                        size={22}
+                        onClick={startLogout}
+                    />
+
+                   
                     <span className="self-center md:hidden">
                         <AiOutlineMenu size={22}  onClick={ () => setOpen(!open)}/>
                     </span> 

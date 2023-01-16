@@ -6,6 +6,9 @@ import { useAuthStore } from '../hooks/useAuthStore';
 
 const loginFormFields = {email:'', password:'',}
 
+
+//NO TENGO SONIDO REINICIO LLAMADA 1S
+
 {}
 export const Login = () => {
 
@@ -19,6 +22,7 @@ export const Login = () => {
         event.preventDefault()
         startLogin({email, password})
         onResetForm();
+        navigate('/dashboard/state-products')
     }
 
     return(

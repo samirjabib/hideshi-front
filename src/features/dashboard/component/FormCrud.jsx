@@ -33,6 +33,7 @@ export const FormCrud = () => {
     } = useForm( crudFormFields );
 
     const { files , onFileInputChange} = useUploadFile()
+    console.log(files)
 
     const categoryId = isSelected
 
@@ -44,7 +45,6 @@ export const FormCrud = () => {
     formData.append('details', details)
     formData.append('productImg', files)
     formData.append('categoryId', categoryId)
-
 
     const onSubmit = (event) => {
         event.preventDefault();
