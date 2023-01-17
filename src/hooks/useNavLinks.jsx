@@ -5,7 +5,6 @@ import { getLinksToNavBar } from "../utils"
 
 export const useNavLinks = (auth) => {
 
-    console.log(auth)
 
     const autho = {
         status : 'authenticated',

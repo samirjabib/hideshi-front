@@ -24,7 +24,11 @@ export const useProductsStore = () => {
         console.log(productData)
         dispatch(checkingStatus())
         try{
-            const { data } = await hideshiApi.post('/product', productData, config)
+            const { data } = await hideshiApi.post('/product', productData,{
+                headers:{
+                    "Content-type": "multipart/form-data",
+                }
+            })
             console.log(data)
         }catch(error){
             console.log(error)

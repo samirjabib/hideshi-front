@@ -3,31 +3,34 @@ import { useState } from "react"
 export const useUploadFile = () => {
 
 
-    const [ filesImg, setFiles ] = useState([])
+    const [ files, setFiles ] = useState([])
 
     const onFileInputChange = ( {target }) => {
 
-        if(target.files === 0) return
-        const { files } = target
-        
-        const filesToUpload = [];
-            
-        for (const file of files){
-            filesToUpload.push(file)
+        if(target.files === 0) return 
 
-            setFiles(filesToUpload )
+        const fileObj = [];
+        const fileArray = []
+
+        fileObj.push(target.files)
+        for(let i = 0; i < this.fileObj[0].lenght; i++){
+            fileArray.push(URL.createObjectURL(fileObj[0][1]))
         }
-      
+        setFiles(fileArray)
+
+        
+    const onResetFiles = () => {
+        setFiles([])
     }
 
-    console.log(filesImg)
 
 
     return{ 
-        filesImg,
+        files,
 
 
         onFileInputChange,
+        onResetFiles,
     }
 }
 
