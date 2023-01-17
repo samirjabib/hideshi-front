@@ -9,7 +9,7 @@ const hideshiApi = axios.create({
 hideshiApi.interceptors.request.use( config => {
     config.headers = {
         ...config.headers,
-        "Content-type": "application/json",
+        // "Content-type": "application/json",
         "x-token": localStorage.getItem('token')
     }
 
