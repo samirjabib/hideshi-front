@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const hideshiApi = axios.create({
+const hideshiApiFormData = axios.create({
     baseURL:'https://hideshi-store.onrender.com/api/v1'
 });
 
@@ -9,11 +9,11 @@ const hideshiApi = axios.create({
 hideshiApi.interceptors.request.use( config => {
     config.headers = {
         ...config.headers,
-        "Content-type": "application/json",
+        "Content-Type":"multipart/form-data",
         "x-token": localStorage.getItem('token')
     }
 
     return config;
 })
 
-export default hideshiApi;
+export default hideshiApiFormData;
