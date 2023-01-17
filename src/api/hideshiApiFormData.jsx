@@ -6,7 +6,7 @@ const hideshiApiFormData = axios.create({
 });
 
 
-hideshiApi.interceptors.request.use( config => {
+hideshiApiFormData.interceptors.request.use( config => {
     config.headers = {
         ...config.headers,
         "Content-Type":"multipart/form-data",

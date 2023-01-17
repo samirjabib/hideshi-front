@@ -18,8 +18,6 @@ export const useUploadFile = () => {
         setFiles(filesToUpload)
     }
 
-    console.log(files)
-
         
     const onResetFiles = () => {
         setFiles([])

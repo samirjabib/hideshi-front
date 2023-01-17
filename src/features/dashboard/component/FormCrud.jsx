@@ -32,20 +32,31 @@ export const FormCrud = () => {
        
     } = useForm( crudFormFields );
 
-    const { 
+    const {
         files , 
         onFileInputChange,
         onResetFiles
     } = useUploadFile()
 
-    const categoryId = isSelected
-
-    const formData = new FormData()
-
-
+    // const categoryId = isSelected
 
     const priceNumber = parseFloat(price)
     const quantityNumber = parseInt(quantity)
+    
+    // const productData = {
+    //     name,
+    //     details,
+    //     price:priceNumber,
+    //     quantity :quantityNumber,
+    //     categoryId:isSelected,
+    //     productImg:files,
+    // }
+
+
+    // console.log(productData)
+
+    const formData = new FormData()
+
 
 
     formData.append('name', name)
@@ -56,7 +67,6 @@ export const FormCrud = () => {
     formData.append('categoryId', categoryId)
 
     console.log(formData)
-
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -127,6 +137,7 @@ export const FormCrud = () => {
                 
                 <button 
                     className=" bg-bg_dark_primary py-2.5 text-bg_light_primary text-sm w-full md:w-56 border border-black"
+                    type="submit"
                 >
                     Add Product
                 </button>

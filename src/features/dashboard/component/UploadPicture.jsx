@@ -44,7 +44,7 @@ export const UploadPicture = ({ onFileInputChange, filesImg }) => {
                                         className='text-xs text-gray'
                                     
                                     >
-                                        {img.name}
+                                        {img}
                                     </p>
                                 )
                             })
