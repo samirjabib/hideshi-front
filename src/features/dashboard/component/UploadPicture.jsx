@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai"
 
 
-export const UploadPicture = ({onFileInputChange }) => {
+export const UploadPicture = ({ onFileInputChange, filesImg }) => {
     
     const fileInputRef = useRef();
 
@@ -32,16 +32,24 @@ export const UploadPicture = ({onFileInputChange }) => {
                         </span>
                     
                     </div>
-
-                    {/* <div className="col-start-2 col-end-5  mt-4 text-center ">
-                            <h4 className={`${!!files ? '' : 'hidden'} text-sm`}>Img Uploading</h4>
-                            {
-                                !!files && files.map( (file) => {
-                                    console.log(file)
-                                })
-                                       
-                            }
-                    </div>  */}
+                    
+                    
+                    <div className="col-start-2 col-end-5  mt-4 text-center ">
+                            <h4 className={`${!filesImg ? '' : 'hidden'} text-sm`}>Img Uploading</h4>
+                           {
+                            filesImg.map( (img, index)  => {
+                                return(
+                                    <p 
+                                        key={index}
+                                        className='text-xs text-gray'
+                                    
+                                    >
+                                        {img.name}
+                                    </p>
+                                )
+                            })
+                           }
+                    </div> 
             </div>
 
    

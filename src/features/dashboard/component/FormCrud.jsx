@@ -32,18 +32,23 @@ export const FormCrud = () => {
        
     } = useForm( crudFormFields );
 
-    const { files , onFileInputChange} = useUploadFile()
-    console.log(files)
+    const { filesImg , onFileInputChange} = useUploadFile()
 
     const categoryId = isSelected
 
     const formData = new FormData()
 
+
+
+    const priceNumber = parseFloat(price)
+    const quantityNumber = parseInt(quantity)
+
+
     formData.append('name', name)
-    formData.append('price', price)
-    formData.append('quantity',quantity)
+    formData.append('price', priceNumber)
+    formData.append('quantity',quantityNumber)
     formData.append('details', details)
-    formData.append('productImg', files)
+    formData.append('productImg', filesImg)
     formData.append('categoryId', categoryId)
 
     const onSubmit = (event) => {
@@ -54,7 +59,7 @@ export const FormCrud = () => {
 
     return(
         <>
-            <UploadPicture onFileInputChange={onFileInputChange}/>
+            <UploadPicture onFileInputChange={onFileInputChange} filesImg={filesImg}/>
             <form 
                 className="p-6 w-full"
                 method="POST"
