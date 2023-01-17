@@ -55,6 +55,8 @@ export const FormCrud = () => {
     formData.append('productImg', files)
     formData.append('categoryId', categoryId)
 
+    console.log(formData)
+
 
     const onSubmit = (event) => {
         event.preventDefault();

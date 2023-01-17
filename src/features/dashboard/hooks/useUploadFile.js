@@ -4,19 +4,21 @@ export const useUploadFile = () => {
 
 
     const [ files, setFiles ] = useState([])
-
     const onFileInputChange = ( {target }) => {
 
-        if(target.files === 0) return 
+        if(target.files === 0) return
+        const { files } = target
 
-        const fileObj = [];
-        const fileArray = []
-
-        fileObj.push(target.files)
-        for(let i = 0; i < this.fileObj[0].lenght; i++){
-            fileArray.push(URL.createObjectURL(fileObj[0][1]))
+        const filesToUpload = [];
+            
+        for (let i = 0; i < files.length; i++) {
+            filesToUpload.push(URL.createObjectURL(files[i]))
         }
-        setFiles(fileArray)
+
+        setFiles(filesToUpload)
+    }
+
+    console.log(files)
 
         
     const onResetFiles = () => {
