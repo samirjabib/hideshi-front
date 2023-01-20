@@ -3,8 +3,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "../components";
 import { AuthRoutes, Home, ShopRouter, useAuthStore } from "../features";
 import { DashboardRoutes } from "../features";
-import { MissingURL } from "./components";
-
 
 
 const auth = {
@@ -54,20 +52,31 @@ export const AppRouter = () => {
                             <>
                                 <Route path='/' element={<Home/>}/>
                                 <Route path='/auth/*' element={
-                                    <React.Suspense fallback={<div>Loading</div>}>
+                                    <React.Suspense fallback={<div>Loading{console.log('cargando auth')}</div>}>
                                         <AuthRoutes/>
                                     </React.Suspense>
                                 }/>
-                                <Route path='/shop/*' element={<ShopRouter/>} />
+                                <Route path='/shop/*' element={
+                                    <React.Suspense fallback={<div>Loading{console.log('cargando login')}</div>}>
+                                        <ShopRouter/>
+                                    </React.Suspense>
+                                } />
                                 <Route path='/*' element={ <Navigate to='/'/>}/>
                             </>
                         :
                             <>
                                 <Route path='/' element={<Home/>}/>
-                                <Route path='/shop/*' element={<ShopRouter/>} />
-                                <Route path="/dashboard/*" element={ <DashboardRoutes role={auth.role}/> }/>
+                                <Route path='/shop/*' element={
+                                    <React.Suspense fallback={<div>Loading{console.log('cargando shop')}</div>}>
+                                        <ShopRouter/>
+                                    </React.Suspense>
+                                } />
+                                <Route path="/dashboard/*" element={ 
+                                    <React.Suspense fallback={<div>Loading</div>}>
+                                        <DashboardRoutes role={auth.role}/>
+                                    </React.Suspense> 
+                                }/>
                                 <Route path='/*' element={ <Navigate to='/'/>}/>
-
                             </>
                     }
                 </Route>

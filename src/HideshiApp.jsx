@@ -7,6 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 function HideshiApp() {
   
 
+ 
   return (
     <Provider store={ store }>
       <PersistGate loading={null} persistor={persistor}>

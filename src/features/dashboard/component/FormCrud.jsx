@@ -41,22 +41,10 @@ export const FormCrud = () => {
     const categoryId = isSelected
     const priceNumber = parseFloat(price)
     const quantityNumber = parseInt(quantity)
-    
-    // const productData = {
-    //     name,
-    //     details,
-    //     price:priceNumber,
-    //     quantity :quantityNumber,
-    //     categoryId:categoryId,
-    //     productImg:files,
-    // }
+  
 
-
-    // console.log(productData)
 
     const formData = new FormData()
-
-
 
     formData.append('name', name)
     formData.append('price', priceNumber)
@@ -65,7 +53,6 @@ export const FormCrud = () => {
     formData.append('productImg', files)
     formData.append('categoryId', categoryId)
 
-    console.log(formData)
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -133,19 +120,18 @@ export const FormCrud = () => {
                 </div>
 
                 <div className="flex flex-col w-full justify-center p-6 md:flex-row items-center gap-4 relative bottom-10 md:ml-20">
-                
-                <button 
-                    className=" bg-bg_dark_primary py-2.5 text-bg_light_primary text-sm w-full md:w-56 border border-black"
-                    type="submit"
-                >
-                    Add Product
-                </button>
-                <button 
-                    className="border border-black text-sm  py-2.5 w-full md:w-56 transition-all duration-150 text-black hover:bg-red-500 hover:text-white"
-                >
-                    Cancel
-                </button>
-            </div>
+                    <button 
+                        className=" bg-bg_dark_primary py-2.5 text-bg_light_primary text-sm w-full md:w-56 border border-black"
+                        type="submit"
+                    >
+                        Add Product
+                    </button>
+                    <button 
+                        className="border border-black text-sm  py-2.5 w-full md:w-56 transition-all duration-150 text-black hover:bg-red-500 hover:text-white"
+                    >
+                        Cancel
+                    </button>
+                </div>
             </form>
         </>
     )
