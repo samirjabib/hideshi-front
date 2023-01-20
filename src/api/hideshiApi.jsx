@@ -1,8 +1,9 @@
 import axios from "axios";
-
+// http://192.168.1.3:4000/
+// https://hideshi-store.onrender.com/api/v1
 
 const hideshiApi = axios.create({
-    baseURL:'https://hideshi-store.onrender.com/api/v1'
+    baseURL:'http://192.168.1.3:4000/api/v1'
 });
 
 

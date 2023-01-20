@@ -16,7 +16,6 @@ export const UploadPicture = ({ onFileInputChange, filesImg }) => {
                     onChange={onFileInputChange}
                     className="hidden"
                     multiple
-                    name="productImg"
                 />
                     <div 
                         className="border-2 border-dashed md:col-span-3  mx-auto row-span-4 items-center justify-center grid p-8 gap-y-2 cursor-pointer"
@@ -33,22 +32,22 @@ export const UploadPicture = ({ onFileInputChange, filesImg }) => {
                     
                     </div>
                     
-                    
+                        
                     <div className="col-start-2 col-end-5  mt-4 text-center ">
-                            <h4 className={`${!filesImg ? '' : 'hidden'} text-sm`}>Img Uploading</h4>
-                           {
-                            filesImg.map( (img, index)  => {
+                        {/* <h4 className={`${!filesImg ? '' : 'hidden'} text-sm`}>Img Uploading</h4>
+                        {
+                            filesImg.map( ( file, index)  => {
                                 return(
                                     <p 
                                         key={index}
                                         className='text-xs text-gray'
                                     
                                     >
-                                        {img}
+                                        {file.name}
                                     </p>
                                 )
                             })
-                           }
+                        } */}
                     </div> 
             </div>
 

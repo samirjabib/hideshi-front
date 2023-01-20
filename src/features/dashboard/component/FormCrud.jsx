@@ -33,13 +33,12 @@ export const FormCrud = () => {
     } = useForm( crudFormFields );
 
     const {
-        files , 
+        files, 
         onFileInputChange,
         onResetFiles
     } = useUploadFile()
 
-    // const categoryId = isSelected
-
+    const categoryId = isSelected
     const priceNumber = parseFloat(price)
     const quantityNumber = parseInt(quantity)
     
@@ -48,7 +47,7 @@ export const FormCrud = () => {
     //     details,
     //     price:priceNumber,
     //     quantity :quantityNumber,
-    //     categoryId:isSelected,
+    //     categoryId:categoryId,
     //     productImg:files,
     // }
 

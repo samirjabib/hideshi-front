@@ -20,7 +20,7 @@ const auth = {
 //Import animation package
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 
 
@@ -53,7 +53,11 @@ export const AppRouter = () => {
                         ? 
                             <>
                                 <Route path='/' element={<Home/>}/>
-                                <Route path='/auth/*' element={ <AuthRoutes/>}/>
+                                <Route path='/auth/*' element={
+                                    <React.Suspense fallback={<div>Loading</div>}>
+                                        <AuthRoutes/>
+                                    </React.Suspense>
+                                }/>
                                 <Route path='/shop/*' element={<ShopRouter/>} />
                                 <Route path='/*' element={ <Navigate to='/'/>}/>
                             </>
