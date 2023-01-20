@@ -2,6 +2,7 @@ import React from "react"
 import { lazily } from "react-lazily"
 import { Routes, Route } from "react-router-dom"
 import { ShopPage } from "../pages"
+import { Loading } from "../../../components"
 
 const { Checkout, ProductDetailPage } = lazily(
     () =>  import("../pages") 
@@ -13,12 +14,12 @@ export const ShopRouter = () => {
             <Routes>       
                 <Route path="/" element={<ShopPage/>}/>
                 <Route path="/:id" element={
-                    <React.Suspense fallback={<div>Loading{console.log('cargando product-details')}</div>}>
+                    <React.Suspense fallback={<Loading/>}>
                         <ProductDetailPage/>
                     </React.Suspense>
                 }/>
                 <Route path="/checkout" element={
-                    <React.Suspense fallback={<div>Loading{console.log('cargando checkout')}</div>}>
+                    <React.Suspense fallback={<Loading/>}>
                         <Checkout/>
                     </React.Suspense>
                 }/>

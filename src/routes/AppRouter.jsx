@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 import { Layout } from "../components";
 import {  useAuthStore } from "../features";
+import { Loading } from "../components";
 
 const { AuthRoutes, Home, ShopRouter, DashboardRoutes } = lazily(
     () =>  import("../features") 
@@ -48,7 +49,7 @@ export const AppRouter = () => {
     
     return (
         <>
-            <React.Suspense fallback={<div>Loading</div>}>
+            <React.Suspense fallback={<Loading/>}>
                 <Routes>
                     <Route path='/' element={<Layout auth={auth}/>}>
                         {
@@ -57,12 +58,12 @@ export const AppRouter = () => {
                                 <>
                                     <Route path='/' element={<Home/>}/>
                                     <Route path='/auth/*' element={
-                                        <React.Suspense fallback={<div>Loading{console.log('cargando auth')}</div>}>
+                                        <React.Suspense fallback={<Loading/>}>
                                             <AuthRoutes/>
                                         </React.Suspense>
                                     }/>
                                     <Route path='/shop/*' element={
-                                        <React.Suspense fallback={<div>Loading{console.log('cargando login')}</div>}>
+                                        <React.Suspense fallback={<Loading/>}>
                                             <ShopRouter/>
                                         </React.Suspense>
                                     } />
@@ -72,12 +73,12 @@ export const AppRouter = () => {
                                 <>
                                     <Route path='/' element={<Home/>}/>
                                     <Route path='/shop/*' element={
-                                        <React.Suspense fallback={<div>Loading{console.log('cargando shop')}</div>}>
+                                        <React.Suspense fallback={<Loading/>}>
                                             <ShopRouter/>
                                         </React.Suspense>
                                     } />
                                     <Route path="/dashboard/*" element={ 
-                                        <React.Suspense fallback={<div>Loading</div>}>
+                                        <React.Suspense fallback={<Loading/>}>
                                             <DashboardRoutes role={auth.role}/>
                                         </React.Suspense> 
                                     }/>
