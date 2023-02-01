@@ -33,7 +33,6 @@ export const DashboardRoutes = ({role}) => {
                             </>
                     
                     }
-                
                 </Route>
             </Routes>
         </React.Suspense>
