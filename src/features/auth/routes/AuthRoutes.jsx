@@ -1,12 +1,20 @@
+import React from "react";
+import { lazily } from "react-lazily";
 import { Route, Routes } from "react-router-dom";
-import { Login, Register } from "../pages";
+import { Loading } from "../../../components";
+
+const { Login, Register } = lazily(
+    () =>  import("../pages") 
+)
 
 
 export const AuthRoutes = () => {
     return (
-        <Routes>
-            <Route path = "/login" element = { <Login/>}/>
-            <Route path = "/register" element = { <Register/>}/>
-        </Routes>
+        <React.Suspense fallback={<Loading/>}>
+            <Routes>
+                <Route path = "/login" element = { <Login/>}/>
+                <Route path = "/register" element = { <Register/>}/>
+            </Routes>
+        </React.Suspense>
     );
 };

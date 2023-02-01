@@ -29,15 +29,12 @@ import { lazily } from "react-lazily";
 
 
 export const AppRouter = () => {
-
     const { status, user} = useAuthStore()
 
     const auth = {
         ...user,
         status
     }
-
-
 
     useEffect( () => {
         Aos.init({
@@ -56,32 +53,34 @@ export const AppRouter = () => {
                             (status === "not-authenticated")
                             ? 
                                 <>
-                                    <Route path='/' element={<Home/>}/>
-                                    <Route path='/auth/*' element={
-                                        <React.Suspense fallback={<Loading/>}>
-                                            <AuthRoutes/>
-                                        </React.Suspense>
-                                    }/>
-                                    <Route path='/shop/*' element={
-                                        <React.Suspense fallback={<Loading/>}>
-                                            <ShopRouter/>
-                                        </React.Suspense>
-                                    } />
+                                    <Route 
+                                        path='/' 
+                                        element={<Home/>}
+                                    />
+                                    <Route 
+                                        path='/auth/*' 
+                                        element={<AuthRoutes/>}
+                                    />
+                                    <Route 
+                                        path='/shop/*' 
+                                        element={<ShopRouter/>}
+                                    />
                                     <Route path='/*' element={ <Navigate to='/'/>}/>
                                 </>
                             :
                                 <>
-                                    <Route path='/' element={<Home/>}/>
-                                    <Route path='/shop/*' element={
-                                        <React.Suspense fallback={<Loading/>}>
-                                            <ShopRouter/>
-                                        </React.Suspense>
-                                    } />
-                                    <Route path="/dashboard/*" element={ 
-                                        <React.Suspense fallback={<Loading/>}>
-                                            <DashboardRoutes role={auth.role}/>
-                                        </React.Suspense> 
-                                    }/>
+                                    <Route 
+                                        path='/' 
+                                        element={<Home/>}
+                                    />
+                                    <Route 
+                                        path='/shop/*' 
+                                        element={<ShopRouter/>} 
+                                    />
+                                    <Route 
+                                        path="/dashboard/*" 
+                                        element={<DashboardRoutes role={auth.role}/>}
+                                    />
                                     <Route path='/*' element={ <Navigate to='/'/>}/>
                                 </>
                         }
