@@ -2,7 +2,7 @@ import { useShopStore } from "../../features";
 
 export const Card = ( { product }) => {
 
-    const {onHandleAddToCart, onHandleDecrementItemInCart} = useShopStore()
+    const {onHandleAddToCart, onHandleDecrementItemInCart, onHandleIncrementCount} = useShopStore()
 
     const {  name, img, price , quantity, category } = product
 
@@ -30,7 +30,7 @@ export const Card = ( { product }) => {
                             <span className="text-xs  text-bg_dark_primary p-2">{quantity}</span>
                             <button 
                                 className="text-base text-text_gray_for_span"
-                                onClick={ () =>onHandleAddToCart(product)}
+                                onClick={ () => onHandleIncrementCount(product)}
                             >
                                 +
                             </button>

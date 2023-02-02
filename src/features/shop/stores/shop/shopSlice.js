@@ -24,15 +24,27 @@ export const shopSlice = createSlice({
             if(existingItem >= 0){
                 state.cartItems[existingItem] = { //Si existe le sumamos 1 a su propiedad quantity.
                     ...state.cartItems[existingItem], 
-                    quantity: state.cartItems[existingItem].quantity + 1
-                }
+                    quantity: state.cartItems[existingItem].quantity + 1   
+            }
             } else {
                 let item = { ...payload, quantity:1}
                 state.cartItems.push(item)
-                console.log('item subido')
+                state.isCartOpen = payload.isCartOpen
             }
         },
+    
+        incrementCount : ( state, { payload } ) => {
+            const existingItem = state.cartItems.findIndex( //Encontramos si el objeto existe por su id
+            item => item.id === payload.id
+            );
 
+            if(existingItem >= 0){
+                state.cartItems[existingItem] = { //Si existe le sumamos 1 a su propiedad quantity.
+                    ...state.cartItems[existingItem], 
+                    quantity: state.cartItems[existingItem].quantity + 1   
+                }
+            } 
+        },
         decreaseCount : ( state, { payload} ) => {
             const existingItem = state.cartItems.findIndex(
                 item => item.id === payload.id
@@ -61,6 +73,7 @@ export const {
     addItemToCart,
     decreaseCount,
     setCartOpen,
+    incrementCount,
 } = shopSlice.actions
 
 

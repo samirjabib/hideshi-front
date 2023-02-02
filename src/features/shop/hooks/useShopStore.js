@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addItemToCart, decreaseCount, setCartOpen } from "../stores";
+import { addItemToCart, decreaseCount, setCartOpen, incrementCount } from "../stores";
 
 export const useShopStore = () => {
 
@@ -12,6 +12,10 @@ export const useShopStore = () => {
     const onHandleAddToCart = (item) => {
         dispatch(addItemToCart(item));
         dispatch(setCartOpen(!isCartOpen))
+    }
+
+    const onHandleIncrementCount = (item) => {
+        dispatch(incrementCount(item));
     }
 
     const onHandleDecrementItemInCart = (item) => {
@@ -29,6 +33,7 @@ export const useShopStore = () => {
 
         //Methods
         onHandleAddToCart,
+        onHandleIncrementCount,
         onHandleDecrementItemInCart,
         onSetCartOpen
     }
