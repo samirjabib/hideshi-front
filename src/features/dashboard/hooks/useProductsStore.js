@@ -6,7 +6,6 @@ import hideshiApiFormData from "../../../api/hideshiApiFormData";
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useShopStore } from "../..";
 
 
 
@@ -36,8 +35,6 @@ export const useProductsStore = () => {
 
     const { products, isOpenProduct, isLoading } = useSelector( state => state.products )
 
-    console.log(isOpenProduct)
-    
 
     const setProductModal = (payload) => {
         dispatch(openProductModal(payload))

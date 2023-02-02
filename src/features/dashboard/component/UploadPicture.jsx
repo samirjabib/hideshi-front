@@ -3,14 +3,6 @@ import { AiOutlineCloudUpload } from "react-icons/ai"
 
 
 export const UploadPicture = ({ onFileInputChange, filesImg }) => {
-
-    console.log(filesImg)
-    console.log(!!filesImg)
-
-
-    console.log(filesImg)
-
-
     const fileInputRef = useRef();
 
     return(

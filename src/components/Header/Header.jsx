@@ -20,6 +20,7 @@ export const Header = ({auth}) => {
     const { startLogout } = useAuthStore()
 
     const navigate = useNavigate()
+    console.log(auth.status)
 
     const onHandleDashboardAndLogin = () => {
         if(auth.status === 'authenticated'){
@@ -79,17 +80,27 @@ export const Header = ({auth}) => {
                         className=' hidden md:block'
                         onClick={onHandleDashboardAndLogin}
                     />
-
-                    <AiOutlineLogout
                     
-                        size={22}
-                        onClick={startLogout}
-                    />
+                    
+                 
 
-                   
-                    <span className="self-center md:hidden">
-                        <AiOutlineMenu size={22}  onClick={ () => setOpen(!open)}/>
-                    </span> 
+                    {
+                        (auth.status === 'authenticated') &&
+                            <span className="self-center md:hidden">
+                                <AiOutlineLogout
+                                className='hidden md:block'
+                                size={22}
+                                onClick={startLogout}
+                                />
+                            </span> 
+                    }
+
+                            <span className="self-center md:hidden">
+                                <AiOutlineMenu size={22}  onClick={ () => setOpen(!open)}/>
+                            </span> 
+
+
+                    
                 </div>
 
             </nav>

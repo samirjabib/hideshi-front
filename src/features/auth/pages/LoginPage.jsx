@@ -12,8 +12,6 @@ const loginFormFields = {email:'', password:'',}
 {}
 export const Login = () => {
 
-    const navigate = useNavigate();
-
     const { onInputChange, email, password, onResetForm } = useForm(loginFormFields);
     const { startLogin } = useAuthStore();
 
@@ -22,7 +20,6 @@ export const Login = () => {
         event.preventDefault()
         startLogin({email, password})
         onResetForm();
-        navigate('/dashboard/state-products')
     }
 
     return(

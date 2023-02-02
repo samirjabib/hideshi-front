@@ -2,15 +2,34 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { onLogout, onChecking, onLogin, clearErrorMessage} from "../stores"
 import { hideshiApi } from '../../../api';
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 
 export const useAuthStore = () => {
 
     const { status, user, errorMesage } = useSelector( state => state.auth)
+
+    const navigate = useNavigate()
+
+    const notify = (mssg, toastId) => {
+        
+        if(toastId === true)
+        toast.success(mssg, {
+            autoClose:3000,
+            position:toast.POSITION.BOTTOM_RIGHT,
+            toastId:toastId,
+        },)
+        if(toastId === false){
+            toast.error(mssg,{
+                autoClose:3000,
+                position:toast.POSITION.BOTTOM_RIGHT,
+                toastId:toastId,
+            })
+        }
+ 
+    }
     
-    console.log(user)
-    
-    //Admin1@gmail.com // 4321admin
 
     const dispatch = useDispatch();
 
@@ -30,8 +49,9 @@ export const useAuthStore = () => {
                 email:user.email,
                 role:user.role,
             }))
-        } catch(err) {
-            console.log(err)
+            notify('Logeaste con exito a tu cuenta', true)
+        } catch (error) {
+            console.log(error)
             dispatch(onLogout('incorrect password'))
             setTimeout( () => {
                 dispatch(clearErrorMessage());
@@ -43,6 +63,8 @@ export const useAuthStore = () => {
     const startLogout = () => {
         localStorage.clear();
         dispatch(onLogout());
+        notify('Has cerrado con exito la sesion', true)
+
     }
 
 

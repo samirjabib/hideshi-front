@@ -5,18 +5,14 @@ import { getLinksToNavBar } from "../utils"
 
 export const useNavLinks = (auth) => {
 
-
-    const autho = {
-        status : 'authenticated',
-        role : 'admin'
-    }
-    
+    console.log(auth)
 
     const [ navLinks, setNavLinks ] = useState([])
 
-    
+ 
+
     useEffect( () => {
-        const navLinks = getLinksToNavBar(autho)
+        const navLinks = getLinksToNavBar(auth)
         setNavLinks(navLinks) 
     }, [auth])
 
