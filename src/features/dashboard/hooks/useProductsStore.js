@@ -3,7 +3,20 @@ import { checkingStatus, onAddProduct, openProductModal } from "../stores";
 import { hideshiApi } from "../../../api";
 import hideshiApiFormData from "../../../api/hideshiApiFormData";
 
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 export const useProductsStore = () => {
+
+    const notify = () => {
+        toast("default notification!",{
+            position:toast.POSITION.BOTTOM_RIGHT
+        })
+    }
+
 
     const dispatch = useDispatch();
 
@@ -20,6 +33,7 @@ export const useProductsStore = () => {
     const addProduct = async (productData) => {
         console.log(productData)
         dispatch(checkingStatus())
+        notify()
         try{
             const { data } = await hideshiApiFormData.post('/product', productData)
             console.log(data)
@@ -34,6 +48,7 @@ export const useProductsStore = () => {
         //Propierties
         products,
         isOpenProduct,
+        notify,
         
         setProductModal,
         addProduct,

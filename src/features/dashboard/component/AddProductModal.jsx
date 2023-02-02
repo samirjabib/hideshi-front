@@ -4,6 +4,7 @@ import { FormCrud } from "./FormCrud"
 import { AiOutlineClose } from "react-icons/ai"
 
 
+
 export const AddProductModal = ({setProductModal, isOpenProduct}) => {
 
     const productModalRef = useRef()
@@ -52,7 +53,6 @@ export const AddProductModal = ({setProductModal, isOpenProduct}) => {
                 </div>
             </div>
             <FormCrud/>
-          
         </div>
     )
 }
