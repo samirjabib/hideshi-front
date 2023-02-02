@@ -8,7 +8,7 @@ export const Sizes = ({sizes, isSelected, setIsSelected }) => {
     const selected = (display) => {
 
         if(display === isSelected){
-            setIsSelected('')
+            setIsSelected(null)
         } else {
             setIsSelected(display)
         }

@@ -90,7 +90,7 @@ export const Header = ({auth}) => {
                                 />
                             </span> 
                     }
-                           
+                          
                     
                             <span className="self-center md:hidden">
                                 <AiOutlineMenu size={22}  onClick={ () => setOpen(!open)}/>
