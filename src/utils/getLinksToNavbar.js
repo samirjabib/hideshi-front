@@ -2,16 +2,23 @@
 const defaultNav = [
     { path:'/', display:'Home'},
     { path:'/shop', display:'Shop'},
+    { path:'/auth/login', display:'Login'}
+
 ]
 
 const authNav = [
     { path:'/', display:'Home'},
     { path:'/shop', display:'Shop'},
+    { path:'/auth/login', display:'Login'}
 ]
 
 const adminNav = [
     { path:'/', display:'Home'},
     { path:'/shop', display:'Shop'},
+    { path:'/auth/login', display:'Login'},
+    { path:'/dashboard/state-products', display:'Dashboard'}
+
+
 ]
 
 

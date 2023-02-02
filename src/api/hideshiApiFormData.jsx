@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const hideshiApiFormData = axios.create({
-    baseURL:'http://192.168.1.3:4000/api/v1'
+    baseURL:'http://localhost:4000/api/v1'
 });
 
 

@@ -54,6 +54,8 @@ export const FormCrud = () => {
     formData.append('categoryId', categoryId)
 
 
+    console.log(files)
+
     const onSubmit = (event) => {
         event.preventDefault();
         addProduct(formData);
