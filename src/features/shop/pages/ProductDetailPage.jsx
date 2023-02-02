@@ -1,9 +1,12 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 import { MaterialSpecifications, Sizes } from "../components";
 import { useShopStore } from "../hooks";
 import { getProductById } from "../utils";
+
+
 
 const sizes = [
     {
@@ -30,6 +33,17 @@ const sizes = [
 
 export const ProductDetailPage = () => {
 
+    const notify = (mssg, boolean) => {
+        if(boolean === false){
+            toast.error(mssg,{
+                autoClose:3000,
+                position:toast.POSITION.TOP_CENTER,
+            })
+        }
+ 
+    }
+    
+
     const { id } = useParams();
     const [ size, setIsSelected ] = useState(null);
     const {  onHandleAddToCart  } = useShopStore()
@@ -46,7 +60,8 @@ export const ProductDetailPage = () => {
 
     const onSubmitProduct = () => {
         if(size === null){
-            alert('select size')
+            return  notify('Selecciona una talla para la prenda', false)
+            
         } else {
             onHandleAddToCart(item)
         }
@@ -78,6 +93,7 @@ export const ProductDetailPage = () => {
                 </div>
                 <MaterialSpecifications/>
             </div>
+            <ToastContainer/>
         </div>
     )
 };
