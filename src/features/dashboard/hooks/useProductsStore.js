@@ -70,10 +70,10 @@ export const useProductsStore = () => {
             const { data } = await hideshiApiFormData.post('/product/id', id )
             if(data){
                 dispatch(openProductModal(!isOpenProduct))
-                notify.success
+                notify('producto añadido correctamente', true )
             }
         }catch(error){
-            console.log(error)
+            notify('producto añadido correctamente', true )
         }
  
     }

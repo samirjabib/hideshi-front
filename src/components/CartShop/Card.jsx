@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import { useShopStore } from "../../features";
 
 export const Card = ( { product }) => {
@@ -39,7 +40,7 @@ export const Card = ( { product }) => {
                 </div>
                 <div className="text-xs text-bg_dark_primary self-start"> Total: COP<span>{total}</span></div>
             </div>
-
+            <ToastContainer/>
  
         </div>
     )
