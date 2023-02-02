@@ -12,15 +12,15 @@ import { AddProductModal, useAuthStore, useProductsStore, useShopStore } from ".
 
 
 export const Header = ({auth}) => {
+
     const {open, setOpen} = useOpen()
-    const { backgroundHandle, backgroundScroll } = useBackgroundScroll()
-    const { navLinks } = useNavLinks(auth)
-    const { isCartOpen, onSetCartOpen } = useShopStore()
-    const {setProductModal, isOpenProduct } = useProductsStore()
     const { startLogout } = useAuthStore()
+    const { backgroundHandle, backgroundScroll } = useBackgroundScroll()
+    const { isCartOpen, onSetCartOpen } = useShopStore()
+    const { navLinks } = useNavLinks(auth)
+    const {setProductModal, isOpenProduct } = useProductsStore()
 
     const navigate = useNavigate()
-    console.log(auth.status)
 
     const onHandleDashboardAndLogin = () => {
         if(auth.status === 'authenticated'){
@@ -59,9 +59,9 @@ export const Header = ({auth}) => {
                 </Link>
                 <div className={`w-full h-screen fixed scroll- z-50 right-0 top-0 bg-black/70 ${open || isCartOpen || isOpenProduct ? 'block' : 'hidden'}`}></div>
 
-                <ListNavDesktop navLinks ={navLinks} setOpen ={ setOpen }/>
-                {/* mobile  */}
-                <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen } />
+                 <ListNavDesktop navLinks ={navLinks} setOpen ={ setOpen }/>
+                 
+                 <ListNavMobile open={open} navLinks={navLinks} setOpen ={ setOpen } startLogout={ startLogout } status={auth.status}/> 
 
                 <SideBarBag openBag={isCartOpen} setBag={ onSetCartOpen } />
 
@@ -84,23 +84,18 @@ export const Header = ({auth}) => {
                     
                  
 
-                    {
-                        (auth.status === 'authenticated') &&
-                            <span className="self-center md:hidden">
+                    
+            
+                            <span className="self-center hidden md:block">
                                 <AiOutlineLogout
-                                className='hidden md:block'
                                 size={22}
                                 onClick={startLogout}
                                 />
                             </span> 
-                    }
-
+                    
                             <span className="self-center md:hidden">
                                 <AiOutlineMenu size={22}  onClick={ () => setOpen(!open)}/>
                             </span> 
-
-
-                    
                 </div>
 
             </nav>

@@ -49,6 +49,7 @@ export const useAuthStore = () => {
                 email:user.email,
                 role:user.role,
             }))
+            navigate('/dashboard/state-products')
             notify('Logeaste con exito a tu cuenta', true)
         } catch (error) {
             console.log(error)
