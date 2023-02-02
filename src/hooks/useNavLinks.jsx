@@ -23,7 +23,7 @@ const adminNav = [
 export const useNavLinks = (auth) => {
     const { role, status } = auth
 
-    const [ navLinks, setNavLinks ] = useState()
+    const [ navLinks, setNavLinks ] = useState(defaultNav)
     
     useEffect( () => {
         if(role === "admin" && status ==="authenticated"){
