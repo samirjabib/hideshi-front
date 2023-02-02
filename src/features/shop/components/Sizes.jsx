@@ -21,7 +21,7 @@ export const Sizes = ({sizes, isSelected, setIsSelected }) => {
                 sizes.map( (size) => {
                     return(
                         <div 
-                            className={`${(isSelected === size.display) ? " bg-black text-white" : "border-gray-300"} border-[1.3px] transition-all flex items-center justify-center text-xs text-text_gray_for_span py-2 px-2 w-12 cursor-pointer hover:bg-black/3 `}
+                            className={`${(isSelected === size.display) ? " bg-black text-white" : "border-gray-300"} border-[1.3px] transition-all flex items-center justify-center text-xs text-text_gray_for_span py-2 px-2 w-12 cursor-pointer hover:bg-black/3 shadow-sm `}
                             key={size.id}
                             onClick={ () => selected(size.display)}
                         >
