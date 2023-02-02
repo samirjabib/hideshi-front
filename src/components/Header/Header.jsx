@@ -81,17 +81,16 @@ export const Header = ({auth}) => {
                         onClick={onHandleDashboardAndLogin}
                     />
                     
-                    
-                 
-
-                    
-            
+                    {
+                        auth.status === "authenticated" &&
                             <span className="self-center hidden md:block">
                                 <AiOutlineLogout
                                 size={22}
                                 onClick={startLogout}
                                 />
                             </span> 
+                    }
+                           
                     
                             <span className="self-center md:hidden">
                                 <AiOutlineMenu size={22}  onClick={ () => setOpen(!open)}/>
