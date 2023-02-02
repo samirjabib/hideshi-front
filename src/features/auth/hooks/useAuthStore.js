@@ -8,6 +8,7 @@ export const useAuthStore = () => {
 
     const { status, user, errorMesage } = useSelector( state => state.auth)
     
+    console.log(user)
     
     //Admin1@gmail.com // 4321admin
 
@@ -20,6 +21,7 @@ export const useAuthStore = () => {
             console.log(data)
             const { user, token} = data;
             localStorage.setItem('token', token)
+            console.log('token')
             localStorage.setItem('token-init-date', new Date().getTime());
 
             dispatch(onLogin({

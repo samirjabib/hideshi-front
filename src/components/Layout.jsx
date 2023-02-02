@@ -6,10 +6,11 @@ export const Layout = ({auth}) => {
     
 
     return (
-       <main className="App">
-            <Header auth={auth} className="relative"/>
-                    <Outlet /> 
-            <Footer/>
-        </main>
+        <div className="flex flex-col h-uato">
+                <Header auth={auth} className="relative"/>
+                        <Outlet /> 
+                <Footer/>
+        </div>
+
     )
 }

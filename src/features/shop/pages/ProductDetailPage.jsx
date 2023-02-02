@@ -54,7 +54,7 @@ export const ProductDetailPage = () => {
     }
 
     return(
-        <div className=" w-full p-4 flex flex-col md:flex-row md:justify-center h-screen mx-auto container mt-24">
+        <div className=" w-full p-4 flex flex-col md:flex-row md:justify-center h-auto mx-auto container mt-24">
             <img src={img} className=' black h-3/6 object-contain md:object-cover '/>
             <div className=" h-full flex flex-col p-4  mt-4  md:mt-16 md:ml-12">
                 <h2 className="uppercase font-bold font-sans text-xs">{name}</h2>

@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { checkingStatus, onAddProduct, openProductModal } from "../stores";
 import { hideshiApi } from "../../../api";
 import hideshiApiFormData from "../../../api/hideshiApiFormData";
-import axios from "axios";
 
 export const useProductsStore = () => {
 

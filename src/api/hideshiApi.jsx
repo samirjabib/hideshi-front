@@ -11,7 +11,7 @@ hideshiApi.interceptors.request.use( config => {
     config.headers = {
         ...config.headers,
         "Content-type": "application/json",
-        "x-token": localStorage.getItem('token')
+        "authorization": localStorage.getItem('token')
     }
 
     return config;

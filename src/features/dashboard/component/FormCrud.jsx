@@ -41,7 +41,9 @@ export const FormCrud = () => {
     const categoryId = isSelected
     const priceNumber = parseFloat(price)
     const quantityNumber = parseInt(quantity)
-  
+    
+
+    console.log(formState)
 
 
     const formData = new FormData()
@@ -53,8 +55,7 @@ export const FormCrud = () => {
     formData.append('productImg', files)
     formData.append('categoryId', categoryId)
 
-
-    console.log(files)
+    console.log(formData)
 
     const onSubmit = (event) => {
         event.preventDefault();
