@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { assets } from '../../assets';
 
 
 export const Footer = () => {
@@ -6,16 +7,12 @@ export const Footer = () => {
         <footer className="w-full bg-bg_light_primary text-bg_dark_primary py-16 relative container text-center mx-auto ">
             <div className="md:px-12 lg:px-28 w-full items-center flex flex-col  ">
                 <div className="space-y-6 ">
-                    <img 
-                        src="images/logo.svg" 
-                        alt="HIDESHI-LOGO" 
-                        className="flex justify-center w-44 m-auto items-center" 
-                    />
+                   
 
                     <ul
                         role="list"
                         className="flex flex-col  w-full gap-4 py-4 sm:flex-row sm:gap-8 upper"
-                    >
+                    >   
                         <li role="listitem"><a href="#" className="hover:text-primary">Home</a></li>
                         <li role="listitem"><a href="#" className="hover:text-primary">Tienda</a></li>
                         <li role="listitem"><a href="#" className="hover:text-primary">Coleccion</a></li>
@@ -62,7 +59,14 @@ export const Footer = () => {
                         </Link>
                     </div>
                 </div>
-                <span className='text-text_gray_for_span text-xs w-40 text-center  mx-auto block mt-20 uppercase font-sanss'>todos los diseños son de uso reservado para hideshi sas</span>
+                <Link to='/shop'>
+                    <img 
+                        src={assets.logo} 
+                        alt="HIDESHI-LOGO" 
+                        className="flex justify-center w-44 m-auto items-center" 
+                    />
+                </Link>
+                <span className='text-text_gray_for_span text-xs w-40 text-center  mx-auto block mt-20 uppercase font-sans relative bottom-16'>todos los diseños son de uso reservado para hideshi sas</span>
             </div>
 
       </footer>

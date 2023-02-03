@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { onLogout, onChecking, onLogin, clearErrorMessage} from "../stores"
 import { hideshiApi } from '../../../api';
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 
@@ -11,25 +10,6 @@ export const useAuthStore = () => {
     const { status, user, errorMesage } = useSelector( state => state.auth)
 
     const navigate = useNavigate()
-
-    const notify = (mssg, toastId) => {
-        
-        if(toastId === true)
-        toast.success(mssg, {
-            autoClose:3000,
-            position:toast.POSITION.BOTTOM_RIGHT,
-            toastId:toastId,
-        },)
-        if(toastId === false){
-            toast.error(mssg,{
-                autoClose:3000,
-                position:toast.POSITION.BOTTOM_RIGHT,
-                toastId:toastId,
-            })
-        }
- 
-    }
-    
 
     const dispatch = useDispatch();
 

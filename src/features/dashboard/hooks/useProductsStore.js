@@ -4,20 +4,12 @@ import { hideshiApi } from "../../../api";
 import hideshiApiFormData from "../../../api/hideshiApiFormData";
 
 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-
-
 export const useProductsStore = () => {
 
 
     const notify = (mssg) => {
         
-        toast.success(mssg, {
-            autoClose:3000,
-            position:toast.POSITION.BOTTOM_RIGHT,
-        },)
+        
   
  
     }

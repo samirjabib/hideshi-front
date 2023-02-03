@@ -1,7 +1,6 @@
 import { useEffect } from "react"
 import { useRef } from "react"
 import { AiOutlineClose, AiOutlineLogout } from "react-icons/ai"
-import { ToastContainer } from "react-toastify"
 import { useAuthStore } from "../../features"
 import { GetEmail } from "./GetEmail"
 import { NavLinks } from "./NavLinks"
@@ -68,9 +67,9 @@ export const ListNavMobile = ({open, navLinks, setOpen, status}) => {
 
                     </span> 
             }
-          
             <GetEmail/>
-            <ToastContainer/>
+            
+
         </ul>
 
     )

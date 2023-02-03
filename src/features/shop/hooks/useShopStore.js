@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { addItemToCart, decreaseCount, setCartOpen, incrementCount } from "../stores";
 
 export const useShopStore = () => {
@@ -7,19 +6,7 @@ export const useShopStore = () => {
     
     const notify = (mssg, toastId) => {
         
-        if(toastId === true)
-        toast.success(mssg, {
-            autoClose:3000,
-            position:toast.POSITION.BOTTOM_RIGHT,
-            toastId:toastId,
-        },)
-        if(toastId === false){
-            toast.error(mssg,{
-                autoClose:3000,
-                position:toast.POSITION.BOTTOM_RIGHT,
-                toastId:toastId,
-            })
-        }
+
  
     }
 

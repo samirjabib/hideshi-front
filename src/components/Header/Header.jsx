@@ -9,6 +9,7 @@ import { ListNavDesktop } from "./ListNavDesktop";
 import { SideBarBag } from "../SideBarBag";
 import { useBackgroundScroll, useNavLinks, useOpen } from "../../hooks";
 import { AddProductModal, useAuthStore, useProductsStore, useShopStore } from "../../features";
+import { assets } from '../../assets';
 
 
 export const Header = ({auth}) => {
@@ -46,15 +47,15 @@ export const Header = ({auth}) => {
             <nav className=" w-full flex justify-between h-16 p-2 items-center ">
 
                 <h2 className="md:hidden">
-                    <Link className="font-semibold md:hidden text-xl md:text-2xl p-2 self-center" to='/'>HIDESHI</Link>
+                    <Link className="font-semibold md:hidden text-xl md:text-2xl p-2 self-center" to='/shop'>HIDESHI</Link>
                 </h2>
 
                 <Link to='/' className="flex flex-row"> 
-                    <img 
-                    src=""
+                    {/* <img 
+                    src={assets.logo}
                     alt="logo" 
-                    className="self-center border-2 border-black w-16 h-12 mr-6 flex items-center justify-center"
-                    />
+                    className="self-center  w-24 mr-6 flex items-center justify-center object-cover mt-6 "
+                    /> */}
                     <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center"><span>HIDESHI</span></h2>
                 </Link>
                 <div className={`w-full h-screen fixed scroll- z-50 right-0 top-0 bg-black/70 ${open || isCartOpen || isOpenProduct ? 'block' : 'hidden'}`}></div>

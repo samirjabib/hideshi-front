@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 const defaultNav = [
     { path:'/', display:'Home'},
     { path:'/shop', display:'Shop'},
-    { path:'/auth/login', display:'login'}
 ]
 
 const authNav = [

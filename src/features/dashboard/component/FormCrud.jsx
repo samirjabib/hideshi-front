@@ -5,9 +5,6 @@ import { DropDown} from './DropDown'
 import { useCategorySelected, useProductsStore } from "..";
 import { useUploadFile } from "../hooks/useUploadFile";
 
-import { ToastContainer } from "react-toastify"
-
-
 const crudFormFields = {
     name:'',
     details:'',
@@ -66,7 +63,6 @@ export const FormCrud = () => {
 
     return(
         <>
-            <ToastContainer/>
             <UploadPicture onFileInputChange={onFileInputChange} filesImg={files}/>
             <form 
                 className="p-6 w-full"
