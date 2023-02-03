@@ -17,9 +17,8 @@ export const ProductCard = ({product}) => {
             />
             <div className=" w-full flex-col text-center flex justify-center items-center uppercase h-[20%] ">
                 <h2 className="font-bold text-sm transition-all hover:border-b w-40 ">{name}</h2>
-                <span className="text-[.8rem] mb-8">COP{price}</span>
+                <span className="text-[.8rem] mb-8">COP{price}</span>  
         </div>
-            
 
         </div>
     );

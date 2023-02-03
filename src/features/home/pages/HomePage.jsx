@@ -1,13 +1,12 @@
-import React from "react";
-import { CategoriesList, Hero } from "../components";
 
+import {  Hero, CategoriesList } from "../components";
 
-
-export const Home = () => {
+export const Home = ({props ="1"}) => {
+    
     return (
         <section className="scroll-smooth">
             <Hero/>
-            <CategoriesList/>
+                <CategoriesList/>
         </section>
     );
 };

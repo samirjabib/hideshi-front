@@ -1,3 +1,7 @@
+import { Suspense } from "react"
+import { ErrorBoundary } from "react-error-boundary"
+import { useNavigate } from "react-router-dom"
+import { ErrorFallback, Loading } from "../../../components"
 import { Input } from "../../auth/components"
 import { DropDown, ListProductTables } from "../component"
 import { useCategorySelected, useProductsStore } from "../hooks"
@@ -11,6 +15,8 @@ export const StateProducts = () => {
         event.preventDefault()
         setProductModal(true)
     }
+
+    const navigate = useNavigate()
 
   
 
@@ -38,7 +44,14 @@ export const StateProducts = () => {
                 </div>
             </form>
 
-            <ListProductTables products={products}/>
+            <ErrorBoundary
+                FallbackComponent={ErrorFallback}
+                onReset={() => navigate('dashboard/state-products')}
+            >
+                <Suspense fallback={<Loading/>}>
+                    <ListProductTables products={products}/>
+                </Suspense>
+            </ErrorBoundary>
 
            
         </div>

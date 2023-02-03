@@ -7,12 +7,11 @@ export const NavLinks = ({navLinks, desktop, setOpen}) => {
     const onCloseNavBar = () => {
         setOpen(false)
     }
-    
+
     return(
         <>
             {
                 navLinks?.map( (navLink, index) => {
-                    console.log(navLink)
                     const { display, path} = navLink
                     return(
                         <li key={index} className={`text-xs text-text_gray_for_span mt-3 ml-2 font-extralight font-serif uppercase ${desktop ? 'text-xs font-serif' : '' }`}>

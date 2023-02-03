@@ -9,7 +9,7 @@ function HideshiApp() {
 
  
   return (
-    <Provider store={ store }>
+  <Provider store={ store }>
       <PersistGate loading={null} persistor={persistor}>
         <AppRouter/>
       </PersistGate>

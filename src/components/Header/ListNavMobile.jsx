@@ -7,18 +7,15 @@ import { GetEmail } from "./GetEmail"
 import { NavLinks } from "./NavLinks"
 
 export const ListNavMobile = ({open, navLinks, setOpen, status}) => {
-    console.log(status)
     
 
     const { startLogout } = useAuthStore()
 
     const onCloseNavBar = () => {
-        console.log(open)
         setOpen(false)
     }
 
     const logout = () => {
-        console.log('hice click')
         startLogout()
     }
 

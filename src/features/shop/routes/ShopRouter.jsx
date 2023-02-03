@@ -9,8 +9,8 @@ const { Checkout, ProductDetailPage, ShopPage } = lazily(
 
 export const ShopRouter = () => {
     return(
-        <div className="mt-20">
-            <React.Suspense fallback={<Loading/>}>
+
+       <div className="mt-20"> 
                 <Routes>       
                     <Route 
                         path="/" 
@@ -27,8 +27,8 @@ export const ShopRouter = () => {
                         element={<Checkout/>}
                     />
                 </Routes>
-            </React.Suspense>
-        </div>
+         </div> 
+
 
     )
 }

@@ -1,29 +1,20 @@
+//Import animation package
+import Aos from "aos";
+import "aos/dist/aos.css";
+import React, { Suspense, useEffect } from "react";
+import { lazily } from "react-lazily";
+
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { Layout } from "../components";
 import {  useAuthStore } from "../features";
 import { Loading } from "../components";
+import { Home } from "../features";
+import { ErrorBoundary } from "react-error-boundary";
 
-const { AuthRoutes, Home, ShopRouter, DashboardRoutes } = lazily(
+const { AuthRoutes, ShopRouter, DashboardRoutes } = lazily(
     () =>  import("../features") 
 )
-
-
-const auth = {
-    user:{
-        id:2, 
-        user:'bamba', 
-        role:'user'
-    },
-    status:'not-authenticated',
-    
-}
-
-//Import animation package
-import Aos from "aos";
-import "aos/dist/aos.css";
-import React, { useEffect } from "react";
-import { lazily } from "react-lazily";
 
 
 
@@ -45,10 +36,15 @@ export const AppRouter = () => {
       },[]);
     
     return (
-        <>
-            <React.Suspense fallback={<Loading/>}>
+        <ErrorBoundary>
+            <Suspense
+                fallback={<Loading/>}
+            >
                 <Routes>
-                    <Route path='/' element={<Layout auth={auth}/>}>
+                    <Route 
+                        path='/' 
+                        element={<Layout auth={auth}/>}
+                    >
                         {
                             (status === "not-authenticated")
                             ? 
@@ -57,15 +53,22 @@ export const AppRouter = () => {
                                         path='/' 
                                         element={<Home/>}
                                     />
+
                                     <Route 
                                         path='/auth/*' 
-                                        element={<AuthRoutes/>}
+                                        element={<AuthRoutes/>
+                                        }
                                     />
+
                                     <Route 
                                         path='/shop/*' 
                                         element={<ShopRouter/>}
                                     />
-                                    <Route path='/*' element={ <Navigate to='/'/>}/>
+
+                                    <Route 
+                                        path='/*' 
+                                        element={ <Navigate to='/'/>}
+                                    />
                                 </>
                             :
                                 <>
@@ -73,21 +76,27 @@ export const AppRouter = () => {
                                         path='/' 
                                         element={<Home/>}
                                     />
+
                                     <Route 
                                         path='/shop/*' 
                                         element={<ShopRouter/>} 
                                     />
+
                                     <Route 
                                         path="/dashboard/*" 
                                         element={<DashboardRoutes role={auth.role}/>}
                                     />
-                                    <Route path='/*' element={ <Navigate to='/'/>}/>
+                                    
+                                    <Route 
+                                        path='/*' 
+                                        element={ <Navigate  to='/'/>}
+                                    />
                                 </>
                         }
                     </Route>
                 </Routes>     
-            </React.Suspense>     
-        </>
+            </Suspense>
+        </ErrorBoundary>
     );
 };
 
