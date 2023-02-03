@@ -4,8 +4,8 @@ import { toast } from "react-toastify";
 const initialState = {
     cartItems:[],
     cartTotal:{
-        productsInCart:null,
-        totalPrice:null
+        quantity:null,
+        price:null
     },
     isCartOpen:false,
 };
@@ -29,14 +29,14 @@ export const shopSlice = createSlice({
                     ...state.cartItems[existingItem], 
                     quantity: state.cartItems[existingItem].quantity + 1
                 }
-                toast.success("Cantidad ncrementada")
+                toast.success("Cantidad incrementada")
 
             } else {
                 let item = { ...payload, quantity:1}
                 state.cartItems.push(item)
                 state.isCartOpen = payload.isCartOpen
 
-                toast.success("Product added to cart");
+                toast.success("Producto añadido a la bolsa");
             }
         },
     
@@ -48,7 +48,8 @@ export const shopSlice = createSlice({
             if(existingItem >= 0){
                 state.cartItems[existingItem] = { 
                     ...state.cartItems[existingItem], 
-                    quantity: state.cartItems[existingItem].quantity + 1   
+                    quantity: state.cartItems[existingItem].quantity + 1,
+                    total: parseFloat(state.cartItems[existingItem].price) * state.cartItems[existingItem].quantity 
                 }
             } 
             toast.success("Cantidad incrementada")
@@ -76,9 +77,9 @@ export const shopSlice = createSlice({
                 toast.error('Producto Eliminado')
             }
         },
-        cartTotal: (state, { payload }) => {
-            state.cartTotal.totalPrice = payload.totalPrice
-            state.cartTotal.productsInCart = payload.productsInCart
+        addCartTotal: (state, { payload }) => {
+            state.cartTotal.price = payload.price
+            state.cartTotal.quantity = payload.quantity
         }
     }
 });
@@ -89,7 +90,7 @@ export const {
     decreaseCount,
     setCartOpen,
     incrementCount,
-    cartTotal
+    addCartTotal
 } = shopSlice.actions
 
 
