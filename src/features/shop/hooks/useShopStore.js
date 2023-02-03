@@ -12,7 +12,7 @@ export const useShopStore = () => {
 
     const {cartTotalQuantity, cartItems, isCartOpen} = useSelector( (state)  => state.shop)
 
-
+    
 
     const dispatch = useDispatch();
 

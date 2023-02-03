@@ -22,11 +22,20 @@ export const productSlice = createSlice({
             state.isLoading = false
             state.products.push(payload)
         },
+        getProducts: (state, { payload } ) => {
+            
+            state.products = payload
+        }
     }
 });
 
 
 
-export const { openProductModal, onLoadingProducts,  checkingStatus, onAddProduct } = productSlice.actions;
+export const { 
+    openProductModal, 
+    onLoadingProducts,  
+    checkingStatus, 
+    onAddProduct 
+} = productSlice.actions;
 
 

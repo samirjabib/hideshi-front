@@ -3,8 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     cartItems:[],
-    cartTotalQuantity:0,
-    cartTotalAmout:0,
+    cartTotal:{
+        quantity:null,
+        price:null
+    },
     isCartOpen:false,
 };
 
@@ -16,13 +18,13 @@ export const shopSlice = createSlice({
             state.isCartOpen = payload;
         },
         addItemToCart: ( state, { payload }) => {
-            const existingItem = state.cartItems.findIndex( //Encontramos si el objeto existe por su id
+            const existingItem = state.cartItems.findIndex( 
                 item => item.id === payload.id
             );
 
 
             if(existingItem >= 0){
-                state.cartItems[existingItem] = { //Si existe le sumamos 1 a su propiedad quantity.
+                state.cartItems[existingItem] = { 
                     ...state.cartItems[existingItem], 
                     quantity: state.cartItems[existingItem].quantity + 1   
             }
@@ -34,12 +36,12 @@ export const shopSlice = createSlice({
         },
     
         incrementCount : ( state, { payload } ) => {
-            const existingItem = state.cartItems.findIndex( //Encontramos si el objeto existe por su id
+            const existingItem = state.cartItems.findIndex( 
             item => item.id === payload.id
             );
 
             if(existingItem >= 0){
-                state.cartItems[existingItem] = { //Si existe le sumamos 1 a su propiedad quantity.
+                state.cartItems[existingItem] = { 
                     ...state.cartItems[existingItem], 
                     quantity: state.cartItems[existingItem].quantity + 1   
                 }
@@ -65,6 +67,10 @@ export const shopSlice = createSlice({
                 console.log('item elminado')
             }
         },
+        cartTotal: (state, { payload }) => {
+            state.cartTotal.quantity = payload,
+            state.cartTotal.price = payload
+        }
     }
 });
 

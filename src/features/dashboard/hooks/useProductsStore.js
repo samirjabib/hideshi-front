@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux"
-import { checkingStatus, onAddProduct, openProductModal } from "../stores";
+import { checkingStatus, openProductModal } from "../stores";
 import { hideshiApi } from "../../../api";
 import hideshiApiFormData from "../../../api/hideshiApiFormData";
+import { useEffect } from "react";
 
 
 export const useProductsStore = () => {
@@ -19,13 +20,23 @@ export const useProductsStore = () => {
 
     const { products, isOpenProduct, isLoading } = useSelector( state => state.products )
 
+    const getProducts = async() => {
+        const { data } = await hideshiApi.get('/product') 
+        
+        console.log(data)
+    }
+
+    useEffect( () => {
+        getProducts()
+    }, [] )
+  
+
+
+
 
     const setProductModal = (payload) => {
         dispatch(openProductModal(payload))
     }
-
-
-   
 
     const addProduct = async (productData) => {
         console.log(productData)
