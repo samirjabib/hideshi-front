@@ -41,6 +41,7 @@ export const ProductDetailPage = () => {
     const {  name, img, price, } = product 
 
     const item = {
+        id,
         name,
         img,
         price,

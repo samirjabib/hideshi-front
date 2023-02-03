@@ -11,7 +11,6 @@ export const useShopStore = () => {
     }
 
     const {cartTotalQuantity, cartItems, isCartOpen} = useSelector( (state)  => state.shop)
-    console.log(cartItems)
 
     const dispatch = useDispatch();
 
