@@ -11,7 +11,11 @@ export const useShopStore = () => {
     console.log(cartItems)
     
     const getCartTotal = () => {
-      
+      let { total, quantity } =cartItems.reduce(
+        (cartTotal, cartItem) => {
+
+        }
+      )
 
     }
 
