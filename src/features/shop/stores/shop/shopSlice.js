@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { toast } from "react-toastify";
 
 const initialState = {
     cartItems:[],
     cartTotal:{
-        quantity:null,
-        price:null
+        productsInCart:null,
+        totalPrice:null
     },
     isCartOpen:false,
 };
@@ -27,12 +27,16 @@ export const shopSlice = createSlice({
             if(existingItem >= 0){
                 state.cartItems[existingItem] = { 
                     ...state.cartItems[existingItem], 
-                    quantity: state.cartItems[existingItem].quantity + 1   
-            }
+                    quantity: state.cartItems[existingItem].quantity + 1
+                }
+                toast.success("Cantidad ncrementada")
+
             } else {
                 let item = { ...payload, quantity:1}
                 state.cartItems.push(item)
                 state.isCartOpen = payload.isCartOpen
+
+                toast.success("Product added to cart");
             }
         },
     
@@ -47,6 +51,8 @@ export const shopSlice = createSlice({
                     quantity: state.cartItems[existingItem].quantity + 1   
                 }
             } 
+            toast.success("Cantidad incrementada")
+
         },
         decreaseCount : ( state, { payload} ) => {
             const existingItem = state.cartItems.findIndex(
@@ -59,18 +65,20 @@ export const shopSlice = createSlice({
                     ...state.cartItems[existingItem],
                     quantity: state.cartItems[existingItem].quantity -= 1
                 }
+                toast.error('Cantidad decrementada')
+
             } else if( state.cartItems[existingItem].quantity === 1){
                 const cartItemsFiltered = state.cartItems.filter(
                     (item) => item.id !== payload.id
                 )
 
                 state.cartItems = cartItemsFiltered;
-                console.log('item elminado')
+                toast.error('Producto Eliminado')
             }
         },
         cartTotal: (state, { payload }) => {
-            state.cartTotal.quantity = payload,
-            state.cartTotal.price = payload
+            state.cartTotal.totalPrice = payload.totalPrice
+            state.cartTotal.productsInCart = payload.productsInCart
         }
     }
 });
@@ -81,6 +89,7 @@ export const {
     decreaseCount,
     setCartOpen,
     incrementCount,
+    cartTotal
 } = shopSlice.actions
 
 

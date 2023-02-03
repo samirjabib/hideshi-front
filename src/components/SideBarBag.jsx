@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { AiOutlineClose } from "react-icons/ai"
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { CartShop } from "./CartShop"
 
 export const SideBarBag = ( {openBag, setBag}) => {
@@ -60,7 +61,6 @@ export const SideBarBag = ( {openBag, setBag}) => {
             <p className="mt-8 text-[12px] uppercase font-700">¡¡no te pierdas nuestras promociones!!</p>
             <input className="w-full border-b p-2  text-sm outline-none border-black mt-2 " placeholder="E-mail"/>
             <button className="border border-black mt-4  bg-text_dark_primary text-sm font-bold py-2 uppercase font-400 shadow transition-all duration-300 hover:bg-black hover:text-white">Suscribe</button>
-        
         </div>
     )
 }

@@ -56,7 +56,6 @@ export const ProductDetailPage = () => {
             
             onHandleAddToCart(item)
         }
-        console.log(item)
     }
 
     return(

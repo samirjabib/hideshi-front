@@ -1,16 +1,20 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addItemToCart, decreaseCount, setCartOpen, incrementCount } from "../stores";
+import { addItemToCart, decreaseCount, setCartOpen, incrementCount, cartTotal } from "../stores";
 
 export const useShopStore = () => {
 
     
     const notify = (mssg, toastId) => {
         
-
- 
     }
 
-    const {cartTotalQuantity, cartItems, isCartOpen} = useSelector( (state)  => state.shop)
+    const {cartTotal, cartItems, isCartOpen} = useSelector( (state)  => state.shop)
+
+    console.log(cartTotal)
+
+    const getTotalCart = () => {
+        let { totalPrice, productsInCart } = cartTotal
+    }
 
     const dispatch = useDispatch();
 
