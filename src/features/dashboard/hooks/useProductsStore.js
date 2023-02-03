@@ -22,8 +22,6 @@ export const useProductsStore = () => {
 
     const getProducts = async() => {
         const { data } = await hideshiApi.get('/product') 
-        
-        console.log(data)
     }
 
     useEffect( () => {

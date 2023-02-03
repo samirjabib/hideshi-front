@@ -49,12 +49,13 @@ export const ProductDetailPage = () => {
 
     const onSubmitProduct = () => {
         if(size === null){
-            return  notify('Selecciona una talla para la prenda', false)
+            return  alert('Selecciona una talla para la prenda')
             
         } else {
+            
             onHandleAddToCart(item)
         }
-        
+        console.log(item)
     }
 
     return(

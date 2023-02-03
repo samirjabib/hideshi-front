@@ -19,7 +19,16 @@ export const Footer = () => {
                         <li role="listitem"><a href="#" className="hover:text-primary">Sobre Nosotros</a></li>
                     </ul>
 
-                    <div className="m-auto flex w-max items-center justify-between space-x-4">
+                    
+                </div>
+                <Link to='/shop'>
+                    <img 
+                        src={assets.logo} 
+                        alt="HIDESHI-LOGO" 
+                        className="flex justify-center w-44 m-auto items-center" 
+                    />
+                </Link>
+                <div className="m-auto flex w-max items-center justify-between space-x-4 relative bottom-6">
                         <Link href="tel:+243996660436" aria-label="call">
                             <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -58,14 +67,6 @@ export const Footer = () => {
                             </svg>
                         </Link>
                     </div>
-                </div>
-                <Link to='/shop'>
-                    <img 
-                        src={assets.logo} 
-                        alt="HIDESHI-LOGO" 
-                        className="flex justify-center w-44 m-auto items-center" 
-                    />
-                </Link>
                 <span className='text-text_gray_for_span text-xs w-40 text-center  mx-auto block mt-20 uppercase font-sans relative bottom-16'>todos los diseños son de uso reservado para hideshi sas</span>
             </div>
 

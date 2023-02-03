@@ -11,16 +11,13 @@ export const useShopStore = () => {
     }
 
     const {cartTotalQuantity, cartItems, isCartOpen} = useSelector( (state)  => state.shop)
-
-    
+    console.log(cartItems)
 
     const dispatch = useDispatch();
 
     const onHandleAddToCart = (item) => {
         dispatch(addItemToCart(item));
         dispatch(setCartOpen(!isCartOpen))
-        notify('Producto Añadido a la bolsa', true)
-
     }
 
     const onHandleIncrementCount = (item) => {
@@ -30,12 +27,17 @@ export const useShopStore = () => {
     const onHandleDecrementItemInCart = (item) => {
         dispatch(decreaseCount(item))
         if(item.quantity === 1){
-            notify('Producto removido de la bolsa', false)
+            console.log('removido')
         }
     }
 
     const onSetCartOpen = (payload) => {
         dispatch(setCartOpen(payload))
+    }
+
+
+    const getCartTotal = () => {
+
     }
 
 

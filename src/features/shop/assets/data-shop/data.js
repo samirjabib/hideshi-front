@@ -54,4 +54,52 @@ export const dummieData = [
         img:camiseta4,
         price:'80.000'
     },
+    {
+        id:9,
+        name:'Amazing T-shirt-1',
+        img:camiseta1,
+        price:'80,000'
+    },
+    {
+        id:10,
+        name:'Amazing T-shirt-2',
+        img:camiseta2,
+        price:'80,000'
+    },
+    {
+        id:11,
+        name:'Amazing T-shirt-3',
+        img:camiseta3,
+        price:'80,000'
+    },
+    {
+        id:12,
+        name:'Amazing T-shirt-4',
+        img:camiseta4,
+        price:'80,000'
+    },
+    {
+        id:13,
+        name:'Amazing T-shirt-5',
+        img:camiseta1,
+        price:'80,000'
+    },
+    {
+        id:14,
+        name:'Amazing T-shirt-6',
+        img:camiseta2,
+        price:'80,000'
+    },
+    {
+        id:15,
+        name:'Amazing T-shirt-7',
+        img:camiseta3,
+        price:'80,000'
+    },
+    {
+        id:16,
+        name:'Amazing T-shirt-8',
+        img:camiseta4,
+        price:'80.000'
+    },
 ]

@@ -18,11 +18,12 @@ export const shopSlice = createSlice({
             state.isCartOpen = payload;
         },
         addItemToCart: ( state, { payload }) => {
+            console.log(payload)
+            console.log(state.cartItems)
             const existingItem = state.cartItems.findIndex( 
                 item => item.id === payload.id
             );
-
-
+            
             if(existingItem >= 0){
                 state.cartItems[existingItem] = { 
                     ...state.cartItems[existingItem], 

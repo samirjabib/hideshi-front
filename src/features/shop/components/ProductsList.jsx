@@ -5,7 +5,7 @@ import { ErrorFallback } from "../../../components"
 import { ProductCard } from "./ProductCard"
 
 export const ProductsList = ({ products }) => {
-
+    
     const navigate = useNavigate()
 
     return(
@@ -15,7 +15,7 @@ export const ProductsList = ({ products }) => {
                 onReset={() => navigate('/')}
             >
                 <Suspense>
-                <div className=" grid grid-cols-2 gap-4  md:grid-cols-4 b   mt-24">
+                <div className=" grid grid-cols-2 gap-4  md:grid-cols-4 ">
                     { products.map( product => {
                         return(
                             <ProductCard key={product.id} product={product}  /> 
@@ -24,8 +24,6 @@ export const ProductsList = ({ products }) => {
                 </div>
                 </Suspense>
             </ErrorBoundary>
-
-
         </div>
     )
     
