@@ -6,7 +6,7 @@ export const Home = ({props ="1"}) => {
     return (
         <section className="scroll-smooth">
             <Hero/>
-                <CategoriesList/>
+            <CategoriesList/>
         </section>
     );
 };

@@ -12,21 +12,13 @@ import 'react-toastify/dist/ReactToastify.css';
 export const useProductsStore = () => {
 
 
-    const notify = (mssg, toastId) => {
+    const notify = (mssg) => {
         
-        if(toastId === true)
         toast.success(mssg, {
             autoClose:3000,
             position:toast.POSITION.BOTTOM_RIGHT,
-            toastId:toastId,
         },)
-        if(toastId === false){
-            toast.error(mssg,{
-                autoClose:3000,
-                position:toast.POSITION.BOTTOM_RIGHT,
-                toastId:toastId,
-            })
-        }
+  
  
     }
 
@@ -51,7 +43,7 @@ export const useProductsStore = () => {
             const { data } = await hideshiApiFormData.post('/product', productData)
             if(data){
                 dispatch(openProductModal(!isOpenProduct))
-                notify('producto añadido correctamente', true )
+                notify('producto añadido correctamente' )
             }
         }catch(error){
             console.log(error)
