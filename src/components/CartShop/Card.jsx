@@ -37,7 +37,7 @@ export const Card = ( { product }) => {
                         </div>
                     </div>
                 </div>
-                <div className="text-xs text-bg_dark_primary self-start"> Total: COP<span>{total}</span></div>
+                <div className="text-xs text-bg_dark_primary self-start"> Total: <span>${total}</span></div>
             </div> 
         </div>
     )

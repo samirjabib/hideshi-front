@@ -55,7 +55,7 @@ export const SideBarBag = ( {openBag, setBag}) => {
             />
             <span className="border bg-text_gray_for_span mt-14 w-full "></span>
             <CartShop/>
-            <p>{totalPrice}</p>
+            <p className="text-base font-sans font-semibold">SUBTOTAL: ${totalPrice}</p>
             <button 
                 className="border-2 border-black mt-12 text-bg_light_primary bg-bg_dark_primary text-sm font-bold py-2"
                 onClick={checkoutHandle}    
