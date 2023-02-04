@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { MaterialSpecifications, Sizes } from "../components";
 import { useShopStore } from "../hooks";
@@ -52,7 +53,7 @@ export const ProductDetailPage = () => {
 
     const onSubmitProduct = () => {
         if(size === null){
-            return  alert('Selecciona una talla para la prenda')
+            return  toast.error('Selecciona una talla para la prenda')
             
         } else {
             
