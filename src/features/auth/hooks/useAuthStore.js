@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { onLogout, onChecking, onLogin, clearErrorMessage} from "../stores"
 import { hideshiApi } from '../../../api';
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 export const useAuthStore = () => {
@@ -29,8 +30,8 @@ export const useAuthStore = () => {
                 email:user.email,
                 role:user.role,
             }))
+            
             navigate('/dashboard/state-products')
-            notify('Logeaste con exito a tu cuenta', true)
         } catch (error) {
             console.log(error)
             dispatch(onLogout('incorrect password'))
@@ -44,7 +45,7 @@ export const useAuthStore = () => {
     const startLogout = () => {
         localStorage.clear();
         dispatch(onLogout());
-        notify('Has cerrado con exito la sesion', true)
+        toast.error('Has cerrado con exito la sesion', true)
 
     }
 

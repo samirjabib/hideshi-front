@@ -7,7 +7,6 @@ export const useShopStore = () => {
     
     const { cartItems, isCartOpen, totalPrice, totalQuantity} = useSelector( (state)  => state.shop)
 
-    console.log(totalPrice)
 
     const dispatch = useDispatch();
 
@@ -50,7 +49,6 @@ export const useShopStore = () => {
     const onHandleDecrementItemInCart = (item) => {
         dispatch(decreaseCount(item))
         if(item.quantity === 1){
-            console.log('removido')
         }
     }
 

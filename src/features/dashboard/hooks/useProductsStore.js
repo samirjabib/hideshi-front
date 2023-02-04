@@ -3,6 +3,7 @@ import { checkingStatus, openProductModal } from "../stores";
 import { hideshiApi } from "../../../api";
 import hideshiApiFormData from "../../../api/hideshiApiFormData";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 
 export const useProductsStore = () => {
@@ -44,11 +45,11 @@ export const useProductsStore = () => {
             const { data } = await hideshiApiFormData.post('/product', productData)
             if(data){
                 dispatch(openProductModal(!isOpenProduct))
-                notify('producto añadido correctamente' )
+                toast.success('producto añadido correctamente' )
             }
         }catch(error){
             console.log(error)
-            notify(error.message, true )
+            toast.error(error.message)
         }
  
     }

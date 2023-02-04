@@ -14,7 +14,7 @@ export const Layout = ({auth}) => {
                     autoClose={2000}
                     pauseOnHover={false}
                     pauseOnFocusLoss={false}
-                    position={"bottom-left"}
+                    position={"bottom-right"}
                 />
                 <Header auth={auth} className="relative"/>
                     <div className="">
