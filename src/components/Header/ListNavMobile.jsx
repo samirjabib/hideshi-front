@@ -2,17 +2,24 @@ import { useEffect } from "react"
 import { useRef } from "react"
 import { AiOutlineClose, AiOutlineLogout } from "react-icons/ai"
 import { HiOutlineUserCircle } from "react-icons/hi"
-import { Link } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { useAuthStore } from "../../features"
 import { GetEmail } from "./GetEmail"
 import { NavLinks } from "./NavLinks"
 
 export const ListNavMobile = ({open, navLinks, setOpen, status}) => {
     
+    const navigate = useNavigate() 
+
 
     const { startLogout, startLogin } = useAuthStore()
 
     const onCloseNavBar = () => {
+        setOpen(false)
+    }
+
+    const goLogin = () => {
+        navigate('/auth/login')
         setOpen(false)
     }
 
@@ -70,12 +77,14 @@ export const ListNavMobile = ({open, navLinks, setOpen, status}) => {
 
                         </span> 
                     :   
+                    <NavLink to='/auth/login'>
                         <HiOutlineUserCircle 
                         size={20}
                         color={"#8b8b8b"}
-                        className='ml-1 mt-2'
-                        onClick={startLogin}
+                        className={`ml-1 mt-2 cursor-pointer`}
+                        onClick={goLogin}
                         />
+                    </NavLink>
             }
 
             <GetEmail/>
