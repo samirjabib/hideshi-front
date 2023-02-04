@@ -16,8 +16,7 @@ export const shopSlice = createSlice({
             state.isCartOpen = payload;
         },
         addItemToCart: ( state, { payload }) => {
-            console.log(payload)
-            console.log(state.cartItems)
+
             const existingItem = state.cartItems.findIndex( 
                 item => item.id === payload.id
             );
@@ -27,8 +26,6 @@ export const shopSlice = createSlice({
                     ...state.cartItems[existingItem], 
                     quantity: state.cartItems[existingItem].quantity + 1,
                     total: parseFloat(state.cartItems[existingItem].price) * state.cartItems[existingItem].quantity 
-
-                    
                 }
                 toast.success("Cantidad incrementada")
 
@@ -80,18 +77,9 @@ export const shopSlice = createSlice({
                 toast.error('Producto Eliminado')
             }
         },
-        getCartTotal: (state) => {
-            let { totalQuantity, totalPrice } = state.cartItems.reduce(
-                (cartTotal, cartItem) => {
-
-                    return cartTotal
-                },
-                {
-                    totalPrice:0,
-                    totalQuantity:0,
-                }
-            )
-            console.log(totalQuantity, totalPrice)
+        getCartTotal: (state , { payload }) => {
+            state.totalPrice = payload.totalPrice
+            state.totalQuantity = payload.totalQuantity
         },
     }
 });

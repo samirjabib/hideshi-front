@@ -2,17 +2,24 @@ import { useEffect, useRef } from "react";
 import { AiOutlineClose } from "react-icons/ai"
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { useShopStore } from "../features";
 import { CartShop } from "./CartShop"
 
 export const SideBarBag = ( {openBag, setBag}) => {
     
     const navigate = useNavigate() 
 
+    const { totalPrice,totalInCart, cartItems } = useShopStore()
+
     const checkoutHandle = () => {
         navigate('shop/checkout')
     }
 
     const sideBarRef = useRef();
+
+     useEffect( () => {
+        totalInCart()
+    }, [cartItems])
     
 
     useEffect( () => {
@@ -48,7 +55,7 @@ export const SideBarBag = ( {openBag, setBag}) => {
             />
             <span className="border bg-text_gray_for_span mt-14 w-full "></span>
             <CartShop/>
-
+            <p>{totalPrice}</p>
             <button 
                 className="border-2 border-black mt-12 text-bg_light_primary bg-bg_dark_primary text-sm font-bold py-2"
                 onClick={checkoutHandle}    

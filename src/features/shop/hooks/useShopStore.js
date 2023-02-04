@@ -1,22 +1,41 @@
 import { useEffect } from "react";
-import { AiOutlineConsoleSql } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 import { addItemToCart, decreaseCount, setCartOpen, incrementCount, getCartTotal } from "../stores";
 
 export const useShopStore = () => {
 
     
-    const { cartItems, isCartOpen} = useSelector( (state)  => state.shop)
+    const { cartItems, isCartOpen, totalPrice, totalQuantity} = useSelector( (state)  => state.shop)
 
-
+    console.log(totalPrice)
 
     const dispatch = useDispatch();
 
-   
-    useEffect( () => {
-        dispatch(getCartTotal())
-    }, [cartItems])
+    
+    const totalInCart = () => {
+        const total = cartItems.reduce( (cartTotal, cartItem) => {
+            const { price, quantity} = cartItem
+            const itemTotal = price * quantity
+            cartTotal.totalPrice += itemTotal
+            cartTotal.totalQuantity += quantity
+            return cartTotal
+        },{
+            totalPrice:0,
+            totalQuantity:0
+        })
 
+        let totalPrice = total.totalPrice
+        let totalQuantity = total.totalQuantity
+
+        dispatch(getCartTotal({
+            totalPrice,
+            totalQuantity
+        }))
+        
+    } 
+
+
+   
 
 
     const onHandleAddToCart = (item) => {
@@ -43,12 +62,15 @@ export const useShopStore = () => {
     return{
         cartItems,
         isCartOpen,
+        totalPrice,
+        totalQuantity,
 
         //Methods
         onHandleAddToCart,
         onHandleIncrementCount,
         onHandleDecrementItemInCart,
-        onSetCartOpen
+        onSetCartOpen,
+        totalInCart
     }
 
 

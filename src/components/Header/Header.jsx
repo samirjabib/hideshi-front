@@ -17,9 +17,10 @@ export const Header = ({auth}) => {
     const {open, setOpen} = useOpen()
     const { startLogout } = useAuthStore()
     const { backgroundHandle, backgroundScroll } = useBackgroundScroll()
-    const { isCartOpen, onSetCartOpen } = useShopStore()
+    const { isCartOpen, onSetCartOpen, totalQuantity } = useShopStore()
     const { navLinks } = useNavLinks(auth)
     const {setProductModal, isOpenProduct } = useProductsStore()
+
 
     const navigate = useNavigate()
 
@@ -73,7 +74,9 @@ export const Header = ({auth}) => {
                 <div className="flex gap-2 md:gap-4 cursor-pointer items-baseline ">
                     <div className="relative" onClick={ () => onSetCartOpen(!isCartOpen) }>
                         <RiShoppingBagLine size={22} />
-                        <span className="absolute top-[60%] left-[20%] bottom-[50%] py-[10px] rounded-full text-[.6rem] bg-black w-full h-[6px] flex items-center justify-center text-white">4</span>
+                        <span className="absolute top-[60%] left-[20%] bottom-[50%] py-[10px] rounded-full text-[.6rem] bg-black w-full h-[6px] flex items-center justify-center text-white">
+                            {totalQuantity}
+                        </span>
                     </div>
                     
                     <HiOutlineUserCircle 
