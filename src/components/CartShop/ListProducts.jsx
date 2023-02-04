@@ -5,7 +5,7 @@ export const ListProducts = ( { products }) => {
 
     return(
         <div className="h-[70%] w-full">
-            { products.map( ( product, index) => {
+            { products?.map( ( product, index) => {
                 return(
                     <div className="flex flex-col p-2" key={index}>
                         <Card product={product} key={product.id}/>

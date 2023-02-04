@@ -3,10 +3,8 @@ import { toast } from "react-toastify";
 
 const initialState = {
     cartItems:[],
-    cartTotal:{
-        quantity:null,
-        price:null
-    },
+    totalQuantity: 0,
+    totalPrice: 0,
     isCartOpen:false,
 };
 
@@ -27,15 +25,20 @@ export const shopSlice = createSlice({
             if(existingItem >= 0){
                 state.cartItems[existingItem] = { 
                     ...state.cartItems[existingItem], 
-                    quantity: state.cartItems[existingItem].quantity + 1
+                    quantity: state.cartItems[existingItem].quantity + 1,
+                    total: parseFloat(state.cartItems[existingItem].price) * state.cartItems[existingItem].quantity 
+
+                    
                 }
                 toast.success("Cantidad incrementada")
 
             } else {
-                let item = { ...payload, quantity:1}
+                let item = { 
+                    ...payload, 
+                    quantity:1,
+                }
                 state.cartItems.push(item)
                 state.isCartOpen = payload.isCartOpen
-
                 toast.success("Producto añadido a la bolsa");
             }
         },
@@ -77,10 +80,19 @@ export const shopSlice = createSlice({
                 toast.error('Producto Eliminado')
             }
         },
-        addCartTotal: (state, { payload }) => {
-            state.cartTotal.price = payload.price
-            state.cartTotal.quantity = payload.quantity
-        }
+        getCartTotal: (state) => {
+            let { totalQuantity, totalPrice } = state.cartItems.reduce(
+                (cartTotal, cartItem) => {
+
+                    return cartTotal
+                },
+                {
+                    totalPrice:0,
+                    totalQuantity:0,
+                }
+            )
+            console.log(totalQuantity, totalPrice)
+        },
     }
 });
 
@@ -90,7 +102,7 @@ export const {
     decreaseCount,
     setCartOpen,
     incrementCount,
-    addCartTotal
+    getCartTotal
 } = shopSlice.actions
 
 

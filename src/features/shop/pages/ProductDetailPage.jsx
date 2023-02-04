@@ -38,13 +38,15 @@ export const ProductDetailPage = () => {
     const {  onHandleAddToCart  } = useShopStore()
 
     const product = useMemo( () => getProductById( id ), [id])
-    const {  name, img, price, } = product 
+    const {  name, img, price } = product 
+
+    const priceNumber = parseFloat(price)
 
     const item = {
         id,
         name,
         img,
-        price,
+        price:priceNumber,
         size,
     }
 
