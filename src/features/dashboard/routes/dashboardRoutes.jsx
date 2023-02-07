@@ -1,11 +1,7 @@
-import React from "react"
-import { lazily } from "react-lazily"
 import {  Navigate, Route, Routes } from "react-router-dom"
 import { LayoutDashboard } from "../component"
 
-const { StateProducts}  = lazily(
-    () =>  import("../pages") 
-)
+import { StateProducts } from "../pages"
 
 
 export const DashboardRoutes = ({role}) => {
