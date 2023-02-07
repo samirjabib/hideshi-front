@@ -15,15 +15,13 @@ export const useProductsStore = () => {
 
     const { products, isOpenProduct, isLoading } = useSelector( state => state.products )
 
-    // dispatch(checkingStatus(true))
-    // dispatch(checkingStatus(false))
+
 
     const getProducts = async() => {
         try {
             const { data } = await hideshiApi.get("/product")
             dispatch(fetchProducts(data))
         } catch (error) {
-            console.log(error)
         }
     }
 
@@ -55,18 +53,7 @@ export const useProductsStore = () => {
  
     }
 
-    const removeProduct = async (id) => {
-        dispatch(checkingStatus())
-        try{
-            const { data } = await hideshiApiFormData.post('/product/id', id )
-            if(data){
-                dispatch(openProductModal(!isOpenProduct))
-            }
-        }catch(error){
-            console.log(error)
-        }
- 
-    }
+
 
     return {
         //Propierties

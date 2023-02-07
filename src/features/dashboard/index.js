@@ -1,4 +1,4 @@
 export * from './hooks'
 export * from './stores'
-export * from './routes'
 export * from './component'
+export * from './routes'

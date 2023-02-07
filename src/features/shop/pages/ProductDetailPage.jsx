@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -44,7 +44,6 @@ export const ProductDetailPage = () => {
 
     const img = productImgs.map( img => img.imgUrl)
 
-    console.log(img)
 
 
     const priceNumber = parseFloat(price)

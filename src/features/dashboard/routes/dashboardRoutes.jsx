@@ -5,7 +5,6 @@ import { StateProducts } from "../pages"
 
 
 export const DashboardRoutes = ({role}) => {
-
     return(
             <Routes>
                 <Route path="/" element={<LayoutDashboard/>}>
@@ -21,7 +20,6 @@ export const DashboardRoutes = ({role}) => {
 
                                 <Route path='/*' element={ <Navigate to='/dashboard/state-products'/>}/>
                             </>
-                    
                     }
                 </Route>
             </Routes>

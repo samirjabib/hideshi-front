@@ -1,7 +1,6 @@
 import React from "react"
 import { lazily } from "react-lazily"
 import { Routes, Route } from "react-router-dom"
-import { Loading } from "../../../components"
 
 const { Checkout, ProductDetailPage, ShopPage } = lazily(
     () =>  import("../pages") 
