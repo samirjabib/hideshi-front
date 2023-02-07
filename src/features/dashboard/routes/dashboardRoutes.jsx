@@ -6,7 +6,7 @@ import { StateProducts } from "../pages"
 
 export const DashboardRoutes = () => {
     return(
-        <>
+        
             <Routes>
                 <Route path="/" element={<LayoutDashboard/>}>
                             <>
@@ -15,7 +15,6 @@ export const DashboardRoutes = () => {
                             </>
                 </Route>
             </Routes>
-        </>
     )
 
 }

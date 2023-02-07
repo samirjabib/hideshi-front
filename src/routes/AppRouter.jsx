@@ -13,8 +13,14 @@ import { Home } from "../features";
 import { ErrorBoundary } from "react-error-boundary";
 
 
-const { AuthRoutes, ShopRouter, DashboardRoutes } = lazily(
+import { DashboardRoutes } from "../features/dashboard/routes/DashboardRoutes";
+
+const { AuthRoutes, ShopRouter } = lazily(
     () =>  import("../features") 
+)
+
+const { DashboardRoutes } = lazily(
+    () =>  import("../features/dashboard/routes/DashboardRoutes") 
 )
 
 
