@@ -18,7 +18,7 @@ export const DashboardRoutes = ({role}) => {
                             <>
                                 <Route path="/state-products" element={ <StateProducts/> }/>
 
-                                <Route path='/*' element={ <Navigate to='/dashboard/state-products'/>}/>
+                                <Route path='/*' element={ <Navigate to='/'/>}/>
                             </>
                     }
                 </Route>
