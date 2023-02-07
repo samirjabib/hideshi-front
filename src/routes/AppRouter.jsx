@@ -11,9 +11,9 @@ import { useAuthStore } from "../features";
 import { Loading } from "../components";
 import { Home } from "../features";
 import { ErrorBoundary } from "react-error-boundary";
+import DashboardRoutes from "../features/dashboard/routes/DashboardRoutes";
 
 
-import {  DashboardRoutes } from "../features/dashboard/routes/DashboardRoutes";
 
 const { AuthRoutes, ShopRouter } = lazily(
     () =>  import("../features") 

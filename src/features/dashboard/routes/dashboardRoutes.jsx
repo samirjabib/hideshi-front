@@ -4,16 +4,16 @@ import { LayoutDashboard } from "../component"
 import { StateProducts } from "../pages"
 
 
-export const DashboardRoutes = () => {
+ const DashboardRoutes = () => {
 
     return(
             <Routes>
                 <Route path="/" element={<LayoutDashboard/>}>
-                            <>
-                                <Route path="/state-products" element={ <StateProducts/> }/>
-                            </>
+                    <Route path="/state-products" element={ <StateProducts/> }/>
                 </Route>
             </Routes>
     )
 
 }
+
+export default DashboardRoutes
