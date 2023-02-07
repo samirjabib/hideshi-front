@@ -12,10 +12,10 @@ import { Loading } from "../components";
 import { Home } from "../features";
 import { ErrorBoundary } from "react-error-boundary";
 
+
 const { AuthRoutes, ShopRouter, DashboardRoutes } = lazily(
     () =>  import("../features") 
 )
-
 
 
 
