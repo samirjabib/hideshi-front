@@ -21,13 +21,15 @@ export const useProductsStore = () => {
     const getProducts = async() => {
         try {
             const { data } = await hideshiApi.get("/product")
-            const products = data
             dispatch(fetchProducts(data))
         } catch (error) {
             console.log(error)
         }
     }
 
+    useEffect( () => {
+        getProducts()
+   },[])
     
 
 
@@ -41,6 +43,7 @@ export const useProductsStore = () => {
         dispatch(checkingStatus())
         try{
             const { data } = await hideshiApiFormData.post('/product', productData)
+            console.log(data)
             if(data){
                 dispatch(openProductModal(!isOpenProduct))
                 toast.success('producto añadido correctamente' )

@@ -3,7 +3,7 @@ import { useState } from "react"
 export const useUploadFile = () => {
 
 
-    const [ files, setFiles ] = useState("")
+    const [ files, setFiles ] = useState(null)
 
     const onFileInputChange = ( {target }) => {
 

@@ -23,7 +23,10 @@ export const ListProductTables = ({products}) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {products.map( ({name, price,img,id}) => {
+                        {products.map( ({name, price, productImgs ,id}) => {
+                                const img = productImgs.map( img => img.imgUrl)
+
+
                             return(
                                 <tr 
                                     className="border-b bg-bg_light_primary  border-gray-300"

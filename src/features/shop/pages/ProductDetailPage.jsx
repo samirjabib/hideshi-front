@@ -38,9 +38,14 @@ export const ProductDetailPage = () => {
     const [ size, setIsSelected ] = useState(null);
     const {  onHandleAddToCart  } = useShopStore()
 
-    const product = useMemo( () => getProductById( id ), [id])
-    const {  name, img, price } = product 
-    console.log(product)
+    const product = getProductById( id )
+    
+    const {  name, productImgs, price } = product 
+
+    const img = productImgs.map( img => img.imgUrl)
+
+    console.log(img)
+
 
     const priceNumber = parseFloat(price)
 

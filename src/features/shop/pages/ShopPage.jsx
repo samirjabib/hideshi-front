@@ -11,11 +11,9 @@ import { ProductsList } from "../components";
 export const ShopPage = () => {
 
 const navigate = useNavigate()
-   const { products, getProducts } = useProductsStore();
+   const { products } = useProductsStore();
 
-   useEffect( () => {
-        getProducts()
-   },[])
+   
 
     return(
         <div className=" w-full">

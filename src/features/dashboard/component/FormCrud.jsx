@@ -38,6 +38,7 @@ export const FormCrud = () => {
         onResetFiles
     } = useUploadFile()
 
+
     const categoryId = isSelected
     const priceNumber = parseFloat(price)
     const quantityNumber = parseInt(quantity)
