@@ -6,13 +6,13 @@ export const productSlice = createSlice({
     name:'products',
     initialState:{
         isLoading:false,
-        products:dummieData,
+        products:null,
         isOpenProduct:false,
         categories:[]
     },
     reducers:{
-        checkingStatus : (state) => {
-            state.isLoading = true
+        checkingStatus : (state, {payload}) => {
+            state.isLoading = false
         },
         openProductModal: (state, { payload }) => {
             state.isOpenProduct = payload;
@@ -22,8 +22,8 @@ export const productSlice = createSlice({
             state.isLoading = false
             state.products.push(payload)
         },
-        getProducts: (state, { payload } ) => {
-            
+        fetchProducts: (state, { payload } ) => {
+            console.log('product in slice')
             state.products = payload
         }
     }
@@ -35,7 +35,8 @@ export const {
     openProductModal, 
     onLoadingProducts,  
     checkingStatus, 
-    onAddProduct 
+    onAddProduct,
+    fetchProducts
 } = productSlice.actions;
 
 

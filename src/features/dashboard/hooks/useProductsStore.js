@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { checkingStatus, openProductModal } from "../stores";
+import { checkingStatus, openProductModal, fetchProducts } from "../stores";
 import { hideshiApi } from "../../../api";
 import hideshiApiFormData from "../../../api/hideshiApiFormData";
 import { useEffect } from "react";
@@ -9,27 +9,26 @@ import { toast } from "react-toastify";
 export const useProductsStore = () => {
 
 
-    const notify = (mssg) => {
-        
-        
-  
- 
-    }
-
+    
 
     const dispatch = useDispatch();
 
     const { products, isOpenProduct, isLoading } = useSelector( state => state.products )
 
+    // dispatch(checkingStatus(true))
+    // dispatch(checkingStatus(false))
+
     const getProducts = async() => {
-        const { data } = await hideshiApi.get('/product') 
+        try {
+            const { data } = await hideshiApi.get("/product")
+            const products = data
+            dispatch(fetchProducts(data))
+        } catch (error) {
+            console.log(error)
+        }
     }
 
-    useEffect( () => {
-        getProducts()
-    }, [] )
-  
-
+    
 
 
 
@@ -40,7 +39,6 @@ export const useProductsStore = () => {
     const addProduct = async (productData) => {
         console.log(productData)
         dispatch(checkingStatus())
-        notify()
         try{
             const { data } = await hideshiApiFormData.post('/product', productData)
             if(data){
@@ -56,15 +54,13 @@ export const useProductsStore = () => {
 
     const removeProduct = async (id) => {
         dispatch(checkingStatus())
-        notify()
         try{
             const { data } = await hideshiApiFormData.post('/product/id', id )
             if(data){
                 dispatch(openProductModal(!isOpenProduct))
-                notify('producto añadido correctamente', true )
             }
         }catch(error){
-            notify('producto añadido correctamente', true )
+            console.log(error)
         }
  
     }
@@ -73,7 +69,7 @@ export const useProductsStore = () => {
         //Propierties
         products,
         isOpenProduct,
-        notify,
+        getProducts,
         
         setProductModal,
         addProduct,

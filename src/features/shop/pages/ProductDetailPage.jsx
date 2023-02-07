@@ -40,6 +40,7 @@ export const ProductDetailPage = () => {
 
     const product = useMemo( () => getProductById( id ), [id])
     const {  name, img, price } = product 
+    console.log(product)
 
     const priceNumber = parseFloat(price)
 

@@ -3,7 +3,6 @@ import { ListProducts } from "./ListProducts"
 
 export const CartShop = () => {
 
-    const { products } = useProductsStore();
     const { cartItems } =  useShopStore();
 
     return(

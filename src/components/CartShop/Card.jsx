@@ -2,7 +2,7 @@ import { useShopStore } from "../../features";
 
 export const Card = ( { product }) => {
 
-    const {onHandleAddToCart, onHandleDecrementItemInCart, onHandleIncrementCount} = useShopStore()
+    const { onHandleDecrementItemInCart, onHandleIncrementCount} = useShopStore()
 
     const {  name, img, price , quantity, category } = product
 

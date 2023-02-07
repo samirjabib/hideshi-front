@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const hideshiApiFormData = axios.create({
-    baseURL:'http://localhost:4000/api/v1'
+    baseURL:'https://hideshi-backend.onrender.com/api/v1'
 });
 
 
