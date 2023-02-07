@@ -84,11 +84,7 @@ export const AppRouter = () => {
                                         element={<ShopRouter/>} 
                                     />
 
-                                    <Route 
-                                        path="/dashboard/*" 
-                                        element={<DashboardRoutes role={auth.role}/>}
-                                    />
-                                    
+                             
                                     <Route 
                                         path='/*' 
                                         element={ <Navigate  to='/'/>}
