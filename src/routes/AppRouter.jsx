@@ -13,12 +13,9 @@ import { Home } from "../features";
 import { ErrorBoundary } from "react-error-boundary";
 
 
-
-const { AuthRoutes, ShopRouter } = lazily(
+const { AuthRoutes, ShopRouter, DashboardRoutes } = lazily(
     () =>  import("../features") 
 )
-
-
 
 export const AppRouter = () => {
     const { status, user} = useAuthStore()
@@ -83,7 +80,11 @@ export const AppRouter = () => {
                                         element={<ShopRouter/>} 
                                     />
 
-                             
+                                    <Route 
+                                        path="/dashboard/*" 
+                                        element={<DashboardRoutes role={auth.role}/>}
+                                    />
+
                                     <Route 
                                         path='/*' 
                                         element={ <Navigate  to='/'/>}
