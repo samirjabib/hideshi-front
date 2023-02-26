@@ -14,6 +14,7 @@ import {
   useProductsStore,
   useShopStore,
 } from "../../features";
+import { assets } from "../../assets";
 
 export const Header = ({ auth }) => {
   const { open, setOpen } = useOpen();
@@ -59,11 +60,6 @@ export const Header = ({ auth }) => {
         </h2>
 
         <Link to="/" className="flex flex-row">
-          {/* <img 
-                    src={assets.logo}
-                    alt="logo" 
-                    className="self-center  w-24 mr-6 flex items-center justify-center object-cover mt-6 "
-                    /> */}
           <h2 className="font-semibold hidden md:flex text-xl md:text-2xl p-2 self-center">
             <span>HIDESHI</span>
           </h2>
@@ -74,16 +70,6 @@ export const Header = ({ auth }) => {
           }`}
         ></div>
 
-        <ListNavDesktop navLinks={navLinks} setOpen={setOpen} />
-
-        <ListNavMobile
-          open={open}
-          navLinks={navLinks}
-          setOpen={setOpen}
-          startLogout={startLogout}
-          status={auth.status}
-        />
-
         <SideBarBag openBag={isCartOpen} setBag={onSetCartOpen} />
 
         <AddProductModal
@@ -91,7 +77,15 @@ export const Header = ({ auth }) => {
           isOpenProduct={isOpenProduct}
         />
 
-        <div className="flex gap-2 md:gap-4 cursor-pointer items-baseline ">
+        <div className="flex gap-2 md:gap-4 cursor-pointer items-center ">
+          <ListNavDesktop navLinks={navLinks} setOpen={setOpen} />
+          <ListNavMobile
+            open={open}
+            navLinks={navLinks}
+            setOpen={setOpen}
+            startLogout={startLogout}
+            status={auth.status}
+          />
           <div className="relative" onClick={() => onSetCartOpen(!isCartOpen)}>
             <RiShoppingBagLine size={22} />
             <span className="absolute top-[60%] left-[20%] bottom-[50%] py-[10px] rounded-full text-[.6rem] bg-black w-full h-[6px] flex items-center justify-center text-white">

@@ -12,7 +12,7 @@ export const NavLinks = ({ navLinks, desktop, setOpen }) => {
         return (
           <li
             key={index}
-            className={`text-xs text-text_gray_for_span mt-3 ml-2 font-extralight font-serif uppercase ${
+            className={`text-xs text-text_gray_for_span mt-2 font-extralight font-serif uppercase ${
               desktop ? "text-xs font-serif" : ""
             }`}
           >
