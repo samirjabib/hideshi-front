@@ -16,9 +16,9 @@ export const Card = ( { product }) => {
         <div className="gap-2 flex flex-row-reverse justify-between p-2 ">
             <img src={img} alt={name} className='w-[35%] object-contain'/>
             <div className="w-[75] flex flex-col ml-4 mt-2">
-                <p className="text-xs uppercase w-full font-semibold">{name}</p>
+                <p className="text-xs uppercase w-full font-semibold relative top-4">{name}</p>
                 <span className="text-[.7rem] text-text_gray_for_span font-serif w-full">{category}</span>
-                <div className=" p-4">
+                <div className="">
                     <div className="flex flex-row justify-between mt-4">
                         <div className=" flex items-center gap-2">
                             <button 
