@@ -16,7 +16,7 @@ export const Input = ({ onInputChange, name , placeholder, type, value, styles})
     return(
         <div className="relative w-full">
             <input 
-            className={`border-b outline-none  mt-2 w-full ${styles}`}
+            className={`border shadow-xs px-2 text-sm shadow-sm outline-none  mt-2 w-full ${styles} `}
             type={ (type === 'password') ? showPassword : type}
             name={name} 
             placeholder={placeholder}
@@ -30,7 +30,7 @@ export const Input = ({ onInputChange, name , placeholder, type, value, styles})
                 width="16" 
                 height="16" 
                 fill="gray" 
-                className={`bi bi-eye absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer ${(name === 'password' ? '' : 'hidden')}` }
+                className={`bi bi-eye absolute top-[65%]  right-3 -translate-y-1/2 cursor-pointer ${(name === 'password' ? '' : 'hidden')}` }
                 viewBox="0 0 16 16"
                 onClick={onHandlePassword}
             >
