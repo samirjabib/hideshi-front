@@ -13,7 +13,7 @@ export const Card = ( { product }) => {
 
 
     return(
-        <div className="gap-2 flex flex-row-reverse justify-between p-2 mt-8">
+        <div className="gap-2 flex flex-row-reverse justify-between p-2 ">
             <img src={img} alt={name} className='w-[35%] object-contain'/>
             <div className="w-[75] flex flex-col ml-4 mt-2">
                 <p className="text-xs uppercase w-full font-semibold">{name}</p>
